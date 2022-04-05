@@ -1,0 +1,43 @@
+
+
+.btn.wd-play {
+    /* border: 1px solid black; */
+    background-color: white;
+    height: 60px !important;
+    width: 140px !important;
+    color: black;
+}
+
+
+.btn.wd-my-list {
+    /* border: 1px solid black; */
+    background-color: transparent !important;
+    height: 60px !important;
+    width: 140px !important;
+    /* max-width: 140px !important; */
+    color: black;
+}
+
+.wd-play-button-font-size{
+    font-size: 30px;
+}
+
+.wd-my-list-button-font-size{
+    font-size: 30px;
+}
+
+.wd-align-icon{
+    vertical-align: middle !important;
+}
+
+.wd-button-size{
+    height: 60px;
+    width: 140px;
+}
+
+.wd-container {
+    display: flex;
+    align-items: center;
+}
+
+.center{text-align: center;}
