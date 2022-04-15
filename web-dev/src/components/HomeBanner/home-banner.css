@@ -15,7 +15,15 @@
     height: 60px !important;
     width: 140px !important;
     /* max-width: 140px !important; */
-    color: black;
+    /* color: black; */
+}
+
+
+.wd-my-list-color{
+    background-color: rgba(133, 133, 133, 0.6) !important;
+    color:white;
+    border-color: rgba(133, 133, 133, 0.6) !important;
+    border: None !important;
 }
 
 .wd-play-button-font-size{
@@ -41,3 +49,12 @@
 }
 
 .center{text-align: center;}
+
+
+.wd-font-over-img{
+    font-size: 60px;
+    color: white;
+    font-weight: bolder;
+}
+
+
