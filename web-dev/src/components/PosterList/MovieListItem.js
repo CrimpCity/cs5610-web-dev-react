@@ -5,13 +5,17 @@ import { React, useState } from "react";
 const MovieListItem = (movie, index) => {
     const [isWatched, setIsWatched] = useState(false);
 
+    let dimImage = "";
+    if (isWatched) {
+        dimImage = "wd-dim-boxart";
+    }
 
     const formatted = (
         <li className="list-group-item p-0" key={index}>
             <div className="row mx-auto">
                 <div className="position-relative">
                     <img src={movie.movieImage}
-                        className="wd-rounded-border float-start"
+                        className={`wd-rounded-border float-start ${dimImage}`}
                         width="225px" height="125px"
                         alt={movie.title}>
                     </img>

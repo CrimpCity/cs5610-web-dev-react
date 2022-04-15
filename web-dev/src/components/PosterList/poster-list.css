@@ -4,7 +4,6 @@
     background-color: rgb(34, 34, 34);
 }
 
-
 .wd-icon-color-watched {
     color: rgb(34, 34, 34);
 }
@@ -17,3 +16,6 @@
     color: rgb(34, 34, 34);
 }
 
+.wd-dim-boxart {
+    opacity: 0.5;
+}
