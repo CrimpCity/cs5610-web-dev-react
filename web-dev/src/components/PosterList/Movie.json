@@ -1,0 +1,22 @@
+[
+    {
+        "movieImage": "/images/poster-one-piece.JPG",
+        "title": "One Piece"
+    },
+    {
+        "movieImage": "/images/poster-AOT.JPG",
+        "title": "Attack On Titan"
+    },
+    {
+        "movieImage": "/images/poster-space-cowboy.JPG",
+        "title": "Cowboy Bebop"
+    },
+    {
+        "movieImage": "/images/poster-one-punch.JPG",
+        "title": "One Punch Man"
+    },
+    {
+        "movieImage": "/images/poster-naruto.JPG",
+        "title": "Naruto"
+    }
+]

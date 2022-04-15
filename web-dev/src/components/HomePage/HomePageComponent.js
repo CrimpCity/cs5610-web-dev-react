@@ -2,27 +2,25 @@ import React from "react";
 import HomeBannerComponent from "../HomeBanner/HomeBannerComponent.js";
 import NavigationTopBar from "../NavigationTopBar/index.js";
 import './home-page.css';
-
+import PosterList from "../PosterList/index.js"
 
 
 const HomePageComponent = () => {
-    // bg-color-white
     const formatted = (
         <>
-            <div className="row">
+            <div className="row bg-color">
                 <div >
                     <NavigationTopBar />
                 </div>
-                <div className="wd-add-height-to-scroll">
+                <div >
                     <HomeBannerComponent />
                 </div>
-
             </div>
 
-            <div>
-                Daily Picks
+            <div >
+                <PosterList />
             </div>
-            <div>
+            <div className="wd-add-height-to-scroll">
                 Top Genre
             </div>
             <div>

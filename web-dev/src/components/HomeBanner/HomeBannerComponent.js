@@ -9,8 +9,7 @@ const HomeBannerComponent = () => {
         <>
             <div className="position-relative">
                 <img className="img-fluid" src="/images/dune.jpg" width="100%" height="100%" alt="dune" />
-                <div
-                    className="ms-2 position-absolute bottom-0 start-20 wd-font-over-img">
+                <div className="ms-2 position-absolute bottom-0 start-20 wd-font-over-img">
                     Dune
                     <div className="m-2">
                         <button className="me-3 wd-play wd-button-size">
