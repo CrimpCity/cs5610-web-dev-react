@@ -2,7 +2,7 @@ import { React, useState } from "react";
 
 
 
-const MovieListItem = (movie, index) => {
+const BoxArtItem = (movie, index) => {
     const [isWatched, setIsWatched] = useState(false);
 
     let dimImage = "";
@@ -34,4 +34,4 @@ const MovieListItem = (movie, index) => {
     return formatted
 }
 
-export default MovieListItem;
+export default BoxArtItem;

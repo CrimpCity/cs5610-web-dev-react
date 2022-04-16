@@ -1,9 +1,8 @@
 import React from "react";
 import HomeBannerComponent from "../HomeBanner/HomeBannerComponent.js";
 import NavigationTopBar from "../NavigationTopBar/index.js";
+import BoxArtList from "../BoxArtList/index.js"
 import './home-page.css';
-import PosterList from "../PosterList/index.js"
-
 
 const HomePageComponent = () => {
     const formatted = (
@@ -18,7 +17,7 @@ const HomePageComponent = () => {
             </div>
 
             <div >
-                <PosterList />
+                <BoxArtList />
             </div>
             <div className="wd-add-height-to-scroll">
                 Top Genre
