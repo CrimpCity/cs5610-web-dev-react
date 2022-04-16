@@ -27,12 +27,6 @@ const HomeBannerComponent = () => {
                                 </div>
                             </button>
                         </Link>
-                        {/* <button className="wd-my-list wd-button-size wd-my-list-color">
-                            <div className="wd-container">
-                                <i className="px-2 ms-2 fas fa-info-circle wd-my-list-button-font-size"></i>
-                                <span className="px-2 fs-6 wd-align-icon">My List</span>
-                            </div>
-                        </button> */}
                     </div>
                 </div>
             </div>
