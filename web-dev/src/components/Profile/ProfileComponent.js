@@ -13,12 +13,11 @@ const ProfileComponent = (profile) => {
                     </div>
                     <div className="col-11 mt-1">
                         <div className="d-flex justify-content-start">
-                            <p className="m-0 ms-4 fs-6 fw-bold">{profile.profile.firstName} </p>
-                            <p className="m-0 ms-4 fs-6 fw-bold">{profile.profile.lastName} </p>
+                            <p className="m-0 ms-4 fs-5 fw-bold">{profile.profile.firstName} </p>
+                            <p className="m-0 ms-4 fs-5 fw-bold">{profile.profile.lastName} </p>
                         </div>
                         <p className="m-0 ms-4 fs-6">{profile.profile.email}</p>
                     </div>
-                    {/* <div className="col-6 mt-1"></div> */}
                 </div>
             </li>
         </>

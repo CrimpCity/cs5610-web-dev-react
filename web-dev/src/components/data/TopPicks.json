@@ -1,0 +1,37 @@
+[
+    {
+        "movieImage": "/images/poster-flash-point.JPG",
+        "title": "Flash Point",
+        "description": "A hot-headed inspector takes on a small but powerful Vietnamese-Chinese gang after a series of crimes and murder attempts committed and putting an undercover cop and his girlfriend in great danger.",
+        "year": "2007",
+        "rating": "R"
+    },
+    {
+        "movieImage": "/images/poster-hard-day.JPG",
+        "title": "A Hard Day",
+        "description": "After trying to cover up a car accident that left a man dead, a crooked homicide detective is stalked by a mysterious man claiming to have witnessed the event.",
+        "year": "2014",
+        "rating": "R"
+    },
+    {
+        "movieImage": "/images/poster-man-nowhere.JPG",
+        "title": "The Man From Nowhere",
+        "description": "A retired special agent forges an unlikely bond with his neglected young neighbor, and vows to bring the girl back home safely after she's kidnapped by violent criminals.",
+        "year": "2010",
+        "rating": "R"
+    },
+    {
+        "movieImage": "/images/poster-company-man.JPG",
+        "title": "A Company Man",
+        "description": "When a change of heart moves a well-trained hitman to tender his resignation to his employers, no good comes of it for anyone.",
+        "year": "2012",
+        "rating": "R"
+    },
+    {
+        "movieImage": "/images/poster-chaser.JPG",
+        "title": "The Chaser",
+        "description": "A disgraced ex-policeman who runs a small ring of prostitutes finds himself in a race against time when one of his women goes missing.",
+        "year": "2008",
+        "rating": "R"
+    }
+]
