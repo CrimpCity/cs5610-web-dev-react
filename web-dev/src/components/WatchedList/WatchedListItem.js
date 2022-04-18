@@ -16,7 +16,7 @@ const WatchedListItem = (movie, index) => {
 
                     <div className="position-relative">
                         <img src={movie.movieImage} className="mt-1 float-start" width="360px"
-                            height="200px" alt={movie.title}></img>
+                            height="200px" alt={movie.movieTitle}></img>
                         <div className="position-absolute top-0 wd-icon-position me-4">
                             <span onClick={() => setIsWatched(!isWatched)} className="wd-icon-color-not-watched">
                                 {isWatched ? <i className="fas fa-bookmark"></i>
@@ -29,7 +29,7 @@ const WatchedListItem = (movie, index) => {
 
                 </div>
                 <div className="col-2 mt-1 px-0">
-                    <p className="m-0 fs-5 fw-bold">{movie.title} </p>
+                    <p className="m-0 fs-5 fw-bold">{movie.movieTitle} </p>
                     <p className="m-0 fs-6">{movie.year}</p>
                     <p className="m-0 fs-6">{movie.rating}</p>
                 </div>

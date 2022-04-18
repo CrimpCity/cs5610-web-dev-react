@@ -17,7 +17,7 @@ const BoxArtItem = (movie, index) => {
                     <img src={movie.movieImage}
                         className={`wd-rounded-border float-start ${dimImage}`}
                         width="225px" height="125px"
-                        alt={movie.title}>
+                        alt={movie.movieTitle}>
                     </img>
                     <div className="position-absolute top-0 end-0 me-4">
                         <span onClick={() => setIsWatched(!isWatched)} className="wd-icon-color-not-watched">
