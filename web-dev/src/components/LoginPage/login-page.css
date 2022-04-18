@@ -1,0 +1,124 @@
+.login-background {
+    background-position: center;
+    background-color: transparent;
+    color: #fff;
+    height: 100vh;
+}
+
+.login-bring-it-forward {
+    background-color: rgba(0, 0, 0, .6);
+    height: 100vh;
+}
+
+.login-logo-size {
+    filter: brightness(100%);
+    width: 12vw;
+    min-width: 120px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 60px;
+    z-index: 2;
+}
+
+.login-main-frame {
+    margin: 0 auto -236px;
+    background-color: transparent;
+    max-width: 450px;
+    color: #333;
+    padding: 0 5%;
+    display: block;
+}
+
+.login-main-subframe {
+    min-height: 550px;
+    padding: 60px 68px 40px;
+    margin-bottom: 90px;
+    background-color: rgba(0,0,0,.75);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 380px;
+}
+
+.login-main {
+    flex-grow: 1;
+    flex-direction: column;
+    min-height: 515px;
+    margin: 0;
+    padding: 20px 0 30px;
+    width: 100%;
+}
+
+.login-title {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+.login-user-frame {
+    padding-bottom: 16px;
+    max-width: 100%;
+    position: relative;
+}
+
+.login-email-box {
+    border-radius: 4px;
+    border: 0;
+    position: relative;
+    height: 60px;
+    background-color: rgba(70, 90, 126, 0.6);
+}
+
+
+.login-user-input {
+    border-radius: 4px;
+    border: 0;
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    box-shadow: none;
+    font-size: 15px;
+    display: block;
+    appearance: none;
+    align-items: center;
+    background-color: transparent;
+    padding-left: 20px;
+}
+
+.login-user-label-title {
+    color: #000;
+    top: 7px;
+    font-size: 11px;
+    padding-left: 16px;
+}
+
+.login-button {
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0 12px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #e50914;
+    display: inline-block;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    user-select: none;
+    text-align: center;
+    overflow: visible;
+    min-width: 98px;
+    min-height: 50px;
+}
+
+.login-registration-link {
+    text-decoration: none;
+}
+
+input:focus {
+    outline: none;
+}
