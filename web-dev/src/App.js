@@ -1,5 +1,5 @@
 // import './vendors/bootstrap/css/bootstrap.min.css';
-// import './vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
+import './vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
 // import './vendors/fontawesome/css/all.min.css';
 
 import './vendors/bootstrap/css/bootstrap.min.css';
