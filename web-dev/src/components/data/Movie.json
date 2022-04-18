@@ -1,0 +1,37 @@
+[
+    {
+        "movieImage": "/images/poster-one-piece.JPG",
+        "movieTitle": "One Piece",
+        "description": "Monkey D. Luffy sails with his crew of Straw Hat Pirates through the Grand Line to find the treasure One Piece and become the new king of the pirates.",
+        "year": "2002",
+        "rating": "TV-14"
+    },
+    {
+        "movieImage": "/images/poster-AOT.JPG",
+        "movieTitle": "Attack On Titan",
+        "description": "With his hometown in ruins, young Eren Yeager becomes determined to fight back against the giant Titans that threaten to destroy the human race.",
+        "year": "2013",
+        "rating": "TV-MA"
+    },
+    {
+        "movieImage": "/images/poster-space-cowboy.JPG",
+        "movieTitle": "Cowboy Bebop",
+        "description": "Scouring space for bounties, a ragtag crew - a former hitman, an ex-cop, a con artist, a hacker kid and a data dog - live paycheck to paycheck.",
+        "year": "1998",
+        "rating": "TV-MA"
+    },
+    {
+        "movieImage": "/images/poster-one-punch.JPG",
+        "movieTitle": "One Punch Man",
+        "description": "Saitama is determined to become a superhero. After years of training he becomes strong and faces all sorts of monsters to protect humanity.",
+        "year": "2015",
+        "rating": "TV-14"
+    },
+    {
+        "movieImage": "/images/poster-naruto.JPG",
+        "movieTitle": "Naruto",
+        "description": "Guided by the spirit demon within him, orphaned Naruto learns to harness his powers as a ninja in this anime adventure series.",
+        "year": "2006",
+        "rating": "TV-PG"
+    }
+]

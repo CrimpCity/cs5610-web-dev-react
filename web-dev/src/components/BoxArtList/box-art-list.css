@@ -1,0 +1,22 @@
+.wd-rounded-border {border-radius: 5%;}
+
+.wd-trending-bg-color {
+    background-color: rgb(34, 34, 34);
+}
+
+.wd-icon-color-watched {
+    color: rgb(34, 34, 34);
+}
+
+.wd-icon-color-not-watched {
+    color: rgb(229, 229, 229);
+}
+
+.fa-bookmark:hover {
+    color: rgb(34, 34, 34);
+    background-color: rgb(34, 34, 34);
+}
+
+.wd-dim-boxart {
+    opacity: 0.5;
+}
