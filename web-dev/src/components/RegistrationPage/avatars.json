@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "001",
+    "title": "Smiley",
+    "image-link": "../images/default_avatars/smiley.png"
+  },
+  {
+    "_id": "002",
+    "title": "Baby Boss",
+    "image-link": "../images/default_avatars/boss-baby.png"
+  },
+  {
+    "_id": "003",
+    "title": "Little Pony",
+    "image-link": "../images/default_avatars/little-pony.png"
+  },
+  {
+    "_id": "004",
+    "title": "Shaun Sheep",
+    "image-link": "../images/default_avatars/shaun-the-sheep.png"
+  },
+  {
+    "_id": "005",
+    "title": "Squid Game",
+    "image-link": "../images/default_avatars/squid-game.png"
+  }
+]

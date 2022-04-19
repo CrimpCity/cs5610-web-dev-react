@@ -44,10 +44,12 @@ const RegistrationPage = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button className="btn login-button btn-submit btn-small"
-                                                type="submit">
-                                            Sign Up
-                                        </button>
+                                        <Link to="/registration/select-avatar">
+                                            <button className="btn login-button btn-submit btn-small"
+                                                    type="submit">
+                                                Sign Up
+                                            </button>
+                                        </Link>
                                         <div className="mt-3 mb-3">
                                             <Link to="/login"
                                                   className="login-registration-link text-white-50"
