@@ -12,6 +12,7 @@ import Profile from './components/Profile/index.js';
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
+import UserComponent from "./components/RegistrationPage/UserComponent";
 
 // import Netflicks from "./components/index.js";
 
@@ -32,6 +33,8 @@ function App() {
                    element={<LoginPage />}/>
             <Route path="registration"
                    element={<RegistrationPage />}/>
+            <Route path="registration/select-avatar"
+                   element={<UserComponent />}/>
           </Route>
         </Routes>
       </div>
