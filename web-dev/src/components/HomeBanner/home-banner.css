@@ -1,7 +1,4 @@
-
-
 .btn.wd-play {
-    /* border: 1px solid black; */
     background-color: rgb(229, 229, 229) !important;
     height: 60px !important;
     width: 140px !important;
@@ -10,12 +7,9 @@
 
 
 .btn.wd-my-list {
-    /* border: 1px solid black; */
     background-color: transparent !important;
     height: 60px !important;
     width: 140px !important;
-    /* max-width: 140px !important; */
-    /* color: black; */
 }
 
 
@@ -58,3 +52,4 @@
 }
 
 
+.wd-icon-position {left:0.8%;}

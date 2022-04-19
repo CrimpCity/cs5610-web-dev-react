@@ -38,16 +38,16 @@ const HomePageComponent = () => {
             </div>
 
             <div className="pb-3">
-                <ul className="list-group wd-trending-bg-color">
+                <ul className="list-group wd-trending-bg-color px-3">
                     <li className="list-group-item fw-bold fs-4">Trending Now (different on ~ every refresh)</li>
                 </ul>
-                <BoxArtList movies={TrendingJson} />
+                <BoxArtList movies={TrendingJson} className="px-5" />
             </div>
             <div className="pb-3">
-                <ul className="list-group wd-trending-bg-color">
+                <ul className="list-group wd-trending-bg-color px-3">
                     <li className="list-group-item fw-bold fs-4">{loggedInUser}'s List (saved bookmarks)</li>
                 </ul>
-                <BoxArtList movies={TopPicksJson} />
+                <BoxArtList movies={TopPicksJson} className="px-5" />
             </div>
 
             <div className="wd-add-height-to-scroll">

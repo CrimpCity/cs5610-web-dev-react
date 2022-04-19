@@ -20,7 +20,7 @@ const NavigationTopBar = () => {
         <div className="container">
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark"
                 id="top-nav-bar">
-                <div className="container align-items-center px-5">
+                <div className="container align-items-center px-5 wd-max-width">
                     <Link to="/"
                         className="navbar-brand wd-fit">
                         <img src="/images/logo.png"

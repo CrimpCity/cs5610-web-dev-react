@@ -26,3 +26,6 @@ a.navbar-brand.wd-fit {
     height: 100%;
   }
 
+  .wd-max-width {
+      max-width: inherit;
+  }
