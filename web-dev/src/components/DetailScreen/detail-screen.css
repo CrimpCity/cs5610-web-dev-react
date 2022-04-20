@@ -1,0 +1,42 @@
+.comment-avatar-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+}
+
+.detail-poster {
+    max-height: 480px;
+    width: auto;
+    max-width: 100%;
+}
+
+.similar-item-box {
+    border-radius: 5px;
+    width: 240px;
+    background-color: rgb(173, 175, 174, 0.1);
+}
+
+.similar-section {
+    overflow-x: auto;
+}
+
+.similar-section::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+}
+
+.similar-section::-webkit-scrollbar-thumb {
+    background-color: rgb(173, 175, 174, 0.7);
+    border-radius: 3px;
+}
+
+.similar-section::-webkit-scrollbar-thumb:hover {
+    background: rgb(173, 175, 174);
+}
+
+.similar-item-img {
+    max-height: 200px;
+    width: auto;
+    max-width: 100%;
+}

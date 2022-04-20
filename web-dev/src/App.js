@@ -1,14 +1,14 @@
-// import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
-// import './vendors/fontawesome/css/all.min.css';
 
 import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootstrap.min.css';
 import './vendors/fontawesome/css/all.min.css';
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import HomePage from "../src/components/HomePage/index.js";
 import Profile from './components/Profile/index.js';
+import SearchScreen from "./components/SearchScreen";
+import DetailScreen from "./components/DetailScreen";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
@@ -20,19 +20,24 @@ import UserComponent from "./components/RegistrationPage/UserComponent";
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex-container">
+      <div className="container-fluid">
         <Routes>
           <Route path="/">
+            <Route index element={(<Navigate to="/landingpage" replace={true}></Navigate>)} />
             <Route path="homepage"
-              element={<HomePage />} />
+                   element={<HomePage />} />
             <Route path="profile"
-              element={<Profile />} />
+                   element={<Profile />} />
+            <Route index path="search"
+                   element={<SearchScreen />} />
+            <Route path="detail/:movieId"
+                   element={<DetailScreen />} />
             <Route path="landingpage"
-                   element={<LandingPage />}/>
+                   element={<LandingPage />} />
             <Route path="login"
-                   element={<LoginPage />}/>
+                   element={<LoginPage />} />
             <Route path="registration"
-                   element={<RegistrationPage />}/>
+                   element={<RegistrationPage />} />
             <Route path="registration/select-avatar"
                    element={<UserComponent />}/>
           </Route>
