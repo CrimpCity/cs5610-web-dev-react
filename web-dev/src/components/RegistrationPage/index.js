@@ -37,7 +37,7 @@ const RegistrationPage = () => {
                                                            className="login-user-label-title text-white-50">
                                                         Password
                                                     </label>
-                                                    <input type="text"
+                                                    <input type="password"
                                                            className="login-user-input text-white"
                                                            id="login-user-input"
                                                     />

@@ -20,7 +20,7 @@ import UserComponent from "./components/RegistrationPage/UserComponent";
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex-container">
+      <div className="container-fluid">
         <Routes>
           <Route path="/">
             <Route path="homepage"

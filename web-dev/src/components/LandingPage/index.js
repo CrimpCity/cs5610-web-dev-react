@@ -26,7 +26,7 @@ const landingRegistration = () => {
 const LandingPage = () => {
     return (
         <div>
-            <div className="landing-split landing-background flex-container"
+            <div className="landing-split landing-background"
                 style={{backgroundImage: `url(${LandingBackground})`}}>
                 <div className="landing-bring-it-forward">
                     <img className="landing-logo-size" src={require('./netflicks-logo.png')} alt="Logo"/>
@@ -45,18 +45,14 @@ const LandingPage = () => {
                             membership.
                         </h3>
                         {landingRegistration()}
+                        <h3 className="pt-3 text-white" style={{fontSize: "1.2rem"}}>
+                           You can also take a peek first!
+                        </h3>
                         <Link to="/homepage" className="landing-guest-link">
-                            <h3 className="pt-4 text-white" style={{fontSize: "1.5rem"}}>
-                               You can also take a peek first! Become
-                                {/*<span className="landing-guest-text"> Guest </span>*/}
-                                <Link to="/homepage">
-                                    <button className="mt-2 ms-3 me-3 landing-guest-button">
-                                        <span className="text-white"> Guest</span>
-                                        <i className="ps-3 fa-solid fa-chevron-right text-white fa-2xs"/>
-                                    </button>
-                                </Link>
-                                for now.
-                            </h3>
+                            <button className="mt-2 ms-3 me-3 landing-guest-button">
+                                <span className="text-white">Guest For Now</span>
+                                <i className="ps-3 fa-solid fa-chevron-right text-white fa-2xs"/>
+                            </button>
                         </Link>
                     </div>
                 </div>

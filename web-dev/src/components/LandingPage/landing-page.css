@@ -4,10 +4,12 @@
 
 .landing-background {
     background-position: center;
+    min-height: 750px;
 }
 
 .landing-bring-it-forward {
     background-color: rgba(0, 0, 0, .6);
+    min-height: 750px;
 }
 
 .landing-logo-size {
@@ -63,7 +65,7 @@
 
 .landing-guest-button {
     background-color: #e50914;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .landing-features-frame {
@@ -244,9 +246,9 @@
         height: 85vh;
     }
     .landing-welcome-text {
-        left: 30%;
-        right: 30%;
-        top: 20%;
+        left: 28%;
+        right: 28%;
+        top: 15%;
     }
     .landing-emailAddress-input {
         height: 70px;
@@ -263,10 +265,12 @@
 
 @media (max-width: 749px) {
     .landing-background {
-        height: 50vh;
+        height: 55vh;
+        min-height: 500px;
     }
     .landing-bring-it-forward {
-        height: 50vh;
+        height: 55vh;
+        min-height: 500px;
     }
     .landing-welcome-text {
         left: 10%;

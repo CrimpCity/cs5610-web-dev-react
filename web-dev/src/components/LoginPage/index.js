@@ -5,7 +5,6 @@ import LoginBackground from "./login-background.jpg";
 
 const LoginPage = () => {
     return (
-        <div>
             <div className="login-background flex-container"
                  style={{backgroundImage: `url(${LoginBackground})`}}>
                 <div className="login-bring-it-forward">
@@ -37,7 +36,7 @@ const LoginPage = () => {
                                                            className="login-user-label-title text-white-50">
                                                         Password
                                                     </label>
-                                                    <input type="text"
+                                                    <input type="password"
                                                            className="login-user-input text-white"
                                                            id="login-user-input"
                                                     />
@@ -67,7 +66,7 @@ const LoginPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
     );
 };
 
