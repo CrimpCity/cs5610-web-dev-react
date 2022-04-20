@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 // import NavList from "./NavList.js";
 import "./navigation-top-bar.css"
 import TransparentScroll from "./TransparentScroll.js";
@@ -45,7 +45,7 @@ const NavigationTopBar = () => {
 
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link" href="_blank">Home</a>
+                                <NavLink className="nav-link" to="/homepage">Home</NavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="_blank">TV Shows</a>
@@ -69,9 +69,9 @@ const NavigationTopBar = () => {
                         <div className="mx-auto"></div>
                         <ul className="navbar-nav wd-inline">
                             <li className="nav-item">
-                                <a className="nav-link" href="_blank">
+                                <NavLink className="nav-link" to="/search">
                                     <i className="mx-2 fas fa-search"></i>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="_blank">
@@ -79,7 +79,7 @@ const NavigationTopBar = () => {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="ms-2 nav-link" href="_blank">Account</a>
+                                <NavLink className="ms-2 nav-link" to="/profile">Account</NavLink>
                             </li>
                         </ul>
                     </div>
