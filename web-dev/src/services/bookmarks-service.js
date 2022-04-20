@@ -19,3 +19,7 @@ export const deleteAllBookmarksOfMovie = mid =>
 export const findAllBookmarkedByUser = uid =>
     await axios.get(`${BASE_URL}/api/users/${uid}/bookmarks`)
         .then(response => response.data);
+
+export const userBookmarksMovie = (uid, mid) =>
+    await axios.post(`${USERS_API}/${uid}/bookmarks/${mid}`)
+        .then(response => response.data);
