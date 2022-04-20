@@ -26,6 +26,7 @@ const RegistrationPage = () => {
                                                         <input type="text"
                                                                className="login-user-input text-white"
                                                                id="login-user-input"
+                                                               placeholder="Email or phone number"
                                                         />
                                                 </div>
                                             </div>
@@ -40,6 +41,7 @@ const RegistrationPage = () => {
                                                     <input type="password"
                                                            className="login-user-input text-white"
                                                            id="login-user-input"
+                                                           placeholder="Password"
                                                     />
                                                 </div>
                                             </div>
