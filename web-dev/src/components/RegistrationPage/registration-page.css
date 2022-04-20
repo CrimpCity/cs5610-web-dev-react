@@ -1,35 +1,43 @@
+.avatar-background {
+    background-position: center;
+    background-color: transparent;
+    color: #fff;
+    height: 100vh;
+    overflow: auto;
+    min-height: 1000px;
+}
+
+.avatar-bring-it-forward {
+    background-color: rgba(0, 0, 0, .6);
+    height: 100vh;
+    overflow: auto;
+    min-height: 1000px;
+
+}
 .avatar-frame {
     z-index: 100;
     position: absolute;
-    top: 0;
+    top: 150px;
     left: 0;
     right: 0;
-    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-
 }
 
 .avatar-list-frame {
+    z-index: 100;
     max-width: 90%;
     background-color: rgba(0,0,0,.75);
     color: #fff;
     line-height: 1.2;
-    user-select: none;
-    cursor: default;
-    min-height: 550px;
-    height: 70vh;
+    min-height: 600px;
 }
 
 .avatar-list-title {
     width: 100%;
     color: #fff;
     font-size: 3.5vw;
-    font-weight: unset;
-    opacity: 1;
-    transition: opacity .4s ease-out;
     margin: 0.2em 0;
 }
 
@@ -43,8 +51,8 @@
 
 .avatar-title {
     text-align: center;
-    font-size: 25px;
     font-weight: bold;
+    margin-top: 1rem;
 }
 
 .avatar-single-image-frame {
@@ -56,6 +64,10 @@
     margin-top: 2rem;
 }
 
+.avatar-select-button-frame {
+    text-align: center;
+}
+
 .avatar-select-button {
     height: 34px;
     width: 70px;
@@ -64,33 +76,36 @@
     border-radius: 5px;
     border: none;
     margin-top: 20px;
-    margin-left: 12px;
-    position: relative;
-    left: 27%;
 }
 
 @media (max-width: 749px) {
     .avatar-title {
         font-size: 20px;
-        position: absolute;
-        top: 30%;
-        left: 50%;
     }
     .avatar-direction {
         flex-direction: column;
     }
+    .avatar-list-frame {
+        min-height: 620px;
+    }
     .avatar-images-frame {
         margin-top: 0;
-        position: relative;
-        left: 10%;
+        max-width: 100%;
+        display: flex;
     }
     .avatar-single-image-frame {
-        margin-top: 7px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
-    .avatar-select-button {
-        position: absolute;
-        top: 9%;
-        left: 100%;
-        margin-left: 20px;
+    .avatar-title {
+        text-align: left;
+        min-width: 10rem;
+        padding-top: 7%;
+    }
+    .avatar-select-button-frame {
+        padding-top: 5%;
+    }
+    .avatar-select-button-frame{
+        margin-top: 0;
     }
 }

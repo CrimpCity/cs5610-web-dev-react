@@ -1,5 +1,4 @@
 import React from "react";
-import "../LoginPage/login-page.css"
 import "./registration-page.css"
 import '../../vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
 import { Link } from "react-router-dom";
@@ -9,9 +8,9 @@ import avatarList from "./avatars.json";
 const UserComponent = () => {
     return (
         <div>
-            <div className="login-background flex-container"
+            <div className="avatar-background flex-container"
                  style={{backgroundImage: `url(${LoginBackground})`}}>
-                <div className="login-bring-it-forward">
+                <div className="avatar-bring-it-forward">
                     <img className="login-logo-size" src={require('../LoginPage/netflicks-logo.png')} alt="Logo"/>
                 </div>
                 <div className="avatar-frame">
@@ -31,15 +30,18 @@ const UserComponent = () => {
                             const avatarAlt = "avatar-" + avatar._id;
                             return (
                                 <div className="avatar-images-frame">
-                                    <h6 className="avatar-title text-white-50"> {avatar.title}</h6>
                                     <div className="ms-3 me-3">
-                                        <img className="avatar-single-image-frame d-block"
+                                        <img className="avatar-single-image-frame"
                                              src={avatar['image-link']} alt={avatarAlt}/>
                                     </div>
-                                    <button className="avatar-select-button">
-                                        Select
-                                    </button>
+                                    <h5 className="ps-3 pe-3 avatar-title text-white-50 "> {avatar.title}</h5>
+                                    <div className="ps-3 pe-3 avatar-select-button-frame">
+                                        <button className="avatar-select-button">
+                                            Select
+                                        </button>
+                                    </div>
                                 </div>
+
                             );
                         })}
                         </div>
