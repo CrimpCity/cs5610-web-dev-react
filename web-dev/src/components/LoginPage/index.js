@@ -1,9 +1,17 @@
 import React from "react";
 import "./login-page.css"
-import { Link } from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import LoginBackground from "./login-background.jpg";
 
 const LoginPage = () => {
+    const path = useLocation().search.split('=');
+    let returnURL = path[0] === '?returnURL';
+    const signInLink = () => {
+        if (returnURL) {
+            return path[1];
+        }
+        return "/profile" + "/abc"
+    }
     return (
             <div className="login-background flex-container"
                  style={{backgroundImage: `url(${LoginBackground})`}}>
@@ -38,17 +46,20 @@ const LoginPage = () => {
                                                         Password
                                                     </label>
                                                     <input type="password"
+                                                           autoComplete="on"
                                                            placeholder="Password"
                                                            className="login-user-input text-white"
-                                                           id="login-user-input"
+                                                           id="login-password"
                                                     />
                                                 </div>
                                             </div>
                                         </div>
-                                        <button className="btn login-button btn-submit btn-small"
-                                                type="submit">
-                                            Sign In
-                                        </button>
+                                        <Link to={signInLink()}>
+                                            <button className="btn login-button btn-submit btn-small"
+                                                    type="submit">
+                                                Sign In
+                                            </button>
+                                        </Link>
                                         <div className="mt-3 mb-3">
                                             <Link to="/registration" className="login-registration-link text-white-50">
                                                 New to Netflicks?
