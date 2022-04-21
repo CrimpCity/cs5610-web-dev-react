@@ -1,3 +1,11 @@
+.registration-main {
+    flex-grow: 1;
+    flex-direction: column;
+    min-height: 515px;
+    margin: 0;
+    padding: 10px 0 30px;
+    width: 100%;
+}
 .avatar-background {
     background-position: center;
     background-color: transparent;

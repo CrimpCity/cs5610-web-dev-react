@@ -14,10 +14,13 @@ import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
 import UserComponent from "./components/RegistrationPage/UserComponent";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
+import {AuthProvider} from "./contexts/auth-context";
+
 // import Netflicks from "./components/index.js";
 
 
 function App() {
+
        return (
               <BrowserRouter>
                      <div className="container-fluid">
@@ -47,6 +50,7 @@ function App() {
                      </div>
               </BrowserRouter>
        );
+
 }
 
 

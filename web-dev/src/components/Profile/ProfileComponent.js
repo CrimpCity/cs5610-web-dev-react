@@ -16,7 +16,9 @@ const ProfileComponent = (profile) => {
                             <p className="m-0 ms-4 fs-5 fw-bold">{profile.profile.firstName} </p>
                             <p className="m-0 ms-4 fs-5 fw-bold">{profile.profile.lastName} </p>
                         </div>
+                        <p className="m-0 ms-4 fs-6">{profile.profile.username}</p>
                         <p className="m-0 ms-4 fs-6">{profile.profile.email}</p>
+                        <span className="badge bg-primary m-0 ms-4 rounded-pill">{profile.profile.accountType}</span>
                     </div>
                 </div>
             </li>

@@ -13,9 +13,41 @@ const RegistrationPage = () => {
                     <div className="login-main-frame">
                         <div>
                             <div className="login-main-subframe">
-                                <div className="login-main">
+                                <div className="registration-main">
                                     <h1 className="login-title">Create account with us!</h1>
                                     <form>
+                                        {/*First Name*/}
+                                        <div className="login-user-frame">
+                                            <div className="position-relative">
+                                                <div className="login-email-box">
+                                                    <label htmlFor="login-user-input"
+                                                           className="login-user-label-title text-white-50">
+                                                        First Name
+                                                    </label>
+                                                    <input type="text"
+                                                           className="login-user-input text-white"
+                                                           id="login-user-input"
+                                                           placeholder="First name"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/*Last Name*/}
+                                        <div className="login-user-frame">
+                                            <div className="position-relative">
+                                                <div className="login-email-box">
+                                                    <label htmlFor="login-user-input"
+                                                           className="login-user-label-title text-white-50">
+                                                        Last Name
+                                                    </label>
+                                                    <input type="text"
+                                                           className="login-user-input text-white"
+                                                           id="login-user-input"
+                                                           placeholder="Last name"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div className="login-user-frame">
                                             <div className="position-relative">
                                                 <div className="login-email-box">

@@ -14,3 +14,15 @@
     padding-left: 50px;
     padding-right: 50px;
 }
+
+.wd-landing-sign-out-button {
+    height: 34px;
+    width: 85px;
+    background-color: #e50914;
+    color: #fff;
+    float: right;
+    border-radius: 5px;
+    border: none;
+    /* margin-top: 20px; */
+    margin-right: 0px;
+}
