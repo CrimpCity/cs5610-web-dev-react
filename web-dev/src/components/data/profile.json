@@ -1,6 +1,8 @@
 {
-    "firstName": "Arataka",
-    "lastName": "Reigen",
+    "firstName": "Reigen",
+    "lastName": "Arataka",
+    "username": "BossPsycho",
     "profilePicture": "/images/reigen.png",
-    "email": "Greatest.psychic@SpritisAndSuch.com"
+    "email": "Greatest.psychic@SpritisAndSuch.com",
+    "accountType": "Critic"
 }
