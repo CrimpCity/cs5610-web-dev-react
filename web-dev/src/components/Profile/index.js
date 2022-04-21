@@ -23,6 +23,7 @@ const ProfileScreen = () => {
                 <div className="wd-lower-profile wd-pad-siding">
                     <p className="fw-bold fs-4">My Account
                         {/* Log Out Button */}
+                        {/* Need to log user out of their profile via authentication / React Context */}
                         <span className="ms-3">
                             <Link to="/login">
                                 <button className="wd-landing-sign-out-button fs-6">
