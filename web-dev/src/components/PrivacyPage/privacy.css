@@ -1,0 +1,16 @@
+.bg-color{
+    background-color: rgb(20, 20, 20);
+}
+
+.wd-add-height-to-scroll{
+    height: 25vh;
+}
+
+.wd-lower-profile {
+    margin-top: 5%;
+}
+
+.wd-pad-siding {
+    padding-left: 50px;
+    padding-right: 50px;
+}
