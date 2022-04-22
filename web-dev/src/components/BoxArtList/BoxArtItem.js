@@ -2,8 +2,8 @@ import { React, useState } from "react";
 
 
 
-const BoxArtItem = (movie, index) => {
-    const [isWatched, setIsWatched] = useState(false);
+const BoxArtItem = (movie, index, isBooked = false) => {
+    const [isWatched, setIsWatched] = useState(isBooked);
 
     let dimImage = "";
     if (isWatched) {
