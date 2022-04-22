@@ -11,9 +11,12 @@ const PrivacyScreen = () => {
                     <NavigationTopBar />
                 </div>
                 <div className="wd-lower-profile wd-pad-siding">
-                    <p className="fw-bold fs-4">Privacy Policy</p>
+                    <p className="fw-bold fs-4 pb-2">Privacy Policy</p>
                 </div>
                 <div className="pt-3 wd-pad-siding">
+                    <p className="fw-bold wd-title-size text-white">
+                        Subtitle 1: All of Your Data Are Belongs to Us
+                    </p>
                     <p className="fw-bold fs-5 pb-3">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Quisque rutrum sodales eleifend.
@@ -23,7 +26,9 @@ const PrivacyScreen = () => {
                         Proin ut varius nunc.
                         Proin rhoncus consequat nulla, et gravida est dictum egestas.
                     </p>
-
+                    <p className="fw-bold wd-title-size text-white">
+                        Subtitle 2: No We Won't Pay You For It
+                    </p>
                     <p className="fw-bold fs-5 pb-3">
                         Maecenas dignissim eros nisl, eu bibendum massa tempor tincidunt.
                         Sed posuere consectetur egestas.
@@ -33,7 +38,9 @@ const PrivacyScreen = () => {
                         Aenean elementum metus a erat sollicitudin vehicula.
                         Nam vitae dignissim ipsum.
                     </p>
-
+                    <p className="fw-bold wd-title-size text-white">
+                        Subtitle 3: Step 3 PROFIT $$$
+                    </p>
                     <p className="fw-bold fs-5 pb-3">
                         Nam maximus accumsan ex, at cursus justo dictum vel.
                         Fusce nibh dui, sollicitudin sed bibendum a, mollis quis urna.
@@ -50,7 +57,9 @@ const PrivacyScreen = () => {
                         In quis luctus augue.
                         Sed at placerat neque, eget finibus libero.
                     </p>
-
+                    <p className="fw-bold wd-title-size text-white">
+                        Subtitle 4: *Evil Laugh*
+                    </p>
                     <p className="fw-bold fs-5 pb-3">
                         Nam sed turpis enim.
                         Donec semper ante ac eros lobortis gravida.
