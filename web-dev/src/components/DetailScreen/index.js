@@ -1,11 +1,12 @@
 import React from "react";
 import results from "./results.json";
-import {useParams} from "react-router-dom";
+import {useParams, Navigate, useLocation} from "react-router-dom";
 import NavigationTopBar from "../NavigationTopBar";
 import CommentSection from "./comment-section";
 import HeaderSection from "./header-section";
 import similarSamples from "./similar-sample.json"
 import SimilarItem from "./similar-item";
+import {useAuth} from "../../contexts/auth-context";
 
 /**
  * Detail main screen
@@ -14,9 +15,14 @@ import SimilarItem from "./similar-item";
  * @constructor
  */
 const DetailScreen = () => {
-
   // Retrieve movie data from API based on IMDB ID
   const {movieId} = useParams()
+
+  // Navigate unauthenticated user to login page
+  const {getUserData} = useAuth();
+  const location = useLocation();
+  const returnURL = "/login?returnURL=" + location.pathname;
+  if (!getUserData()) return (<Navigate to={returnURL} replace={true} />)
 
   // TODO: Replace the temporary data with data from API
   const movie = results.find(result => result._id === movieId);
