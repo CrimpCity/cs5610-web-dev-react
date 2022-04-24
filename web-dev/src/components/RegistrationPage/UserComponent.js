@@ -1,7 +1,7 @@
 import React from "react";
 import "./registration-page.css"
 import '../../vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import LoginBackground from "../LoginPage/login-background.jpg";
 import avatarList from "./avatars.json";
 
