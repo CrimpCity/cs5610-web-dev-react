@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import NavList from "./NavList.js";
 import "./navigation-top-bar.css"
 import TransparentScroll from "./TransparentScroll.js";
@@ -78,6 +78,13 @@ const NavigationTopBar = () => {
                                     <i className="mx-2 fas fa-bell"></i>
                                 </a>
                             </li>
+
+                            <li className="nav-item">
+                                <NavLink className="ms-2 nav-link" to="/privacy">
+                                    <i className="fas fa-user-secret"></i>
+                                </NavLink>
+                            </li>
+
                             <li className="nav-item">
                                 <NavLink className="ms-2 nav-link" to="/profile">Account</NavLink>
                             </li>

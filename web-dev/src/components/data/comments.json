@@ -1,0 +1,26 @@
+[
+    {
+        "avatar": "/images/reigen.png",
+        "body": "This movie is amazing!",
+        "accountType": "Critic",
+        "postedBy": "123",
+        "postedOn": "4/19/2022",
+        "movieTitle": "A Hard Day"
+    },
+    {
+        "avatar": "/images/reigen.png",
+        "body": "boring",
+        "accountType": "Critic",
+        "postedBy": "123",
+        "postedOn": "12/19/2021",
+        "movieTitle": "The Chaser"
+    },
+    {
+        "avatar": "/images/reigen.png",
+        "body": "I catch bad guys! Guilty or innocent doesn't matter. That's for the judge to figure out.",
+        "accountType": "Critic",
+        "postedBy": "123",
+        "postedOn": "1/1/2022",
+        "movieTitle": "Flash Point"
+    }
+]
