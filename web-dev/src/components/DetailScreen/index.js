@@ -74,10 +74,18 @@ const DetailScreen = () => {
       {result.detail.trailer &&
         <div className="w-100 mb-4">
           <h4>Trailer</h4>
-          <div>
+          <div className="d-none d-sm-block">
             <iframe width="544" height="306"
                     className="me-4"
                     src={result.detail.trailer + "?autoplay=false&width=544"}
+                    title="Trailer video player"
+                    frameBorder="no" scrolling="no" allowFullScreen></iframe>
+          </div>
+
+          <div className="d-block d-sm-none">
+            <iframe width="390" height="219"
+                    className="me-4"
+                    src={result.detail.trailer + "?autoplay=false&width=390"}
                     title="Trailer video player"
                     frameBorder="no" scrolling="no" allowFullScreen></iframe>
           </div>
