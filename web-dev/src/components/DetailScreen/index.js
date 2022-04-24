@@ -6,6 +6,7 @@ import HeaderSection from "./header-section";
 import SimilarItem from "./similar-item";
 import {useAuth} from "../../contexts/auth-context";
 import {getTitleDetail} from "../../services/title-service";
+import AuthenticationLock from "../AuthenticationLock";
 
 /**
  * Detail main screen
@@ -48,11 +49,6 @@ const DetailScreen = () => {
         .finally(() => void setLoading(false));
     }
   }, [movieId])
-
-  // Navigate unauthenticated user to login page
-  const location = useLocation();
-  const returnURL = "/login?returnURL=" + location.pathname;
-  if (!getUserData()) return (<Navigate to={returnURL} replace={true} />)
 
   const DetailLoadingBox = () => (
     <div className="flex-fill d-flex">
@@ -105,39 +101,41 @@ const DetailScreen = () => {
   );
 
   return (
-    <div className="container d-flex flex-column vh-100">
-      <NavigationTopBar />
+    <AuthenticationLock>
+      <div className="container d-flex flex-column vh-100">
+        <NavigationTopBar />
 
-      {/* Top padding for fixed navbar */}
-      <div className="pt-5 pb-3"></div>
+        {/* Top padding for fixed navbar */}
+        <div className="pt-5 pb-3"></div>
 
-      {/* Display loading screen when loading movie detail */}
-      {isLoading && <DetailLoadingBox />}
+        {/* Display loading screen when loading movie detail */}
+        {isLoading && <DetailLoadingBox />}
 
-      {/* Display loading result */}
-      {!isLoading &&
-        <>
-          {/* Display detail if succeed */}
-          {result.status === "success" &&
-            <>
-              {!result.detail && <h2>Title not found</h2>}
+        {/* Display loading result */}
+        {!isLoading &&
+          <>
+            {/* Display detail if succeed */}
+            {result.status === "success" &&
+              <>
+                {!result.detail && <h2>Title not found</h2>}
 
-              {result.detail && <DetailResultBox />}
-            </>
-          }
+                {result.detail && <DetailResultBox />}
+              </>
+            }
 
-          {/* Error message if server fail */}
-          {result.status === "server-fail" &&
-            <h2>Gateway timeout: IMDB API server seem busy... Please try again.</h2>
-          }
+            {/* Error message if server fail */}
+            {result.status === "server-fail" &&
+              <h2>Gateway timeout: IMDB API server seem busy... Please try again.</h2>
+            }
 
-          {/* Display detail if request timeout */}
-          {result.status === "timeout" &&
-            <h2>Detail request timeout. Please try again.</h2>
-          }
-        </>
-      }
-    </div>
+            {/* Display detail if request timeout */}
+            {result.status === "timeout" &&
+              <h2>Detail request timeout. Please try again.</h2>
+            }
+          </>
+        }
+      </div>
+    </AuthenticationLock>
   );
 }
 
