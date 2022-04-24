@@ -49,7 +49,7 @@ const SearchResults = () => {
       <div className="m-auto search-loading-box">
         <h4 className="text-center mb-4">Searching for "{keyword}"</h4>
         <div className="text-center">
-          <i className="fa-solid fa-spinner fa-spin-pulse fa-5x"></i>
+          <i className="fa-solid fa-spinner fa-spin-pulse fa-10x"></i>
         </div>
       </div>
     </div>
