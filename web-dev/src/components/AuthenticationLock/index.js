@@ -21,6 +21,6 @@ const AuthenticationLock = ({children}) => {
       {children}
     </>
   );
-}
+};
 
-export default AuthenticationLock
+export default AuthenticationLock;
