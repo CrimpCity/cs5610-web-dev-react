@@ -4,6 +4,7 @@ import {signIn as doSignIn, signOut as doSignOut, profile as loadUser, signUp as
 const AuthContext = React.createContext();
 
 export const AuthProvider = ({children}) => {
+  const [profile, setProfile] = useState()
 
   // You can set environment variable "TEST_USER_TYPE" during dev for testing different user type
   // null mean not login

@@ -5,20 +5,20 @@ import "./profile.css"
 const ProfileComponent = (profile) => {
     const formatted = (
         <>
-            <li className="list-group-item">
-                <div className="row pb-3">
-                    <div className="col-1 mt-1">
-                        <img src={profile.profile.profilePicture} className="mt-1 float-start" width="100px"
-                            height="100px" alt={profile.profile.firstName}></img>
+            <li className="list-group-item" style={{minWidth:"400px"}}>
+                <div className="pb-3 d-flex">
+                    <div className="mt-1">
+                        <img src={profile.profile.profilePicture}
+                             className="mt-1 float-start wd-profile-avatar"  alt={profile.profile.firstName}></img>
                     </div>
-                    <div className="col-11 mt-1">
-                        <div className="d-flex justify-content-start">
-                            <p className="m-0 ms-4 fs-5 fw-bold">{profile.profile.firstName} </p>
-                            <p className="m-0 ms-4 fs-5 fw-bold">{profile.profile.lastName} </p>
+                    <div className="mt-1 ms-4 d-flex" style={{flexDirection:"column"}}>
+                        <div className="m-0 fw-bold fs-5">
+                            {profile.profile.firstName} {profile.profile.lastName} </div>
+                        <div className="m-0 wd-profile-component-subtext">{profile.profile.username}</div>
+                        <div className="m-0 pb-1 wd-profile-component-subtext">{profile.profile.email}</div>
+                        <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
+                            {profile.profile.accountType}
                         </div>
-                        <p className="m-0 ms-4 fs-6">{profile.profile.username}</p>
-                        <p className="m-0 ms-4 fs-6">{profile.profile.email}</p>
-                        <span className="badge bg-primary m-0 ms-4 rounded-pill">{profile.profile.accountType}</span>
                     </div>
                 </div>
             </li>

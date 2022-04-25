@@ -1,0 +1,42 @@
+[
+  {
+    "firstName": "Reigen",
+    "lastName": "Arataka",
+    "username": "SmileyKid",
+    "profilePicture": "../images/default_avatars/smiley.png",
+    "email": "Greatest.psychic@SpritisAndSuch.com",
+    "accountType": "Critic"
+  },
+  {
+    "firstName": "Kevin",
+    "lastName": "Nagumo",
+    "username": "BabyBoss",
+    "profilePicture": "../images/default_avatars/boss-baby.png",
+    "email": "Greatest.psychic@SpritisAndSuch.com",
+    "accountType": "Admin"
+  },
+  {
+    "firstName": "Nick",
+    "lastName": "Nagumo",
+    "username": "Little Pony",
+    "profilePicture": "../images/default_avatars/little-pony.png",
+    "email": "Greatest.psychic@SpritisAndSuch.com",
+    "accountType": "Admin"
+  },
+  {
+    "firstName": "Robin",
+    "lastName": "Nagumo",
+    "username": "ShaunSheep",
+    "profilePicture": "../images/default_avatars/shaun-the-sheep.png",
+    "email": "Greatest.psychic@SpritisAndSuch.com",
+    "accountType": "Critic"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Nagumo",
+    "username": "SquidGame",
+    "profilePicture": "../images/default_avatars/squid-game.png",
+    "email": "Greatest.psychic@SpritisAndSuch.com",
+    "accountType": "Admin"
+  }
+]
