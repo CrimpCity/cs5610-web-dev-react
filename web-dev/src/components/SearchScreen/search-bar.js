@@ -9,7 +9,7 @@ const SearchBar = () => {
   useEffect(() => setSearch(searchParams.get('q')), [searchParams]);
 
   return (
-    <div className="col position-relative m-3">
+    <div className="col position-relative m-3 flex-grow-0 flex-shrink-0">
       <label htmlFor="search-box" className="position-absolute top-50 ms-4 translate-middle">
         <i className="fas fa-search"></i></label>
       <form onSubmit={event => {

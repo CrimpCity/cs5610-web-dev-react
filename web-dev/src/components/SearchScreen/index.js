@@ -10,9 +10,8 @@ import NavigationTopBar from "../NavigationTopBar";
  * @constructor
  */
 const SearchScreen = () => {
-
   return (
-    <div className="container">
+    <div className="container vh-100 d-flex flex-column">
       <NavigationTopBar />
 
       {/* Top padding for fixed navbar */}
