@@ -4,7 +4,7 @@ import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootstrap.min.css';
 import './vendors/fontawesome/css/all.min.css';
 
-import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "../src/components/HomePage/index.js";
 import Profile from './components/Profile/index.js';
 import SearchScreen from "./components/SearchScreen";
@@ -15,18 +15,19 @@ import RegistrationPage from "./components/RegistrationPage";
 import UserComponent from "./components/RegistrationPage/UserComponent";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider} from "./contexts/auth-context";
+import RootHandler from "./components/RootHandler";
 
 // import Netflicks from "./components/index.js";
 
 
 function App() {
-  return (
+    return (
     <AuthProvider>
       <BrowserRouter>
         <div className="container-fluid">
           <Routes>
             <Route path="/">
-              <Route index element={(<Navigate to="/landingpage" replace={true}></Navigate>)} />
+              <Route index element={<RootHandler />} />
               <Route path="homepage"
                      element={<HomePage />} />
               <Route path="profile"
@@ -51,7 +52,6 @@ function App() {
       </BrowserRouter>
     </AuthProvider>
   );
-
 }
 
 
