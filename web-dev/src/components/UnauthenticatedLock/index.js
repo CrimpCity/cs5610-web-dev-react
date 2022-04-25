@@ -19,10 +19,8 @@ const UnauthenticatedLock = ({children}) => {
   if (!getUserData()) return children;
 
   let returnURL = "/";
-  console.log(query.get('returnURL'))
   if (location.pathname === "/login" && query.get('returnURL')) returnURL = query.get('returnURL');
   else if (location.pathname === "/login" || location.pathname === "/registration") returnURL = "/profile";
-  console.log(returnURL);
   return (<Navigate to={returnURL} replace={true} />)
 };
 
