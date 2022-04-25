@@ -16,12 +16,14 @@ const ProfileScreen = () => {
 
     return (
         <>
-            <div className="row bg-color">
+            <div className="d-flex bg-color"
+                 style={{flexDirection:"column"}}>
                 <div >
                     <NavigationTopBar />
                 </div>
-                <div className="wd-lower-profile wd-pad-siding">
-                    <p className="fw-bold fs-4">My Account
+                <div className="wd-top-profile wd-pad-siding ">
+                    <div className="mb-2">
+                        <span className="fw-bold fs-4">My Account</span>
                         {/* Log Out Button */}
                         {/* Need to log user out of their profile via authentication / React Context */}
                         <span className="ms-3">
@@ -31,8 +33,8 @@ const ProfileScreen = () => {
                                 </button>
                             </Link>
                         </span>
-                    </p>
-                    <ProfileComponent profile={profile} />
+                    </div>
+                    <ProfileComponent profile={profile}/>
                 </div>
 
                 <div className="mt-3 wd-pad-siding">

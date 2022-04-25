@@ -36,9 +36,12 @@ const UserComponent = () => {
                                     </div>
                                     <h5 className="ps-3 pe-3 avatar-title text-white-50 "> {avatar.title}</h5>
                                     <div className="ps-3 pe-3 avatar-select-button-frame">
-                                        <button className="avatar-select-button">
-                                            Select
-                                        </button>
+                                        <Link to="/profile">
+                                            <button className="avatar-select-button"
+                                            type="submit">
+                                                Select
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
 
