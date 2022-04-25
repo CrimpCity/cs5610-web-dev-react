@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import {login as doLogin, logout as doLogout, user as loadUser} from "../services/auth-service";
+import {signIn as doSignIn, signOut as doSignOut, profile as loadUser, signUp as doSignUp} from "../services/auth-service";
 
 const AuthContext = React.createContext();
 
@@ -23,11 +23,11 @@ export const AuthProvider = ({children}) => {
    * Sign in with the service.
    * Return true if authenticate successfully; otherwise, false.
    *
-   * @param username
+   * @param emailOrNumber
    * @param password
    */
-  const signIn = (username, password) => {
-    return doLogin({username: username, password: password})
+  const signIn = (emailOrNumber, password) => {
+    return doSignIn({emailOrNumber: emailOrNumber, password: password})
       .then(value => {
         // Store user data if authenticate successfully.
         setUserData(value);
@@ -45,7 +45,33 @@ export const AuthProvider = ({children}) => {
    */
   const signOut = () => {
     // Invalidate current user data
-    return doLogout().finally(() => void setUserData(null));
+    return doSignOut().finally(() => void setUserData(null));
+  }
+
+  /**
+   * Sign up.
+   *
+   * It takes newProfile with the following structure:
+   * {
+   *   firstName: string,
+   *   lastName: string,
+   *   username: string (required),
+   *   emailOrNumber: string (required),
+   *   password: string (required)
+   * }
+   *
+   * Return status 200 with the new user profile.
+   * Return status 400 with error message.
+   * *** Use the error message to alert the user.
+   *
+   * @param newProfile
+   * @returns {Promise<AxiosResponse<any>>}
+   */
+  const signUp = (newProfile) => {
+    return doSignUp(newProfile).then(response => {
+      setUserData(response.data);
+      return response;
+    });
   }
 
   /**
@@ -66,7 +92,7 @@ export const AuthProvider = ({children}) => {
    */
   const checkAuthenticationState = () => {
     setIsAuthStatusChecking(true);
-    return loadUser.then(data => {
+    return loadUser().then(data => {
       setUserData(data);
       setIsAuthStatusChecking(false);
     });
@@ -81,7 +107,7 @@ export const AuthProvider = ({children}) => {
    */
   const isAuthChecking = () => isAuthStatusChecking;
 
-  const value = {signIn, signOut, getUserData, checkAuthenticationState, isAuthChecking};
+  const value = {signIn, signOut, signUp, getUserData, checkAuthenticationState, isAuthChecking};
 
   return (
     <AuthContext.Provider value={value}>
@@ -96,14 +122,24 @@ const PrelimAuth = ({children}) => {
 
   const [isFirstLoad, setFirstLoad] = useState(true);
 
-  const {checkAuthenticationState} = useAuth();
+  const {checkAuthenticationState, isAuthChecking} = useAuth();
+
+  const AuthLoadingBox = () => (
+    <div className="vh-100 d-flex">
+      <div className="m-auto">
+        <h4 className="text-center mb-4">Loading Netflicks...</h4>
+        <div className="text-center">
+          <i className="fa-solid fa-spinner fa-spin-pulse fa-10x"></i>
+        </div>
+      </div>
+    </div>
+  );
 
   useEffect(() => {
-    // TODO: implement Authentication check on first load or refresh the web app
-    setFirstLoad(false)
+    checkAuthenticationState().finally(() => void setFirstLoad(false));
   }, [])
 
-  if (isFirstLoad) return (<h2>Loading...</h2>);
+  if (isFirstLoad && isAuthChecking) return (<AuthLoadingBox />);
   else return children;
 }
 
