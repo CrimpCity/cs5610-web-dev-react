@@ -3,12 +3,12 @@ import BoxArtItem from "./BoxArtItem.js";
 // import { useSelector } from "react-redux";
 
 
-const BoxArt = ({ MovieList }) => {
+const BoxArt = ({ MovieList, isBooked }) => {
     // const Movie = useSelector(state => state.movie);
     return (
         <>
             {
-                MovieList.map((movie, index) => { return (BoxArtItem(movie, index)); })
+                MovieList.map((movie, index) => { return (BoxArtItem(movie, index, isBooked)); })
             }
         </>
     );
