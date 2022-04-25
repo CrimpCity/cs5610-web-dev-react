@@ -57,6 +57,7 @@ const LoginPage = () => {
                                                                className="login-user-input text-white"
                                                                id="login-user-input"
                                                                placeholder="Email or phone number"
+                                                               required
                                                         />
                                                 </div>
                                             </div>
@@ -75,6 +76,7 @@ const LoginPage = () => {
                                                            placeholder="Password"
                                                            className="login-user-input text-white"
                                                            id="login-password"
+                                                           required
                                                     />
                                                 </div>
                                             </div>

@@ -52,6 +52,7 @@ const RegistrationPage = () => {
                                                            className="login-user-input text-white"
                                                            id="signup-first-name"
                                                            placeholder="First name"
+                                                           required
                                                     />
                                                 </div>
                                             </div>
@@ -69,6 +70,7 @@ const RegistrationPage = () => {
                                                            className="login-user-input text-white"
                                                            id="signup-last-name"
                                                            placeholder="Last name"
+                                                           required
                                                     />
                                                 </div>
                                             </div>
@@ -86,6 +88,7 @@ const RegistrationPage = () => {
                                                            className="login-user-input text-white"
                                                            id="signup-username"
                                                            placeholder="Username"
+                                                           required
                                                     />
                                                 </div>
                                             </div>
@@ -103,6 +106,7 @@ const RegistrationPage = () => {
                                                                className="login-user-input text-white"
                                                                id="signup-user-input"
                                                                placeholder="Email or phone number"
+                                                               required
                                                         />
                                                 </div>
                                             </div>
@@ -120,6 +124,7 @@ const RegistrationPage = () => {
                                                            className="login-user-input text-white"
                                                            id="signup-password"
                                                            placeholder="Password"
+                                                           required
                                                     />
                                                 </div>
                                             </div>
