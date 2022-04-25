@@ -7,13 +7,13 @@ export const AuthProvider = ({children}) => {
 
   // You can set environment variable "TEST_USER_TYPE" during dev for testing different user type
   // null mean not login
-  // for login user, data should be {"username": string, "avatarImage": string, "userType": string}
+  // for login user, data should be {"username": string, "avatarImage": string, "isCritic": boolean, "isAdmin": boolean}
   const sampleType = process.env.REACT_APP_TEST_USER_TYPE;
   let userInfo;
   if (sampleType) {
-    if (sampleType === 'admin') userInfo = {username: "Admin", userType: "admin"};
-    else if (sampleType === 'critic') userInfo = {username: "Critic", userType: "critic"};
-    else if (sampleType === 'normal') userInfo = {username: "Normal", userType: "normal"};
+    if (sampleType === 'admin') userInfo = {username: "Admin", isCritic: false, isAdmin: true};
+    else if (sampleType === 'critic') userInfo = {username: "Critic", isCritic: true, isAdmin: false};
+    else if (sampleType === 'normal') userInfo = {username: "Normal", isCritic: false, isAdmin: false};
   } else userInfo = null;
 
   const [userData, setUserData] = useState(userInfo);
@@ -43,9 +43,9 @@ export const AuthProvider = ({children}) => {
   /**
    * Sign out of the service.
    */
-  const signOut = async () => {
+  const signOut = () => {
     // Invalidate current user data
-    await doLogout().finally(() => setUserData(null));
+    return doLogout().finally(() => void setUserData(null));
   }
 
   /**
@@ -58,7 +58,9 @@ export const AuthProvider = ({children}) => {
   }
 
   /**
-   * Perform authenication state check with server and update user data in local memory.
+   * Warning don't run this method unless the server is connected and back-end authentication is implemented.
+   *
+   * Perform authentication state check with server and update user data in local memory.
    * Return user data if authenticated.
    * Otherwise, return null.
    */

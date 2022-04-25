@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_API_BASE | "http://localhost:4000/api";
+const BASE_URL = process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
 const AUTH_API = `${BASE_URL}/auth`
 
 const api = axios.create({
@@ -17,7 +17,7 @@ const api = axios.create({
  * @returns 200 with basic user info if successful, 401 if fail, and 405 if already login
  */
 export const login = (credentials) =>
-  api.post(`${AUTH_API}/login`, credentials);
+  api.post(`${AUTH_API}/login`, credentials, {timeout: 5000});
 
 /**
  * Log out from the server
@@ -27,7 +27,7 @@ export const login = (credentials) =>
  * @returns true if successful; otherwise, false
  */
 export const logout = () =>
-  api.post(`${AUTH_API}/logout`)
+  api.post(`${AUTH_API}/logout`, {timeout: 5000})
     .then(() => true)
     .catch(() => false);
 
@@ -37,7 +37,7 @@ export const logout = () =>
  *
  * @returns user info if authenicated; otherwise, null
  */
-export const user = () => api.get(`${AUTH_API}/user`)
+export const user = () => api.get(`${AUTH_API}/user`, {timeout: 5000})
   // Handle successful response from server.
   .then(response => response.data)
   // Handle unauthenticated response from server
