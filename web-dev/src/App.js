@@ -15,6 +15,7 @@ import RegistrationPage from "./components/RegistrationPage";
 import UserComponent from "./components/RegistrationPage/UserComponent";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider} from "./contexts/auth-context";
+import AdminPage from "./components/AdminPage";
 
 // import Netflicks from "./components/index.js";
 
@@ -45,6 +46,8 @@ function App() {
                      element={<RegistrationPage />} />
               <Route path="registration/select-avatar"
                      element={<UserComponent />} />
+              <Route path="admin"
+                     element={<AdminPage />} />
             </Route>
           </Routes>
         </div>

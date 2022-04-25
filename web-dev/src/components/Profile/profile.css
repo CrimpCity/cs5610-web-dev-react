@@ -16,6 +16,11 @@
     padding-right: 50px;
 }
 
+.wd-profile-my-account-line {
+    min-width: 400px;
+
+}
+
 .wd-landing-sign-out-button {
     height: 34px;
     width: 85px;
@@ -25,7 +30,7 @@
     border-radius: 5px;
     border: none;
     /* margin-top: 20px; */
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .wd-profile-avatar {
