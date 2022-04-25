@@ -9,7 +9,7 @@ const CommentListItem = (comment, index) => {
     const [commentText, sentCommentText] = useState(comment.body);
 
     const formatted = (
-        <div className="list-group-item" key={index}>
+        <div className="list-group-item " style={{minWidth:"400px"}} key={index}>
             <div className="row">
                 <div className="col-auto">
                     <img className="comment-avatar-icon" src={comment.avatar} alt={comment.username} />

@@ -1,1 +1,45 @@
+
+
+
+
+
 .wd-icon-position {right:1.9%;}
+
+
+.wd-watchlist-image {
+    width: 360px;
+    height: 200px;
+}
+
+.wd-watchlist-info {
+    min-width: 400px;
+    padding-left: 50px;
+}
+
+@media (max-width: 1000px) {
+    .wd-watchlist-frame {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 649px) {
+    .wd-watchlist-image {
+        width: 150px;
+        height: 80px;
+    }
+    .wd-watchlist-info {
+        min-width: 200px;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 1200px) {
+    .wd-watchlist-image {
+        width: 250px;
+        height: 150px;
+    }
+    .wd-watchlist-info {
+        min-width: 300px;
+        padding-left: 30px;
+    }
+}

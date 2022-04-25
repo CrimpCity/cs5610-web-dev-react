@@ -4,6 +4,7 @@ import {login as doLogin, logout as doLogout, user as loadUser} from "../service
 const AuthContext = React.createContext();
 
 export const AuthProvider = ({children}) => {
+  const [profile, setProfile] = useState()
 
   // You can set environment variable "TEST_USER_TYPE" during dev for testing different user type
   // null mean not login

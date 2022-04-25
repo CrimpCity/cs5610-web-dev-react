@@ -6,9 +6,10 @@
     height: 25vh;
 }
 
-.wd-lower-profile {
-    margin-top: 5%;
+.wd-top-profile {
+    margin-top: 70px;
 }
+
 
 .wd-pad-siding {
     padding-left: 50px;
@@ -25,4 +26,21 @@
     border: none;
     /* margin-top: 20px; */
     margin-right: 0px;
+}
+
+.wd-profile-avatar {
+    height: 100px;
+    width: 100px;
+}
+
+.wd-profile-component-usertype {
+    width: max-content;
+    min-width: 55px;
+}
+
+@media (max-width: 749px) {
+    .wd-profile-component-subtext {
+        font-size: 16px;
+        word-break: break-word;
+    }
 }
