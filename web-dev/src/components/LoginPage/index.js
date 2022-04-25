@@ -39,7 +39,7 @@ const LoginPage = () => {
                                  ref={emailRef}
                                  className="login-user-input text-white"
                                  id="login-user-input"
-                                 placeholder="Email or phone number"
+                                 placeholder="Enter email or phone number"
                                  required
                           />
                         </div>
@@ -56,7 +56,7 @@ const LoginPage = () => {
                           <input type="password"
                                  ref={passwordRef}
                                  autoComplete="on"
-                                 placeholder="Password"
+                                 placeholder="Enter password"
                                  className="login-user-input text-white"
                                  id="login-password"
                                  required
