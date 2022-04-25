@@ -1,9 +1,11 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import {useAuth} from "../../contexts/auth-context";
 
 const CommentItem = ({comment = {}}) => {
 
-  const user = "Potter";
+  const {getUserData} = useAuth();
+  const currentUser = getUserData();
   let [editing, setEditing] = useState(false);
   const [commentText, sentCommentText] = useState(comment.comment);
   const timestamp = new Intl.DateTimeFormat(undefined, {
@@ -36,16 +38,12 @@ const CommentItem = ({comment = {}}) => {
             <div className="col d-flex align-items-center">
 
               {/* For current user's comment */}
-              {user === comment.username && <span className="badge fs-6 fw-bold bg-dark">You</span>}
+              {currentUser.username === comment.username && <span className="badge fs-6 fw-bold bg-dark">You</span>}
 
-              {/* Normal user */}
-              {user !== comment.username &&
-                <Link to={"/profile/"+comment.username} className="text-decoration-none text-white">
+              {/* User profile display & link */}
+              {currentUser.username !== comment.username &&
+                <Link to={"/profile/" + comment.username} className="text-decoration-none text-white">
                   {comment.username}
-
-                  {/* For critic type user */}
-                  {comment.critic &&
-                    <span className="badge bg-primary ms-2 rounded-pill">Critic</span>}
                 </Link>}
 
               {/* Comment timestamp */}
@@ -53,34 +51,36 @@ const CommentItem = ({comment = {}}) => {
             </div>
 
             {/* Allow edit/delete to current user's comments */}
-            {user === comment.username &&
-              <div className="col-auto">
-                {/* Comment option: edit / delete */}
-                {!editing &&
-                  <>
-                    <button type="button" className="btn p-1 me-2" title="edit" onClick={() => setEditing(true)}>
-                      <i className="fas fa-pen"></i></button>
-                    <button type="button" className="btn p-1" title="delete"><i className="fas fa-trash"></i></button>
-                  </>
+            <div className="col-auto">
+              {/* Comment option: edit / delete */}
+              {!editing &&
+                <>
+                {currentUser.isCritic && currentUser.username === comment.username &&
+                  <button type="button" className="btn p-1 me-2" title="edit" onClick={() => setEditing(true)}>
+                    <i className="fas fa-pen"></i></button>
                 }
+                {((currentUser.isCritic && currentUser.username === comment.username) || currentUser.isAdmin) &&
+                  <button type="button" className="btn p-1" title="delete"><i className="fas fa-trash"></i></button>
+                }
+                </>
+              }
 
-                {/* Comment edit toolbox */}
-                {editing &&
-                  <>
-                    <button type="button" className="btn p-1 me-2"
-                            title="accept"
-                            onClick={() => setEditing(false)}><i className="fas fa-check"></i></button>
-                    <button type="button" className="btn p-1"
-                            title="cancel"
-                            onClick={() => {
-                              setEditing(false);
-                              sentCommentText(comment.comment);
-                            }}>
-                      <i className="fas fa-times"></i></button>
-                  </>
-                }
-              </div>
-            }
+              {/* Comment edit toolbox */}
+              {editing &&
+                <>
+                  <button type="button" className="btn p-1 me-2"
+                          title="accept"
+                          onClick={() => setEditing(false)}><i className="fas fa-check"></i></button>
+                  <button type="button" className="btn p-1"
+                          title="cancel"
+                          onClick={() => {
+                            setEditing(false);
+                            sentCommentText(comment.comment);
+                          }}>
+                    <i className="fas fa-times"></i></button>
+                </>
+              }
+            </div>
           </h6>
 
           {/* Comment edit box */}

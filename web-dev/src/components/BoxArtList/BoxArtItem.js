@@ -15,8 +15,8 @@ const BoxArtItem = (movie, index, isBooked = false) => {
             <div className="row mx-auto">
                 <div className="position-relative">
                     <img src={movie.movieImage}
-                        className={`wd-rounded-border float-start ${dimImage}`}
-                        width="225px" height="125px"
+                        className={`wd-box-art-images wd-rounded-border float-start ${dimImage}`}
+
                         alt={movie.movieTitle}>
                     </img>
                     <div className="position-absolute top-0 end-0 me-4">
