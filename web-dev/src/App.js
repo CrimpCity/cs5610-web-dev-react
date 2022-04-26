@@ -16,6 +16,7 @@ import UserComponent from "./components/RegistrationPage/UserComponent";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider} from "./contexts/auth-context";
 import RootHandler from "./components/RootHandler";
+import UserProfile from "./components/UserProfile";
 
 // import Netflicks from "./components/index.js";
 
@@ -32,6 +33,8 @@ function App() {
                      element={<HomePage />} />
               <Route path="profile"
                      element={<Profile />} />
+              <Route path="profile/:username"
+                     element={<UserProfile />} />
               <Route path="search"
                      element={<SearchScreen />} />
               <Route path="privacy"

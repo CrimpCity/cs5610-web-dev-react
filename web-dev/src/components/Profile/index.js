@@ -14,6 +14,17 @@ const ProfileScreen = () => {
     // const profile = useSelector(state => state.profile);
     // console.log(JSON.stringify(profile))
 
+    /*
+    * Step 1: I extract the username from the links using useSearchParams()
+    * WE only carry on if the extracted result is NOT null.
+    * Step 2: Get the information of current user in the context
+    * const {getUserData} = useAuth();
+    * const currentUser = getUserData();
+    * Step 3: If (extractedUsername != currentUser.username)
+    * Go to profile/:username=extractedUsername
+    * */
+
+
     return (
         <>
             <div className="d-flex bg-color"

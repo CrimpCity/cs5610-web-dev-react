@@ -4,5 +4,6 @@
     "username": "BossPsycho",
     "profilePicture": "/images/reigen.png",
     "email": "Greatest.psychic@SpritisAndSuch.com",
-    "accountType": "Critic"
+    "isCritic": "true",
+    "isAdmin": "true"
 }
