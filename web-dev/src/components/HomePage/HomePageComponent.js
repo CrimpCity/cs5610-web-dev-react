@@ -2,11 +2,11 @@ import { React, useState, useEffect, useCallback } from "react";
 import HomeBannerComponent from "../HomeBanner/HomeBannerComponent.js";
 import NavigationTopBar from "../NavigationTopBar/index.js";
 import BoxArtList from "../BoxArtList/index.js"
-// import * as moviesService from '../../services/movies-service.js';
 import * as bookmarksService from '../../services/bookmarks-service.js';
 import { useAuth } from "../../contexts/auth-context";
-import './home-page.css';
 import GetMovies from "./GetMovies.js"
+import './home-page.css';
+
 
 
 const HomePageComponent = () => {
@@ -15,7 +15,7 @@ const HomePageComponent = () => {
     const [trending, setTrending] = useState([]);
     const [currentUser, setUser] = useState('');
 
-    // A user must be logged in to see the bookmarks screen
+    // A user must be logged in to see the bookmarks panel
     useEffect(() => {
         async function getUserProfile() {
             try {
@@ -27,19 +27,13 @@ const HomePageComponent = () => {
         getUserProfile();
     }, [getUserData]);
 
-
-
-
-
-
+    // Retrieve a random sample of movies from the database only once
     useEffect(() => {
         GetMovies().then(result => setTrending(result));
     }, []);
 
 
     let isBooked = false;
-    console.log("trending");
-    console.log(trending);
     // Get the current logged in user's bookmarks
     const findBookmarks = useCallback(() => {
         if (currentUser && currentUser.userID) {
@@ -56,29 +50,15 @@ const HomePageComponent = () => {
     }, [findBookmarks]);
 
 
-
-    console.log("currentUser");
-    console.log(currentUser);
-    console.log("currentUser.username");
-    console.log(currentUser.username);
-    // console.log("currentUser.id");
-    // console.log(currentUser.userID);
-    // console.log("isBooked");
-    // console.log(isBooked);
-    // console.log("bookmarks");
-    // console.log(bookmarks);
-    // console.log("bookmarked movies");
-    // console.log(bookmarks.map(mark => { return mark.movie; }))
-
-
-
     function RenderBookmarks() {
         if (!currentUser) {
+            // if a user is a guest then tell them to sign up to see bookmarks
             return (
                 <li className="list-group-item fw-bold fs-4">
                     Sign up to see your bookmarked movies here!
                 </li>
             )
+            // if a logged in user has no bookmarks then tell them to add some
         } else if (bookmarks.length === 0) {
             return (
                 <li className="list-group-item fw-bold fs-4">
