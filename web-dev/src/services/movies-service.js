@@ -23,12 +23,7 @@ export const deleteMovie = async (mid) =>
 export const updateMovie = async (mid, movie) =>
     await api.put(`${MOVIES_API}/${mid}`, movie).then(response => response.data);
 
-
 export const getRandomMovies = async (numMovies) => {
-    // console.log(`${MOVIES_API}/random/${numMovies}`);
     console.log(`${MOVIES_API}/random/${numMovies}`);
     return await api.get(`${MOVIES_API}/random/${numMovies}`).then(response => response.data);
-
 }
-
-
