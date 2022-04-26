@@ -74,6 +74,12 @@ const LoginPage = () => {
                         <span className="text-white"> Sign up now. </span>
                       </Link>
                     </div>
+                    <div className="mt-3 mb-3">
+                      <Link to="/homepage" className="login-registration-link text-white-50">
+                        Or
+                        <span className="text-white"> Guest </span> for now.
+                      </Link>
+                    </div>
                   </form>
                 </div>
               </div>
