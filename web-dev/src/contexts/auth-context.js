@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
     return doSignIn({emailOrNumber: emailOrNumber, password: password})
       .then(response => {
         // Store user data if authenticate successfully.
-        setUserData(value);
+        setUserData(response.data);
         return response;
       });
   }
