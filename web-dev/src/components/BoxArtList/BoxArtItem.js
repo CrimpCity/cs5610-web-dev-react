@@ -10,11 +10,11 @@ const BoxArtItem = (movie, index, isBooked = false) => {
         dimImage = "wd-dim-boxart";
     }
 
-   return (
+    return (
         <li className="list-group-item p-0 d-flex " key={index}>
             <div className="mx-auto">
                 <div className="position-relative">
-                    <img src={movie.movieImage}
+                    <img src={movie.moviePoster}
                         className={`wd-box-art-images wd-rounded-border float-start ${dimImage}`}
 
                         alt={movie.movieTitle}>

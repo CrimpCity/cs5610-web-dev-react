@@ -9,19 +9,19 @@ import profile from "../data/profile.json"
 import { Link } from "react-router-dom";
 import "./profile.css"
 import UnauthenticatedLock from "../UnauthenticatedLock";
-import {useAuth} from "../../contexts/auth-context";
+import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
 // import { useSelector } from "react-redux";
 
 const ProfileScreen = () => {
     // const profile = useSelector(state => state.profile);
     // console.log(JSON.stringify(profile))
-    const {signOut} = useAuth();
+    const { signOut } = useAuth();
 
     return (
         <AuthenticationLock>
             <div className="d-flex bg-color"
-                 style={{flexDirection:"column"}}>
+                style={{ flexDirection: "column" }}>
                 <div >
                     <NavigationTopBar />
                 </div>
@@ -31,12 +31,12 @@ const ProfileScreen = () => {
                         {/* Log Out Button */}
                         {/* Need to log user out of their profile via authentication / React Context */}
                         <span className="ms-3">
-                                <button type="button" className="wd-landing-sign-out-button fs-6" onClick={() => void signOut()}>
-                                    Log Out
-                                </button>
+                            <button type="button" className="wd-landing-sign-out-button fs-6" onClick={() => signOut()}>
+                                Log Out
+                            </button>
                         </span>
                     </div>
-                    <ProfileComponent profile={profile}/>
+                    <ProfileComponent profile={profile} />
                 </div>
 
                 <div className="mt-3 wd-pad-siding">
