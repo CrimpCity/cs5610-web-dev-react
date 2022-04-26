@@ -2,8 +2,8 @@
     "firstName": "Reigen",
     "lastName": "Arataka",
     "username": "BossPsycho",
-    "profilePicture": "/images/reigen.png",
-    "email": "Greatest.psychic@SpritisAndSuch.com",
+    "avatarImage": "/images/reigen.png",
+    "emailOrNumber": "Greatest.psychic@SpritisAndSuch.com",
     "isCritic": "true",
     "isAdmin": "true"
 }

@@ -4,11 +4,13 @@ import NavigationTopBar from "../NavigationTopBar/index.js";
 import ProfileComments from "../ProfileComments"
 import profile from "../data/profile.json"
 
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import "../Profile/profile.css"
 
+
 const UserProfile = () => {
-    const otherUser = useLocation().pathname.split(/[/:]+/)[2];
+    const {username} = useParams();
+
     return (
         <>
             <div className="d-flex bg-color"
@@ -18,14 +20,14 @@ const UserProfile = () => {
                 </div>
                 <div className="wd-top-profile wd-pad-siding ">
                     <div className="mb-2">
-                        <span className="fw-bold fs-4">{otherUser}'s Account</span>
+                        <span className="fw-bold fs-4">{username}'s Account</span>
 
                     </div>
                     <UserProfileComponent profile={profile}/>
                 </div>
 
                 <div className="mt-3 wd-pad-siding">
-                    <p className="fw-bold fs-4">{otherUser}'s Comments</p>
+                    <p className="fw-bold fs-4">{username}'s Comments</p>
                     <ProfileComments />
                 </div>
             </div>

@@ -4,22 +4,22 @@ const BASE_URL = "http://localhost:4000";
 const USERS_API = `${BASE_URL}/api/users`;
 
 
-export const findUserBookmarkedMovie = (uid, mid) =>
+export const findUserBookmarkedMovie = async (uid, mid) =>
     await axios.get(`${USERS_API}/${uid}/bookmarks/${mid}`)
         .then(response => response.data);
 
-export const userTogglesBookmark = (uid, mid) =>
+export const userTogglesBookmark = async (uid, mid) =>
     await axios.get(`${USERS_API}/${uid}/bookmarks/toggle/${mid}`)
         .then(response => response.data);
 
-export const deleteAllBookmarksOfMovie = mid =>
+export const deleteAllBookmarksOfMovie = async (mid) =>
     await axios.delete(`${BASE_URL}/api/movie/${mid}/bookmarks`)
         .then(response => response.data);
 
-export const findAllBookmarkedByUser = uid =>
+export const findAllBookmarkedByUser = async (uid) =>
     await axios.get(`${BASE_URL}/api/users/${uid}/bookmarks`)
         .then(response => response.data);
 
-export const userBookmarksMovie = (uid, mid) =>
+export const userBookmarksMovie = async (uid, mid) =>
     await axios.post(`${USERS_API}/${uid}/bookmarks/${mid}`)
         .then(response => response.data);

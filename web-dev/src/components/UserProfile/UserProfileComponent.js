@@ -12,18 +12,18 @@ const UserProfileComponent = (profile) => {
                     <div className="mt-1 ms-4 d-flex" style={{flexDirection:"column"}}>
                         <div className="m-0 fw-bold fs-5">
                             {profile.profile.firstName} {profile.profile.lastName} </div>
-                        <div className="m-0 mb-2 wd-profile-component-subtext">{profile.profile.username}</div>
+                        {/*<div className="m-0 mb-2 wd-profile-component-subtext">{profile.profile.username}</div>*/}
                         <div className="d-flex">
                             { profile.profile.isCritic &&
                                 <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
                                     Critic
                                 </div>
                             }
-                            { profile.profile.isAdmin &&
-                                <div className="badge bg-primary ms-3 rounded-pill wd-profile-component-usertype">
-                                    Admin
-                                </div>
-                            }
+                            {/*{ profile.profile.isAdmin &&*/}
+                            {/*    <div className="badge bg-primary ms-3 rounded-pill wd-profile-component-usertype">*/}
+                            {/*        Admin*/}
+                            {/*    </div>*/}
+                            {/*}*/}
                         </div>
                     </div>
                 </div>
