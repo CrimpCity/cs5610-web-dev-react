@@ -10,9 +10,9 @@ const BoxArtItem = (movie, index, isBooked = false) => {
         dimImage = "wd-dim-boxart";
     }
 
-    const formatted = (
-        <li className="list-group-item p-0" key={index}>
-            <div className="row mx-auto">
+   return (
+        <li className="list-group-item p-0 d-flex " key={index}>
+            <div className="mx-auto">
                 <div className="position-relative">
                     <img src={movie.movieImage}
                         className={`wd-box-art-images wd-rounded-border float-start ${dimImage}`}
@@ -29,9 +29,7 @@ const BoxArtItem = (movie, index, isBooked = false) => {
                 </div>
             </div>
         </li>
-    )
-
-    return formatted
+    );
 }
 
 export default BoxArtItem;
