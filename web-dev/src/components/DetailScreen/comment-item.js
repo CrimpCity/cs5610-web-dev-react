@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {useAuth} from "../../contexts/auth-context";
 import {deleteCommentById, updateCommentById} from "../../services/comment-service";
 import {useComments} from "./comment-section";
+import "./detail-screen.css";
 
 const CommentItem = ({comment = {}}) => {
 
@@ -102,7 +103,7 @@ const CommentItem = ({comment = {}}) => {
           </h6>
 
           {/* Comment edit box */}
-          {editing && <textarea className="form-control"
+          {editing && <textarea className="form-control comment-resize-none"
                                 rows={3} value={commentText}
                                 placeholder="Add a comment..."
                                 onChange={event => setCommentText(event.target.value)} required></textarea>}
