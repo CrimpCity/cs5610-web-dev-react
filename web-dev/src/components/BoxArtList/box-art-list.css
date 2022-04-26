@@ -23,12 +23,11 @@
 
 .wd-box-art-images {
     width: 225px;
-    height: 125px;
+    height: 150px;
 }
 
-@media (max-width: 1000px) {
-    .wd-box-art-images {
-        width: 175px;
-        height: 90px;
-    }
+.wd-box-art-frame {
+    display: flex;
+    border: none;
 }
+
