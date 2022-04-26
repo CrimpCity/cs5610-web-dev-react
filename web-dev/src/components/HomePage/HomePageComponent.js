@@ -72,6 +72,18 @@ const HomePageComponent = () => {
             // as already bookmarked & dimmed out 
 
             isBooked = true;
+            const moviePlaceholder = {
+                movie: {
+                    movieTitle: "N/A",
+                    imdbID: "N/A",
+                    moviePoster: "/images/movie_placeholder.png",
+                    movieDescription: "N/A"
+                }
+            }
+            const numMissing = Math.max(6 - bookmarks.length, 0);
+            for (let i = 0; i < numMissing; i++) {
+                bookmarks.push(moviePlaceholder);
+            }
 
             const renderBookmarks = (
                 <div className="pb-3">
@@ -83,8 +95,8 @@ const HomePageComponent = () => {
             return renderBookmarks
         };
     };
-
-
+    console.log("bookmarks");
+    console.log(bookmarks);
     const formatted = (
         <>
             <div className="row bg-color">
