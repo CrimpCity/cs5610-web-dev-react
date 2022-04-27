@@ -1,18 +1,15 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import UserDetails from "./UserDetails.js";
-import Users from "../../components/data/Users.json";
 
 
-const UsersList = () => {
+const UsersList = ({users}) => {
     return (
         <>
-            <ul className="list-group">
                 {
-                    Users.map((user, index) => {
+                    users.map((user, index) => {
                         return (UserDetails(user, index));
                     })
                 }
-            </ul>
         </>
     );
 

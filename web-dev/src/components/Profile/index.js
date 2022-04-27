@@ -4,16 +4,13 @@ import NavigationTopBar from "../NavigationTopBar/index.js";
 import WatchedList from "../WatchedList/index.js"
 import ProfileComments from "../ProfileComments/index.js"
 import "./profile.css"
-import UnauthenticatedLock from "../UnauthenticatedLock";
 import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
-import {useComments} from "../DetailScreen/comment-section";
-// import { useSelector } from "react-redux";
+import AdminSection from "../AdminSection";
 
 const ProfileScreen = () => {
     const {signOut, getUserData} = useAuth();
     const currentUser = getUserData();
-
 
     return (
         <AuthenticationLock>
@@ -47,6 +44,13 @@ const ProfileScreen = () => {
                     <p className="fw-bold fs-4">My Comments</p>
                     <ProfileComments />
                 </div>
+
+                {currentUser.isAdmin &&
+                    <div className="mt-3 wd-pad-siding">
+                        <p className="fw-bold fs-4">Users List</p>
+                        <AdminSection />
+                    </div>
+                }
             </div>
 
             <div className="wd-add-height-to-scroll"></div>
