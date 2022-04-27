@@ -15,9 +15,9 @@ const EditProfile = () => {
     const {getUserData} = useAuth();
     const currentUser = getUserData();
     //Set States to monitor profile changes
-    const [imageChoice, setImageChoice] = useState('001');
-    const [newFirstName, setFirstName] = useState(profile.firstName);
-    const [newLastName, setLastName] = useState(profile.lastName);
+    const [imageChoice, setImageChoice] = useState(currentUser.profile.avatarImage);
+    const [newFirstName, setFirstName] = useState(currentUser.profile.firstName);
+    const [newLastName, setLastName] = useState(currentUser.profile.lastName);
     //Load Navigate to handle cancel/save buttons
     const navigate = useNavigate();
 
@@ -117,7 +117,7 @@ const EditProfile = () => {
                                         {/*        </button>*/}
                                         {/*    </Link>*/}
                                         {/*</div>*/}
-                                        {imageChoice == avatar._id &&
+                                        {imageChoice === avatar['image-link'] &&
                                             <div className="ps-3 pe-3 form-check avatar-select-button-frame">
                                                 <input
                                                        type="radio"
@@ -125,12 +125,13 @@ const EditProfile = () => {
                                                        id="flexRadioDefault2" defaultChecked/>
                                             </div>
                                         }
-                                        {imageChoice != avatar._id &&
+                                        {imageChoice !== avatar['image-link'] &&
                                             <div className="ps-3 pe-3 form-check avatar-select-button-frame">
                                                 <input
                                                        type="radio"
                                                        id="flexRadioDefault2"
                                                        name="avatarImage"
+                                                       onClick = {() => setImageChoice(avatar['image-link'])}
                                               />
                                             </div>
                                         }
