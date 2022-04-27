@@ -75,10 +75,14 @@ const UserDetails = (user, index) => {
                             <div className="d-flex admin-edit-frame edit-mode">
                                 <button type="button" className="btn p-1 me-2 admin-change-button"
                                         title="save"
-                                        onClick={() =>
-                                            editType(false)
+                                        onClick={() => {
+                                            editType(false);
+                                            const updatedUser = {...user,
+                                                                    isCritic : critic,
+                                                                    isAdmin : admin };
+                                            usersService.updateUser(user.userID, updatedUser);
                                             // DO ALL THE DISPATCH HERE TO SEND TO THE USERS DATABASE.
-                                }>
+                                }}>
                                     <i className="fas fa-check"></i>
                                 </button>
                                 <button type="button" className="btn p-1 admin-cancel-button"
