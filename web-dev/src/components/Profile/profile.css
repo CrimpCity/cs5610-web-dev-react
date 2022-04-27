@@ -16,9 +16,10 @@
     padding-right: 50px;
 }
 
-.wd-profile-my-account-line {
-    min-width: 400px;
 
+.wd-profile-title {
+    min-width: 400px;
+    position: relative;
 }
 
 .wd-landing-sign-out-button {
@@ -29,8 +30,8 @@
     float: right;
     border-radius: 5px;
     border: none;
-    /* margin-top: 20px; */
-    margin-right: 0;
+    position: absolute;
+    right: 10px;
 }
 
 .wd-profile-avatar {
@@ -43,9 +44,193 @@
     min-width: 55px;
 }
 
+.wd-profile-edit-button {
+    height: 34px;
+    width: 85px;
+    background-color: #e50914;
+    color: #fff;
+    float: right;
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    right: 10px;
+
+}
+
+.avatar-background {
+    background-position: center;
+    background-color: transparent;
+    color: #fff;
+    height: 100vh;
+    overflow: auto;
+    min-height: 1000px;
+}
+
+.avatar-bring-it-forward {
+    background-color: rgba(0, 0, 0, .6);
+    height: 100vh;
+    overflow: auto;
+    min-height: 1000px;
+
+}
+
+.avatar-save-button {
+    height: 50px;
+    width: 90px;
+    background-color: #e50914;
+    color: #fff;
+    float: right;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    margin-right: 60px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.avatar-cancel-button {
+    height: 50px;
+    width: 90px;
+    background-color: #e50914;
+    color: #fff;
+    float: right;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+.avatar-frame {
+    z-index: 100;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-list-frame {
+    z-index: 100;
+    max-width: 90%;
+    background-color: rgba(0,0,0,.75);
+    color: #fff;
+    line-height: 1.2;
+    min-height: 800px;
+}
+
+.avatar-list-title {
+    width: 100%;
+    color: #fff;
+    font-size: 57px;
+    margin: 0.2em 0;
+}
+
+.avatar-images-frame {
+    margin-top: 0.5rem;
+    max-width: 15rem;
+    max-height: 15rem;
+    background-color: transparent;
+    border: none;
+}
+
+.avatar-title {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.avatar-single-image-frame {
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+    min-width: 90px;
+    min-height: 90px;
+    margin-top: 2rem;
+}
+
+.avatar-select-button-frame {
+    text-align: center;
+    /*border: 3px solid green;*/
+}
+
+.avatar-select-button {
+    /*height: 34px;*/
+    /*width: 70px;*/
+    /*background-color: #e50914;*/
+    /*color: #fff;*/
+    /*border-radius: 5px;*/
+    /*border: none;*/
+    /*margin-top: 20px;*/
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 1.5em;
+}
+
+
 @media (max-width: 749px) {
     .wd-profile-component-subtext {
         font-size: 16px;
         word-break: break-word;
     }
+    .avatar-title {
+        font-size: 20px;
+    }
+    .avatar-direction {
+        flex-direction: column;
+    }
+    .avatar-list-frame {
+        min-height: 620px;
+    }
+    .avatar-images-frame {
+        margin-top: 0;
+        max-width: 100%;
+        display: flex;
+    }
+    .avatar-single-image-frame {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .avatar-title {
+        text-align: left;
+        min-width: 10rem;
+        padding-top: 7%;
+    }
+    .avatar-select-button-frame {
+        padding-top: 5%;
+        width: 100%;
+
+    }
+    .avatar-select-button-frame{
+        margin-top: 25px;
+    }
+}
+
+.edit-user-input {
+    border-radius: 4px;
+    border: 0;
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    box-shadow: none;
+    font-size: 15px;
+    display: block;
+    appearance: none;
+    align-items: center;
+    background-color: transparent;
+    padding-left: 20px;
+}
+
+.edit-user-frame {
+    padding-bottom: 16px;
+    max-width: 50%;
+    position: relative;
 }
