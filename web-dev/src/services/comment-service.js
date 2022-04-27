@@ -42,3 +42,12 @@ export const deleteCommentById = (commentId) =>
  */
 export const updateCommentById = (commentId, updatedComment) =>
   api.put(`${BASE_URL}/comments/${commentId}`, {comment: updatedComment}, {timeout: 15000});
+
+/**
+ * Return all comments made by a particular user
+ *
+ * @param userId
+ * @returns array of comments
+ */
+export const findAllCommentsByUser = (userId) =>
+    api.get(`${BASE_URL}/comments/${userId}`, {timeout: 15000});
