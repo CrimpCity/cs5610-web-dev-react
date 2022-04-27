@@ -9,10 +9,17 @@ import AuthenticationLock from "../AuthenticationLock";
 
 const EditProfile = () => {
     const [imageChoice, setImageChoice] = useState('001');
+    const [newFirstName, setFirstName] = useState(profile.firstName);
+    const [newLastName, setLastName] = useState(profile.lastName);
     const navigate = useNavigate();
     function handleCancel() {
         navigate('/profile/')
     }
+
+    function handleSave() {
+
+    }
+
     return (
         <AuthenticationLock>
             <div>
@@ -20,7 +27,17 @@ const EditProfile = () => {
                      style={{backgroundImage: `url(${LoginBackground})`}}>
                     <div className="avatar-bring-it-forward">
                         <img className="login-logo-size" src={require('../LoginPage/netflicks-logo.png')} alt="Logo"/>
-                        <button className="avatar-save-button ">
+                        <button className="avatar-save-button "
+                                onClick ={() =>
+                                    updateProfile(profile._id,
+                                        {...currentUser,
+                                            firstName: newFirstName,
+                                            lastName: newLastName,
+                                            avatarImage: imageChoice})
+                                    navigate(-1);
+                                    alert('Your Profile was Updated!')
+                                }
+                                >
                             SAVE
                         </button>
                         <button className="avatar-cancel-button" onClick={handleCancel}>
@@ -46,6 +63,8 @@ const EditProfile = () => {
                                                className="edit-user-input text-white"
                                                id="signup-first-name"
                                                placeholder="Change First name"
+                                               onChange = {(event) =>
+                                                   setFirstName(event.target.value)}
                                                required
                                         />
                                     </div>
@@ -64,6 +83,8 @@ const EditProfile = () => {
                                                className="edit-user-input text-white"
                                                id="signup-last-name"
                                                placeholder="Change Last name"
+                                               onChange = {(event) =>
+                                                   setLastName(event.target.value)}
                                         />
                                     </div>
                                 </div>
