@@ -34,8 +34,7 @@ const WatchedList = () => {
 
     return (
         <>
-            <ul className="list-group">
-                {/* <Watched movieList={bookmarks.map(mark => { return mark.movie; })} /> */}
+            <ul className="list-group" style={{minWidth:"400px"}}>
                 <RenderBookmarks />
             </ul>
         </>
