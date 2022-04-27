@@ -48,7 +48,7 @@ function App() {
                      element={<LoginPage />} />
               <Route path="registration"
                      element={<RegistrationPage />} />
-              <Route path="profile/edit"
+              <Route path="registration/edit"
                      element={<EditProfile />} />
             </Route>
           </Routes>
