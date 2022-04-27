@@ -88,8 +88,6 @@ const HomePageComponent = () => {
             }
             // bookmarks should be at least 6 movies including fillers
             const bookmarksCount = Math.min(bookmarks.length, 6);
-            console.log("bookmarksCount");
-            console.log(bookmarksCount, bookmarks.slice(0, bookmarksCount).length);
             const renderBookmarks = (
                 <div className="pb-3">
                     <ul className="list-group wd-trending-bg-color px-3">
@@ -103,8 +101,7 @@ const HomePageComponent = () => {
             return renderBookmarks
         };
     };
-    console.log("bookmarks");
-    console.log(bookmarks);
+
     const formatted = (
         <>
             <div className="row bg-color">

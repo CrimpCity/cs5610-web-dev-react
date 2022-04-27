@@ -12,7 +12,7 @@ const api = axios.create({
  * @returns
  */
 export const getCommentsForTitle = titleId =>
-  api.get(`${BASE_URL}/titles/${titleId}/comments`, {timeout: 15000});
+  api.get(`${BASE_URL}/titles/${titleId}/comments`, { timeout: 15000 });
 
 /**
  * Create a new comment for title with the argument title ID
@@ -22,7 +22,7 @@ export const getCommentsForTitle = titleId =>
  * @returns
  */
 export const createNewCommentForTitle = (titleId, comment) =>
-  api.post(`${BASE_URL}/titles/${titleId}/comments`, {comment: comment}, {timeout: 15000});
+  api.post(`${BASE_URL}/titles/${titleId}/comments`, { comment: comment }, { timeout: 15000 });
 
 /**
  * Delete specified comment using comment ID.
@@ -31,7 +31,7 @@ export const createNewCommentForTitle = (titleId, comment) =>
  * @returns
  */
 export const deleteCommentById = (commentId) =>
-  api.delete(`${BASE_URL}/comments/${commentId}`, {timeout: 15000});
+  api.delete(`${BASE_URL}/comments/${commentId}`, { timeout: 15000 });
 
 /**
  * Update specified comment using comment ID.
@@ -41,4 +41,12 @@ export const deleteCommentById = (commentId) =>
  * @returns
  */
 export const updateCommentById = (commentId, updatedComment) =>
-  api.put(`${BASE_URL}/comments/${commentId}`, {comment: updatedComment}, {timeout: 15000});
+  api.put(`${BASE_URL}/comments/${commentId}`, { comment: updatedComment }, { timeout: 15000 });
+
+/**
+ * Retrieve all of a user's comments given their userID
+ * @param  {string} uid
+ */
+export const findAllCommentsByUser = async (uid) =>
+  await api.get(`${BASE_URL}/users/${uid}/comments`, { timeout: 15000 })
+    .then(response => response.data);
