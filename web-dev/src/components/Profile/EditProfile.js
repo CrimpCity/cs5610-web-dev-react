@@ -7,6 +7,8 @@ import LoginBackground from "../LoginPage/login-background.jpg";
 import avatarList from "../data/avatars.json";
 import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
+import profile from "./index";
+import * as userServices from "../../services/users-service";
 
 const EditProfile = () => {
     //Get Current User whose profile is being editted
@@ -18,12 +20,9 @@ const EditProfile = () => {
     const [newLastName, setLastName] = useState(profile.lastName);
     //Load Navigate to handle cancel/save buttons
     const navigate = useNavigate();
+
     function handleCancel() {
         navigate('/profile/')
-    }
-
-    function handleSave() {
-
     }
 
     return (
@@ -34,15 +33,15 @@ const EditProfile = () => {
                     <div className="avatar-bring-it-forward">
                         <img className="login-logo-size" src={require('../LoginPage/netflicks-logo.png')} alt="Logo"/>
                         <button className="avatar-save-button "
-                                onClick ={() =>
-                                    updateProfile(profile._id,
-                                        {...currentUser,
-                                            firstName: newFirstName,
-                                            lastName: newLastName,
-                                            avatarImage: imageChoice});
+                                onClick ={() => {
+                                    const updatedUser = {...currentUser,
+                                                            firstName: newFirstName,
+                                                            lastname: newLastName,
+                                                            avatageImage: imageChoice};
+                                    userServices.updateUser(profile._id, updatedUser);
                                     navigate(-1);
                                     alert('Your Profile was Updated!')
-                                }/>
+                                }}>
                             SAVE
                         </button>
                         <button className="avatar-cancel-button" onClick={handleCancel}>
