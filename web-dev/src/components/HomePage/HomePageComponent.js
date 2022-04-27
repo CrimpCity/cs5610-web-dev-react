@@ -91,7 +91,7 @@ const HomePageComponent = () => {
             const renderBookmarks = (
                 <div className="pb-3">
                     <ul className="list-group wd-trending-bg-color px-3">
-                        <li className="list-group-item fw-bold fs-4">{currentUser.username}'s List (saved bookmarks)</li>
+                        <li className="list-group-item fw-bold fs-4">{currentUser.username}'s Bookmarked Movies</li>
                     </ul>
                     <BoxArtList
                         movies={bookmarks.slice(0, bookmarksCount).map(mark => { return mark.movie; })}
@@ -119,11 +119,8 @@ const HomePageComponent = () => {
                 </ul>
                 <BoxArtList movies={trending} className="px-5" />
             </div>
-
             <RenderBookmarks />
-
-            <div className="wd-add-height-to-scroll">
-            </div>
+            <div className="p-5"></div>
         </>
 
     )
