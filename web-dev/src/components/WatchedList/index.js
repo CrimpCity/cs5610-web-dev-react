@@ -21,10 +21,22 @@ const WatchedList = () => {
     }, []);
 
 
+    function RenderBookmarks() {
+        if (bookmarks.length === 0) {
+            return (
+                <li className="list-group-item fw-bold fs-4">
+                    Bookmark movies to see them here!
+                </li>
+            )
+        } else { return <Watched movieList={bookmarks.map(mark => { return mark.movie; })} /> }
+    }
+
+
     return (
         <>
             <ul className="list-group">
-                <Watched movieList={bookmarks.map(mark => { return mark.movie; })} />
+                {/* <Watched movieList={bookmarks.map(mark => { return mark.movie; })} /> */}
+                <RenderBookmarks />
             </ul>
         </>
     );
