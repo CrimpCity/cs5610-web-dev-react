@@ -7,7 +7,7 @@ import LoginBackground from "../LoginPage/login-background.jpg";
 import avatarList from "../data/avatars.json";
 import AuthenticationLock from "../AuthenticationLock";
 
-const UserComponent = () => {
+const EditProfile = () => {
     const [imageChoice, setImageChoice] = useState('001');
     const navigate = useNavigate();
     function handleCancel() {
@@ -122,4 +122,4 @@ const UserComponent = () => {
     )
 };
 
-export default UserComponent;
+export default EditProfile;

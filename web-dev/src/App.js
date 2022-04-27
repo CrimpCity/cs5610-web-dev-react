@@ -12,7 +12,7 @@ import DetailScreen from "./components/DetailScreen";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
-import UserComponent from "./components/Profile/UserComponent";
+import EditProfile from "./components/Profile/EditProfile";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider} from "./contexts/auth-context";
 import RootHandler from "./components/RootHandler";
@@ -48,7 +48,7 @@ function App() {
               <Route path="registration"
                      element={<RegistrationPage />} />
               <Route path="profile/edit"
-                     element={<UserComponent />} />
+                     element={<EditProfile />} />
             </Route>
           </Routes>
         </div>
