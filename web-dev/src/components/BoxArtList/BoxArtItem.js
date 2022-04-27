@@ -1,9 +1,11 @@
 import { React, useState } from "react";
-
+import toggleBookmark from "../../actions/bookmark-actions.js"
 
 
 const BoxArtItem = (movie, index, isBooked = false) => {
     const [isWatched, setIsWatched] = useState(isBooked);
+    const { getUserData } = useAuth();
+    const currentUser = getUserData();
 
     let dimImage = "";
     if (isWatched) {
@@ -13,9 +15,8 @@ const BoxArtItem = (movie, index, isBooked = false) => {
     // if yes then no add/remove
     // if no then add/remove to bookmark list
 
-    function RenderBookmarkButton(movie) {
-        console.log(movie.movie.imdbID)
-        if (movie.movie.imdbID === "N/A") {
+    function RenderBookmarkButton({movie}) {
+        if (movie.imdbID === "N/A") {
             // this is a placeholder image so don't render the bookmark icon button
             return "";
         }
@@ -24,7 +25,10 @@ const BoxArtItem = (movie, index, isBooked = false) => {
             // add link to details page here
             // add bookmark toggle here for event
             return (
-                <span onClick={() => setIsWatched(!isWatched)}
+                <span onClick={() => {
+                    toggleBookmark(currentUser.userID, movie._id);
+                    setIsWatched(!isWatched);
+                }}
                     className="wd-icon-color-not-watched">
                     {isWatched ? <i className="fas fa-bookmark"></i>
                         : <i className="far fa-bookmark"></i>}
