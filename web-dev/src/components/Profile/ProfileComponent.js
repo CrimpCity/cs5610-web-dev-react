@@ -10,6 +10,7 @@ const ProfileComponent = ({profile}) => {
     function handleEdit() {
         navigate('/profile/edit')
     }
+
     return (
         <>
             <li className="list-group-item" style={{minWidth:"400px"}}>

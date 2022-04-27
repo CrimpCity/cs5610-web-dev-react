@@ -15,9 +15,9 @@ const EditProfile = () => {
     const {getUserData} = useAuth();
     const currentUser = getUserData();
     //Set States to monitor profile changes
-    const [imageChoice, setImageChoice] = useState(currentUser.profile.avatarImage);
-    const [newFirstName, setFirstName] = useState(currentUser.profile.firstName);
-    const [newLastName, setLastName] = useState(currentUser.profile.lastName);
+    const [imageChoice, setImageChoice] = useState(currentUser.avatarImage);
+    const [newFirstName, setFirstName] = useState(currentUser.firstName);
+    const [newLastName, setLastName] = useState(currentUser.lastName);
     //Load Navigate to handle cancel/save buttons
     const navigate = useNavigate();
 
@@ -36,10 +36,11 @@ const EditProfile = () => {
                                 onClick ={() => {
                                     const updatedUser = {...currentUser,
                                                             firstName: newFirstName,
-                                                            lastname: newLastName,
-                                                            avatageImage: imageChoice};
-                                    userServices.updateUser(profile._id, updatedUser);
-                                    navigate(-1);
+                                                            lastName: newLastName,
+                                                            avatarImage: imageChoice};
+                                    console.log(updatedUser);
+                                    userServices.updateUser(currentUser.userID, updatedUser);
+                                    navigate('/profile/');
                                     alert('Your Profile was Updated!')
                                 }}>
                             SAVE
@@ -117,12 +118,13 @@ const EditProfile = () => {
                                         {/*        </button>*/}
                                         {/*    </Link>*/}
                                         {/*</div>*/}
-                                        {imageChoice === avatar['image-link'] &&
+                                        {{imageChoice} === avatar['image-link'] &&
                                             <div className="ps-3 pe-3 form-check avatar-select-button-frame">
                                                 <input
                                                        type="radio"
                                                        name="avatarImage"
-                                                       id="flexRadioDefault2" defaultChecked/>
+                                                       id="flexRadioDefault2"
+                                                       checked/>
                                             </div>
                                         }
                                         {imageChoice !== avatar['image-link'] &&
