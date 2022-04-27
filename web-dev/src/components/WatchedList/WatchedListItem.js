@@ -4,6 +4,10 @@ import { React, useState } from "react";
 
 const WatchedListItem = (movie, index) => {
     const [isWatched, setIsWatched] = useState(true);
+    let dimImage = "";
+    if (isWatched) {
+        dimImage = "wd-dim-poster";
+    }
 
     const formatted = (
         <li className="list-group-item" style={{ minWidth: "400px" }} key={index}>
@@ -12,7 +16,7 @@ const WatchedListItem = (movie, index) => {
                     <div className="mt-1 pe-0 me-3">
                         <div className="position-relative">
                             <img src={movie.moviePoster}
-                                className="mt-1 float-start wd-watchlist-image"
+                                className={`mt-1 float-start wd-watchlist-image ${dimImage}`}
                                 alt={movie.movieTitle}></img>
                             <div className="position-absolute top-0 wd-icon-position me-4">
                                 <span onClick={() => setIsWatched(!isWatched)} className="wd-icon-color-not-watched">

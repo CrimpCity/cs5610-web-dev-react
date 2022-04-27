@@ -3,26 +3,42 @@ import { React, useState } from "react";
 
 
 const CommentListItem = (comment, index) => {
-    // Need to pull a user's own comments using API
-
     let [editing, setEditing] = useState(false);
-    const [commentText, sentCommentText] = useState(comment.body);
+    const [commentText, sentCommentText] = useState(comment.comment);
+    const timestamp = new Intl.DateTimeFormat(undefined, {
+        dateStyle: 'short',
+        timeStyle: 'short'
+    }).format(new Date(comment.postedOn));
+
+
 
     const formatted = (
-        <div className="list-group-item " style={{minWidth:"400px"}} key={index}>
+        <div className="list-group-item " style={{ minWidth: "400px" }} key={index}>
             <div className="row">
                 <div className="col-auto">
-                    <img className="comment-avatar-icon" src={comment.avatar} alt={comment.username} />
+                    <img className="comment-avatar-icon" src={comment.postedBy.avatarImage} alt={comment.postedBy.username} />
                 </div>
 
                 <div className="col">
                     <h6 className="fw-bold row">
                         <div className="col d-flex align-items-center">
                             <span className="text-decoration-none text-white fs-5">
-                                {comment.username}
-                                {<span className="badge bg-primary ms-2 rounded-pill">{comment.accountType}</span>}
+                                {comment.postedBy.username}
+                                {/* I don't know if we need to show the user type tags. */}
+                                <div className="d-flex">
+                                    {comment.postedBy.isCritic &&
+                                        <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
+                                            Critic
+                                        </div>
+                                    }
+                                    {comment.postedBy.isAdmin &&
+                                        <div className="badge bg-primary ms-3 rounded-pill wd-profile-component-usertype">
+                                            Admin
+                                        </div>
+                                    }
+                                </div>
                             </span>
-                            <span className="text-dark fw-light ms-2">· {comment.postedOn}</span>
+                            <span className="text-dark fw-light ms-2">· {timestamp}</span>
                         </div>
 
                         {/* Allow edit/delete to current user's comments */}
@@ -52,7 +68,7 @@ const CommentListItem = (comment, index) => {
                                         onClick={
                                             () => {
                                                 setEditing(false);
-                                                sentCommentText(comment.body);
+                                                sentCommentText(comment.comment);
                                             }
                                         }>
                                         <i className="fas fa-times"></i>
@@ -69,14 +85,13 @@ const CommentListItem = (comment, index) => {
                         onChange={event => sentCommentText(event.target.value)} required></textarea>}
 
                     {/* Movie Title */}
-                    <p className="text-white fs-5 pt-1">{comment.movieTitle}</p>
+                    <p className="text-white fs-5 pt-1">{comment.movie.movieTitle}</p>
                     {/* Comment text */}
                     {!editing && <p>{commentText}</p>}
                 </div>
             </div>
         </div>
     )
-
 
 
     return formatted
