@@ -30,6 +30,9 @@ export const findUserByCredentials = (credentials) =>
 export const findUserByUsername = (username) =>
     api.get(`${USERS_API}/${username}/comments`).then(response => response.data);
 
+export const updateUser = (userId, newUserInfo) =>
+    api.put(`${USERS_API}/${userId}`, newUserInfo).then(response => response.data);
+
 const service = {
   findAllUsers
 }
