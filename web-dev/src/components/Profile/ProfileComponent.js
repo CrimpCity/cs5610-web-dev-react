@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 
 const ProfileComponent = ({profile}) => {
+    const dateJoined = profile.dateJoined.split('-')[0]
     const [edit, setEdit] = useState(false);
     let navigate = useNavigate();
     function handleEdit() {
@@ -22,7 +23,13 @@ const ProfileComponent = ({profile}) => {
                             {profile.firstName} {profile.lastName} </div>
                         <div className="m-0 wd-profile-component-subtext">{profile.username}</div>
                         <div className="m-0 pb-1 wd-profile-component-subtext">{profile.emailOrNumber}</div>
-                        <div className="d-flex">
+                        <div className="mb-2">
+                            <div className="badge bg-primary m-0 me-2 rounded-pill wd-profile-component-usertype">
+                                Member
+                            </div>
+                        <span> since {dateJoined} </span>
+                        </div>
+                        <div className="mt-1 d-flex">
                             { profile.isCritic &&
                                 <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
                                     Critic
