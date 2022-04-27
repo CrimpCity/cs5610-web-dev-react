@@ -11,22 +11,8 @@ import {useComments} from "../DetailScreen/comment-section";
 // import { useSelector } from "react-redux";
 
 const ProfileScreen = () => {
-    // const profile = useSelector(state => state.profile);
-    // console.log(JSON.stringify(profile))
     const {signOut, getUserData} = useAuth();
-    // const {getUserData} = useAuth();
     const currentUser = getUserData();
-    console.log(currentUser);
-    /*
-    * Step 1: I extract the username from the links using useSearchParams()
-    * WE only carry on if the extracted result is NOT null.
-    * Step 2: Get the information of current user in the context
-    * const {getUserData} = useAuth();
-    * const currentUser = getUserData();
-    * Step 3: If (extractedUsername != currentUser.username)
-    * Go to profile/:username=extractedUsername
-    * */
-
 
     return (
         <AuthenticationLock>
@@ -36,14 +22,16 @@ const ProfileScreen = () => {
                     <NavigationTopBar />
                 </div>
                 <div className="wd-top-profile wd-pad-siding ">
-                    <div className="mb-2">
-                        <span className="fw-bold fs-4">My Account</span>
+                    <div className="d-flex wd-profile-title">
+                        <div className="mb-2">
+                            <span className="fw-bold fs-4">My Account</span>
+                        </div>
                         {/* Log Out Button */}
-                        <span className="ms-3">
-                            <button type="button" className="wd-landing-sign-out-button fs-6" onClick={() => signOut()}>
-                                Log Out
-                            </button>
-                        </span>
+                        <button type="button" className="wd-landing-sign-out-button fs-6"
+                                onClick={() => signOut()}>
+                            Log Out
+                        </button>
+
                     </div>
                     <ProfileComponent profile={currentUser}/>
                 </div>
