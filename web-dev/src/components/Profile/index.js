@@ -14,6 +14,7 @@ const ProfileScreen = () => {
     const {signOut, getUserData} = useAuth();
     const currentUser = getUserData();
 
+
     return (
         <AuthenticationLock>
             <div className="d-flex bg-color"
@@ -21,6 +22,7 @@ const ProfileScreen = () => {
                 <div >
                     <NavigationTopBar />
                 </div>
+
                 <div className="wd-top-profile wd-pad-siding ">
                     <div className="d-flex wd-profile-title">
                         <div className="mb-2">

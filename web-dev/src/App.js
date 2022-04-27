@@ -15,8 +15,10 @@ import RegistrationPage from "./components/RegistrationPage";
 import EditProfile from "./components/Profile/EditProfile";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider} from "./contexts/auth-context";
+import AdminPage from "./components/AdminPage";
 import RootHandler from "./components/RootHandler";
 import UserProfile from "./components/UserProfile";
+
 
 // import Netflicks from "./components/index.js";
 
@@ -47,6 +49,8 @@ function App() {
                      element={<LoginPage />} />
               <Route path="registration"
                      element={<RegistrationPage />} />
+              <Route path="admin"
+                     element={<AdminPage />} />
               <Route path="profile/edit"
                      element={<EditProfile />} />
             </Route>

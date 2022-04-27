@@ -5,7 +5,8 @@
     "username": "SmileyKid",
     "profilePicture": "../images/default_avatars/smiley.png",
     "email": "Greatest.psychic@SpritisAndSuch.com",
-    "accountType": "Critic"
+    "isCritic": true,
+    "isAdmin": false
   },
   {
     "firstName": "Kevin",
@@ -13,7 +14,8 @@
     "username": "BabyBoss",
     "profilePicture": "../images/default_avatars/boss-baby.png",
     "email": "Greatest.psychic@SpritisAndSuch.com",
-    "accountType": "Admin"
+    "isCritic": true,
+    "isAdmin": true
   },
   {
     "firstName": "Nick",
@@ -21,7 +23,8 @@
     "username": "Little Pony",
     "profilePicture": "../images/default_avatars/little-pony.png",
     "email": "Greatest.psychic@SpritisAndSuch.com",
-    "accountType": "Admin"
+    "isCritic": true,
+    "isAdmin": false
   },
   {
     "firstName": "Robin",
@@ -29,7 +32,8 @@
     "username": "ShaunSheep",
     "profilePicture": "../images/default_avatars/shaun-the-sheep.png",
     "email": "Greatest.psychic@SpritisAndSuch.com",
-    "accountType": "Critic"
+    "isCritic": false,
+    "isAdmin": true
   },
   {
     "firstName": "David",
@@ -37,6 +41,7 @@
     "username": "SquidGame",
     "profilePicture": "../images/default_avatars/squid-game.png",
     "email": "Greatest.psychic@SpritisAndSuch.com",
-    "accountType": "Admin"
+    "isCritic": false,
+    "isAdmin": false
   }
 ]
