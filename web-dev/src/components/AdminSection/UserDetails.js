@@ -1,5 +1,6 @@
 import "./admin.css"
 import React, {useState} from "react";
+import * as usersService from "../../services/users-service";
 
 const UserDetails = (user, index) => {
     const [type, editType] = useState(false);
@@ -114,7 +115,10 @@ const UserDetails = (user, index) => {
                     </div>
 
                     <button className="btn btn-submit btn-small admin-remove-button"
-                        // onClick={}
+                         onClick={() => {
+                             usersService.deleteUsersByUsername(user.username);
+                             alert('User has been deleted!');
+                         }}
                     > Remove
                     </button>
 
