@@ -15,7 +15,7 @@ const ProfileScreen = () => {
     return (
         <AuthenticationLock>
             <div className="d-flex bg-color"
-                style={{ flexDirection: "column" }}>
+                 style={{ flexDirection: "column" }}>
                 <div >
                     <NavigationTopBar />
                 </div>
@@ -32,7 +32,7 @@ const ProfileScreen = () => {
                         </button>
 
                     </div>
-                    <ProfileComponent profile={currentUser}/>
+                    <ProfileComponent/>
                 </div>
 
                 <div className="mt-3 wd-pad-siding">
@@ -45,7 +45,7 @@ const ProfileScreen = () => {
                     <ProfileComments />
                 </div>
 
-                {currentUser.isAdmin &&
+                {currentUser && currentUser.isAdmin &&
                     <div className="mt-3 wd-pad-siding">
                         <p className="fw-bold fs-4">Users List</p>
                         <AdminSection />

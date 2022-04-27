@@ -1,9 +1,9 @@
 import React, {useRef}from "react";
-import * as service from '../../services/auth-service'
 import "../LoginPage/login-page.css"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoginBackground from "../LoginPage/login-background.jpg";
 import {useAuth} from "../../contexts/auth-context";
+import UnauthenticatedLock from "../UnauthenticatedLock";
 
 const RegistrationPage = () => {
     const firstNameRef = useRef();
@@ -11,25 +11,20 @@ const RegistrationPage = () => {
     const userNameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
-    const navigate = useNavigate();
     const {signUp} = useAuth();
-    const handleSignup = async (event) => {
-        try {
-            await signUp(
-                {firstName: firstNameRef.current.value,
+    const handleSignup = event=> {
+        signUp({
+                    firstName: firstNameRef.current.value,
                     lastName: lastNameRef.current.value,
                     username: userNameRef.current.value,
                     emailOrNumber: emailRef.current.value,
-                    password: passwordRef.current.value}
-            )
+                    password: passwordRef.current.value
+                }
+            ).catch(error => alert(error.data));
             event.preventDefault();
-            navigate("/profile")
-        } catch (e) {
-            alert('oops')
-        }
     }
     return (
-        <div>
+        <UnauthenticatedLock>
             <div className="login-background flex-container"
                  style={{backgroundImage: `url(${LoginBackground})`}}>
                 <div className="login-bring-it-forward">
@@ -156,7 +151,7 @@ const RegistrationPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </UnauthenticatedLock>
     );
 };
 
