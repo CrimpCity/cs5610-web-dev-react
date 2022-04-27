@@ -50,4 +50,4 @@ export const updateCommentById = (commentId, updatedComment) =>
  * @returns array of comments
  */
 export const findAllCommentsByUser = (userId) =>
-    api.get(`${BASE_URL}/comments/${userId}`, {timeout: 15000});
+    api.get(`${BASE_URL}/users/${userId}/comments`, {timeout: 15000});
