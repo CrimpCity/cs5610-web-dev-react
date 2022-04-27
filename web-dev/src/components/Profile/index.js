@@ -3,19 +3,15 @@ import ProfileComponent from "./ProfileComponent.js"
 import NavigationTopBar from "../NavigationTopBar/index.js";
 import WatchedList from "../WatchedList/index.js"
 import ProfileComments from "../ProfileComments/index.js"
-
 import profile from "../data/profile.json"
-
 import { Link } from "react-router-dom";
 import "./profile.css"
 import UnauthenticatedLock from "../UnauthenticatedLock";
 import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
-// import { useSelector } from "react-redux";
+
 
 const ProfileScreen = () => {
-    // const profile = useSelector(state => state.profile);
-    // console.log(JSON.stringify(profile))
     const { signOut } = useAuth();
 
     return (
@@ -29,7 +25,6 @@ const ProfileScreen = () => {
                     <div className="mb-2">
                         <span className="fw-bold fs-4">My Account</span>
                         {/* Log Out Button */}
-                        {/* Need to log user out of their profile via authentication / React Context */}
                         <span className="ms-3">
                             <button type="button" className="wd-landing-sign-out-button fs-6" onClick={() => signOut()}>
                                 Log Out
