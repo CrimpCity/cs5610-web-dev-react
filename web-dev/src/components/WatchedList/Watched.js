@@ -1,13 +1,12 @@
 import WatchedListItem from "./WatchedListItem.js";
-import Movie from "../data/Movie.json";
-// import { useSelector } from "react-redux";
+import { React } from "react";
 
 
-const Watched = () => {
+const Watched = ({ movieList }) => {
     return (
         <>
             {
-                Movie.map((movie, index) => { return (WatchedListItem(movie, index)); })
+                movieList.map((movie, index) => { return (WatchedListItem(movie, index)); })
             }
         </>
     );

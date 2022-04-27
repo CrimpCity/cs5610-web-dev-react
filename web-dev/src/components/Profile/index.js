@@ -5,7 +5,7 @@ import WatchedList from "../WatchedList/index.js"
 import ProfileComments from "../ProfileComments/index.js"
 import "./profile.css"
 import UnauthenticatedLock from "../UnauthenticatedLock";
-import {useAuth} from "../../contexts/auth-context";
+import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
 import {useComments} from "../DetailScreen/comment-section";
 // import { useSelector } from "react-redux";
@@ -31,7 +31,7 @@ const ProfileScreen = () => {
     return (
         <AuthenticationLock>
             <div className="d-flex bg-color"
-                 style={{flexDirection:"column"}}>
+                style={{ flexDirection: "column" }}>
                 <div >
                     <NavigationTopBar />
                 </div>
@@ -39,11 +39,10 @@ const ProfileScreen = () => {
                     <div className="mb-2">
                         <span className="fw-bold fs-4">My Account</span>
                         {/* Log Out Button */}
-                        {/* Need to log user out of their profile via authentication / React Context */}
                         <span className="ms-3">
-                                <button type="button" className="wd-landing-sign-out-button fs-6" onClick={() => void signOut()}>
-                                    Log Out
-                                </button>
+                            <button type="button" className="wd-landing-sign-out-button fs-6" onClick={() => signOut()}>
+                                Log Out
+                            </button>
                         </span>
                     </div>
                     <ProfileComponent profile={currentUser}/>
