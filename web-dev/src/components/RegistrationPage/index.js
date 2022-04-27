@@ -13,16 +13,17 @@ const RegistrationPage = () => {
     const passwordRef = useRef();
     const navigate = useNavigate();
     const {signUp} = useAuth();
-    const handleSignup = async () => {
+    const handleSignup = async (event) => {
         try {
             await signUp(
-                firstNameRef.current.value,
-                lastNameRef.current.value,
-                userNameRef.current.value,
-                emailRef.current.value,
-                passwordRef.current.value
+                {firstName: firstNameRef.current.value,
+                    lastName: lastNameRef.current.value,
+                    username: userNameRef.current.value,
+                    emailOrNumber: emailRef.current.value,
+                    password: passwordRef.current.value}
             )
-            navigate("/registration/select-avatar")
+            event.preventDefault();
+            navigate("/profile")
         } catch (e) {
             alert('oops')
         }
@@ -38,7 +39,7 @@ const RegistrationPage = () => {
                             <div className="login-main-subframe">
                                 <div className="registration-main">
                                     <h1 className="login-title">Create account with us!</h1>
-                                    <form>
+                                    <form onSubmit={handleSignup}>
                                         {/*First Name*/}
                                         <div className="login-user-frame">
                                             <div className="position-relative">
@@ -97,17 +98,17 @@ const RegistrationPage = () => {
                                         <div className="login-user-frame">
                                             <div className="position-relative">
                                                 <div className="login-email-box">
-                                                        <label htmlFor="signup-user-input"
-                                                               className="login-user-label-title text-white-50">
-                                                            Email or phone number
-                                                        </label>
-                                                        <input type="text"
-                                                               ref={emailRef}
-                                                               className="login-user-input text-white"
-                                                               id="signup-user-input"
-                                                               placeholder="Email or phone number"
-                                                               required
-                                                        />
+                                                    <label htmlFor="signup-user-input"
+                                                           className="login-user-label-title text-white-50">
+                                                        Email or phone number
+                                                    </label>
+                                                    <input type="text"
+                                                           ref={emailRef}
+                                                           className="login-user-input text-white"
+                                                           id="signup-user-input"
+                                                           placeholder="Email or phone number"
+                                                           required
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -130,8 +131,7 @@ const RegistrationPage = () => {
                                             </div>
                                         </div>
                                         <button className="btn login-button btn-submit btn-small"
-                                                    onClick={handleSignup}
-                                                    type="submit"
+                                                type="submit"
                                         > Sign Up
                                         </button>
                                         <div className="mt-3 mb-3">

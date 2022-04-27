@@ -40,3 +40,7 @@
     width: auto;
     max-width: 100%;
 }
+
+.comment-resize-none {
+    resize: none;
+}

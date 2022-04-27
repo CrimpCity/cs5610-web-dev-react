@@ -27,15 +27,10 @@ export const AuthProvider = ({children}) => {
    */
   const signIn = (emailOrNumber, password) => {
     return doSignIn({emailOrNumber: emailOrNumber, password: password})
-      .then(value => {
+      .then(response => {
         // Store user data if authenticate successfully.
-        setUserData(value);
-        return true;
-      })
-      .catch(() => {
-        // Invalidate current user data immediately if fail to sign for any reason.
-        setUserData(null);
-        return false;
+        setUserData(response.data);
+        return response;
       });
   }
 
