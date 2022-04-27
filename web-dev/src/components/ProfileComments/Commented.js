@@ -1,12 +1,11 @@
 import CommentListItem from "./CommentListItem.js";
-import Comments from "../data/comments.json";
 
 
-const Commented = () => {
+const Commented = ({ commentList }) => {
     return (
         <>
             {
-                Comments.map((comment, index) => { return (CommentListItem(comment, index)); })
+                commentList.map((comment, index) => { return (CommentListItem(comment, index)); })
             }
         </>
     );
