@@ -20,8 +20,8 @@ const ProfileComments = () => {
         findComments().then(result => setComments(result));
     }, []);
 
-    console.log("comments");
-    console.log(comments);
+    // console.log("comments");
+    // console.log(comments);
     function RenderComments() {
         // Can admins also comment?
         if (!currentUser.isCritic) {

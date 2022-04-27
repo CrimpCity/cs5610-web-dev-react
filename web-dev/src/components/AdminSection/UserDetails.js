@@ -11,7 +11,7 @@ const UserDetails = (user, index) => {
                 <div className="d-flex">
                     <div className="mt-1 pe-0 me-3">
                         <div className="position-relative">
-                            <img src={user.profilePicture}
+                            <img src={user.avatarImage}
                                  className="mt-1 float-start admin-image"
                                  alt={user.userName}/>
                         </div>
@@ -110,7 +110,7 @@ const UserDetails = (user, index) => {
                             {user.username} </p>
                         <p className="m-0 admin-info-text text-white-50">
                             <span className="fw-bold me-1 text-white">Email or Number: </span>
-                            {user.email} </p>
+                            {user.emailOrNumber} </p>
                     </div>
 
                     <button className="btn btn-submit btn-small admin-remove-button"
