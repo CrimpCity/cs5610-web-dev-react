@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams, Navigate, useLocation} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import NavigationTopBar from "../NavigationTopBar";
 import CommentSection from "./comment-section";
 import HeaderSection from "./header-section";

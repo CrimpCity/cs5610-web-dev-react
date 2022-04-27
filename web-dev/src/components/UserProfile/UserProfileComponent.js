@@ -1,6 +1,10 @@
 import "../Profile/profile.css"
+import {useAuth} from "../../contexts/auth-context";
 
-const UserProfileComponent = (profile) => {
+const UserProfileComponent = () => {
+    const {getUserData} = useAuth();
+    const profile = getUserData();
+
     return (
         <>
             <li className="list-group-item" style={{minWidth:"400px"}}>

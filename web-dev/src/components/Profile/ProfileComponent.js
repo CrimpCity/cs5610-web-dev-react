@@ -1,15 +1,11 @@
 import "./profile.css"
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {useAuth} from "../../contexts/auth-context";
 
-
-const ProfileComponent = ({profile}) => {
-    const dateJoined = profile.dateJoined.split('-')[0]
-    const [edit, setEdit] = useState(false);
-    let navigate = useNavigate();
-    function handleEdit() {
-        navigate('/profile/edit')
-    }
+const ProfileComponent = () => {
+    const {getUserData} = useAuth();
+    const profile = getUserData();
+    const dateJoined = new Date(profile.dateJoined).getFullYear();
 
     return (
         <>
@@ -44,10 +40,9 @@ const ProfileComponent = ({profile}) => {
                         </div>
                     </div>
                     <div>
-                        <button className="wd-profile-edit-button fs6"
-                                type="button" onClick={handleEdit}>
+                        <Link to="/registration/edit" className="wd-profile-edit-button fs-6 text-decoration-none">
                             Edit
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </li>

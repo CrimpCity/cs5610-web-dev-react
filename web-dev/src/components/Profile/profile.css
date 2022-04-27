@@ -45,6 +45,9 @@
 }
 
 .wd-profile-edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 34px;
     width: 85px;
     background-color: #e50914;
