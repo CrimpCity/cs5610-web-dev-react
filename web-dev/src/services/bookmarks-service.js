@@ -27,4 +27,6 @@ export const userBookmarksMovie = async (uid, mid) =>
     await api.post(`${USERS_API}/${uid}/bookmarks/${mid}`)
         .then(response => response.data);
 
-
+export const isMovieBookmarkedbyUser = async (titleId) =>
+    await api.get(`${BASE_URL}/titles/${titleId}/bookmarks`)
+        .then(response => response.data);
