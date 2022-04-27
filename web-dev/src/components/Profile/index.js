@@ -28,6 +28,7 @@ const ProfileScreen = () => {
     * */
 
 
+
     return (
         <AuthenticationLock>
             <div className="d-flex bg-color"

@@ -16,7 +16,7 @@ const UserComponent = () => {
                 <div className="avatar-frame">
                     <div className="avatar-list-frame">
                         <h1 className="avatar-list-title ms-2 ps-3 text-white-50">
-                            JUST ONE MORE STEP...
+                            Edit Profile Avatar
                         </h1>
                         <h3 className="ms-2 ps-3 pe-3 me-2 text-white-50">
                             Select Your Profile Avatar.

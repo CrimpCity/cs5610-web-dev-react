@@ -2,6 +2,7 @@ import React from "react"
 import UserDetails from "./UserDetails.js";
 import Users from "../../components/data/Users.json";
 
+
 const UsersList = () => {
     return (
         <>
