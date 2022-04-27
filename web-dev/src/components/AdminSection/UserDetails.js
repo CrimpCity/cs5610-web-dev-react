@@ -80,7 +80,8 @@ const UserDetails = (user, index) => {
                                             const updatedUser = {...user,
                                                                     isCritic : critic,
                                                                     isAdmin : admin };
-                                            usersService.updateUser(user.userID, updatedUser);
+                                            usersService.updateUser(user._id, updatedUser);
+                                            alert(`${user.username} Updated!`);
                                             // DO ALL THE DISPATCH HERE TO SEND TO THE USERS DATABASE.
                                 }}>
                                     <i className="fas fa-check"></i>
