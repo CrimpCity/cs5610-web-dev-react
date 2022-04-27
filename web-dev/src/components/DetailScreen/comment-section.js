@@ -80,7 +80,8 @@ const CommentSection = () => {
             <div className="row">
               <div className="col-auto">
                 <div className="d-flex justify-content-center align-items-center comment-avatar-icon bg-dark">
-                  <i className="fas fa-user fa-2x"></i>
+                  { currentUser.avatarImage && <img src={currentUser.avatarImage} className="comment-avatar-icon" /> }
+                  { !currentUser.avatarImage && <i className="fas fa-user fa-2x"></i> }
                 </div>
               </div>
               <div className="col">
