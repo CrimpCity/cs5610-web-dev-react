@@ -5,12 +5,18 @@ import '../../vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
 import {Link, useNavigate} from "react-router-dom";
 import LoginBackground from "../LoginPage/login-background.jpg";
 import avatarList from "../data/avatars.json";
+import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
 
 const EditProfile = () => {
+    //Get Current User whose profile is being editted
+    const {getUserData} = useAuth();
+    const currentUser = getUserData();
+    //Set States to monitor profile changes
     const [imageChoice, setImageChoice] = useState('001');
     const [newFirstName, setFirstName] = useState(profile.firstName);
     const [newLastName, setLastName] = useState(profile.lastName);
+    //Load Navigate to handle cancel/save buttons
     const navigate = useNavigate();
     function handleCancel() {
         navigate('/profile/')
@@ -33,11 +39,10 @@ const EditProfile = () => {
                                         {...currentUser,
                                             firstName: newFirstName,
                                             lastName: newLastName,
-                                            avatarImage: imageChoice})
+                                            avatarImage: imageChoice});
                                     navigate(-1);
                                     alert('Your Profile was Updated!')
-                                }
-                                >
+                                }/>
                             SAVE
                         </button>
                         <button className="avatar-cancel-button" onClick={handleCancel}>
