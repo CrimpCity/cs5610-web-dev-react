@@ -81,16 +81,24 @@ const HomePageComponent = () => {
                 }
             }
             const numMissing = Math.max(6 - bookmarks.length, 0);
+            console.log("numMissing");
+            console.log(numMissing);
             for (let i = 0; i < numMissing; i++) {
                 bookmarks.push(moviePlaceholder);
             }
-
+            // bookmarks should be at least 6 movies including fillers
+            const bookmarksCount = Math.min(bookmarks.length, 6);
+            console.log("bookmarksCount");
+            console.log(bookmarksCount, bookmarks.slice(0, bookmarksCount).length);
             const renderBookmarks = (
                 <div className="pb-3">
                     <ul className="list-group wd-trending-bg-color px-3">
                         <li className="list-group-item fw-bold fs-4">{currentUser.username}'s List (saved bookmarks)</li>
                     </ul>
-                    <BoxArtList movies={bookmarks.map(mark => { return mark.movie; })} isBooked={isBooked} className="px-5" />
+                    <BoxArtList
+                        movies={bookmarks.slice(0, bookmarksCount).map(mark => { return mark.movie; })}
+                        isBooked={isBooked}
+                        className="px-5" />
                 </div>)
             return renderBookmarks
         };
