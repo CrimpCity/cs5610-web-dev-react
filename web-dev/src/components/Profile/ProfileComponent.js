@@ -1,21 +1,26 @@
 import "./profile.css"
 import {Link} from "react-router-dom";
 import {useAuth} from "../../contexts/auth-context";
+import {useDispatch, useSelector} from "react-redux";
+import EditProfile from "./EditProfile";
+import React, {useState} from "react";
 
-const ProfileComponent = () => {
-    const {getUserData} = useAuth();
-    const profile = getUserData();
+const ProfileComponent = ({profile}) => {
+    // const profile = useSelector((state) => state.profileReducer);
     const dateJoined = new Date(profile.dateJoined).getFullYear();
-
+    const dispatch = useDispatch();
+    const editMode = () => {
+        dispatch({type: 'edit-mode'})
+    }
     return (
-        <>
-            <li className="list-group-item" style={{minWidth:"400px"}}>
+        <div>
+            <li className="list-group-item" style={{minWidth: "400px"}}>
                 <div className="pb-3 d-flex">
                     <div className="mt-1">
                         <img src={profile.avatarImage}
-                             className="mt-1 float-start wd-profile-avatar"  alt={profile.username}></img>
+                             className="mt-1 float-start wd-profile-avatar" alt={profile.username}></img>
                     </div>
-                    <div className="mt-1 ms-4 d-flex" style={{flexDirection:"column"}}>
+                    <div className="mt-1 ms-4 d-flex" style={{flexDirection: "column"}}>
                         <div className="m-0 fw-bold fs-5">
                             {profile.firstName} {profile.lastName} </div>
                         <div className="m-0 wd-profile-component-subtext">{profile.username}</div>
@@ -24,15 +29,15 @@ const ProfileComponent = () => {
                             <div className="badge bg-primary m-0 me-2 rounded-pill wd-profile-component-usertype">
                                 Member
                             </div>
-                        <span> since {dateJoined} </span>
+                            <span> since {dateJoined} </span>
                         </div>
                         <div className="mt-1 d-flex">
-                            { profile.isCritic &&
+                            {profile.isCritic &&
                                 <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
                                     Critic
                                 </div>
                             }
-                            { profile.isAdmin &&
+                            {profile.isAdmin &&
                                 <div className="badge bg-primary ms-3 rounded-pill wd-profile-component-usertype">
                                     Admin
                                 </div>
@@ -40,13 +45,20 @@ const ProfileComponent = () => {
                         </div>
                     </div>
                     <div>
-                        <Link to="/registration/edit" className="wd-profile-edit-button fs-6 text-decoration-none">
+                        <button type="button" title="edit"
+                                className="wd-profile-edit-button fs-6 "
+                                onClick={() => {editMode();}
+                        }>
                             Edit
-                        </Link>
+                        </button>
+
                     </div>
+
                 </div>
             </li>
-        </>
+
+
+        </div>
     );
 
 }

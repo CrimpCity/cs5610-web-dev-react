@@ -12,7 +12,6 @@ import DetailScreen from "./components/DetailScreen";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
-import EditProfile from "./components/Profile/EditProfile";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider} from "./contexts/auth-context";
 import RootHandler from "./components/RootHandler";
@@ -56,9 +55,7 @@ function App() {
                       <Route path="login"
                              element={<LoginPage />} />
                       <Route path="registration"
-                             element={<RegistrationPage />} />
-                      <Route path="registration/edit"
-                             element={<EditProfile />} />
+                             element={<RegistrationPage />} />          
                     </Route>
                   </Routes>
                 </div>
