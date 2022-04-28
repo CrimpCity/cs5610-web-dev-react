@@ -20,11 +20,12 @@ import UserProfile from "./components/UserProfile";
 import React from "react";
 import { combineReducers, createStore } from "redux";
 import bookmarksReducer from "./reducers/bookmark-reducer.js"
+import commentsReducer from "./reducers/comments-reducer.js"
 import { Provider } from "react-redux";
 
 
 const reducer = combineReducers({
-       bookmarks: bookmarksReducer,
+       bookmarks: bookmarksReducer, comments: commentsReducer
    });
    
    const store = createStore(reducer);

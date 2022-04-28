@@ -10,7 +10,8 @@ const CommentListItem = (comment, index) => {
         timeStyle: 'short'
     }).format(new Date(comment.postedOn));
 
-
+    console.log("comment");
+    console.log(comment);
 
     const formatted = (
         <div className="list-group-item " style={{ minWidth: "400px" }} key={index}>

@@ -41,7 +41,6 @@ export const deleteCommentById = (commentId) =>
  * @returns
  */
 export const updateCommentById = (commentId, updatedComment) =>
-
   api.put(`${BASE_URL}/comments/${commentId}`, { comment: updatedComment }, { timeout: 15000 });
 
 /**
