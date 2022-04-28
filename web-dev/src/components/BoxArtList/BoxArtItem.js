@@ -1,11 +1,14 @@
 import { React, useState } from "react";
-import toggleBookmark from "../../actions/bookmark-actions.js"
+import { toggleBookmark } from "../../actions/bookmark-actions.js"
+import { useAuth } from "../../contexts/auth-context";
+import { useDispatch } from "react-redux";
 
 
 const BoxArtItem = (movie, index, isBooked = false) => {
     const [isWatched, setIsWatched] = useState(isBooked);
     const { getUserData } = useAuth();
     const currentUser = getUserData();
+    const dispatch = useDispatch();
 
     let dimImage = "";
     if (isWatched) {
@@ -15,7 +18,7 @@ const BoxArtItem = (movie, index, isBooked = false) => {
     // if yes then no add/remove
     // if no then add/remove to bookmark list
 
-    function RenderBookmarkButton({movie}) {
+    function RenderBookmarkButton({ movie }) {
         if (movie.imdbID === "N/A") {
             // this is a placeholder image so don't render the bookmark icon button
             return "";
@@ -26,7 +29,7 @@ const BoxArtItem = (movie, index, isBooked = false) => {
             // add bookmark toggle here for event
             return (
                 <span onClick={() => {
-                    toggleBookmark(currentUser.userID, movie._id);
+                    toggleBookmark(dispatch, currentUser.userID, movie._id);
                     setIsWatched(!isWatched);
                 }}
                     className="wd-icon-color-not-watched">
@@ -36,8 +39,6 @@ const BoxArtItem = (movie, index, isBooked = false) => {
             )
         };
     };
-
-
 
     return (
         <li className="list-group-item p-0 d-flex " key={index}>

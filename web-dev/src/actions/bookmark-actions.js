@@ -6,11 +6,11 @@ export const FIND_USER_BOOKMARKS = "FIND_USER_BOOKMARKS";
 
 
 export const toggleBookmark = async (dispatch, uid, mid) => {
-    const bookmarks = await bookmarksService.userTogglesBookmark(uid, mid)
-        .then(() => { bookmarksService.findAllBookmarkedByUser(uid) });
+    const toggle = await bookmarksService.userTogglesBookmark(uid, mid);
+    const bookmarks = await bookmarksService.findAllBookmarkedByUser(uid);
     dispatch({
         type: TOGGLE_BOOKMARK,
-        bookmarks
+        bookmarks: bookmarks
     });
 }
 
@@ -18,6 +18,6 @@ export const findAllBookmarkedByUser = async (dispatch, uid) => {
     const bookmarks = await bookmarksService.findAllBookmarkedByUser(uid);
     dispatch({
         type: FIND_USER_BOOKMARKS,
-        bookmarks
+        bookmarks: bookmarks
     });
 }

@@ -1,9 +1,16 @@
 import "./watched-list.css"
 import { React, useState } from "react";
+import { toggleBookmark } from "../../actions/bookmark-actions.js"
+import { useAuth } from "../../contexts/auth-context";
+import { useDispatch } from "react-redux";
 
 
 const WatchedListItem = (movie, index) => {
     const [isWatched, setIsWatched] = useState(true);
+    const { getUserData } = useAuth();
+    const currentUser = getUserData();
+    const dispatch = useDispatch();
+
     let dimImage = "";
     if (isWatched) {
         dimImage = "wd-dim-poster";
@@ -19,7 +26,11 @@ const WatchedListItem = (movie, index) => {
                                 className={`mt-1 float-start wd-watchlist-image ${dimImage}`}
                                 alt={movie.movieTitle}></img>
                             <div className="position-absolute top-0 wd-icon-position me-4">
-                                <span onClick={() => setIsWatched(!isWatched)} className="wd-icon-color-not-watched">
+                                <span onClick={() => {
+                                    toggleBookmark(dispatch, currentUser.userID, movie._id);
+                                    setIsWatched(!isWatched);
+                                }}
+                                    className="wd-icon-color-not-watched">
                                     {isWatched ? <i className="fas fa-bookmark"></i>
                                         : <i className="far fa-bookmark"></i>}
                                 </span>

@@ -17,43 +17,53 @@ import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider} from "./contexts/auth-context";
 import RootHandler from "./components/RootHandler";
 import UserProfile from "./components/UserProfile";
+import React from "react";
+import { combineReducers, createStore } from "redux";
+import bookmarksReducer from "./reducers/bookmark-reducer.js"
+import { Provider } from "react-redux";
 
 
-// import Netflicks from "./components/index.js";
+const reducer = combineReducers({
+       bookmarks: bookmarksReducer,
+   });
+   
+   const store = createStore(reducer);
 
 
 function App() {
     return (
     <AuthProvider>
-      <BrowserRouter>
-        <div className="container-fluid">
-          <Routes>
-            <Route path="/">
-              <Route index element={<RootHandler />} />
-              <Route path="homepage"
-                     element={<HomePage />} />
-              <Route path="profile"
-                     element={<Profile />} />
-              <Route path="profile/:username"
-                     element={<UserProfile />} />
-              <Route path="search"
-                     element={<SearchScreen />} />
-              <Route path="privacy"
-                     element={<PrivacyScreen />} />
-              <Route path="detail/:movieId"
-                     element={<DetailScreen />} />
-              <Route path="landingpage"
-                     element={<LandingPage />} />
-              <Route path="login"
-                     element={<LoginPage />} />
-              <Route path="registration"
-                     element={<RegistrationPage />} />
-              <Route path="registration/edit"
-                     element={<EditProfile />} />
-            </Route>
-          </Routes>
-        </div>
-      </BrowserRouter>
+       <Provider store={store}>
+              <BrowserRouter>
+                <div className="container-fluid">
+                  <Routes>
+                    <Route path="/">
+                      <Route index element={<RootHandler />} />
+                      <Route path="homepage"
+                             element={<HomePage />} />
+                      <Route path="profile"
+                             element={<Profile />} />
+                      <Route path="profile/:username"
+                             element={<UserProfile />} />
+                      <Route path="search"
+                             element={<SearchScreen />} />
+                      <Route path="privacy"
+                             element={<PrivacyScreen />} />
+                      <Route path="detail/:movieId"
+                             element={<DetailScreen />} />
+                      <Route path="landingpage"
+                             element={<LandingPage />} />
+                      <Route path="login"
+                             element={<LoginPage />} />
+                      <Route path="registration"
+                             element={<RegistrationPage />} />
+                      <Route path="registration/edit"
+                             element={<EditProfile />} />
+                    </Route>
+                  </Routes>
+                </div>
+              </BrowserRouter>
+       </Provider>
     </AuthProvider>
   );
 }
