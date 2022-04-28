@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { toggleBookmark } from "../../actions/bookmark-actions.js"
 import { useAuth } from "../../contexts/auth-context";
 import { useDispatch } from "react-redux";
+import SecureComponent from "../SecureComponent/index.js"
 
 
 const BoxArtItem = (movie, index, isBooked = false) => {
@@ -49,8 +50,9 @@ const BoxArtItem = (movie, index, isBooked = false) => {
                         alt={movie.movieTitle}>
                     </img>
                     <div className="position-absolute top-0 end-0 me-4">
-                        <RenderBookmarkButton movie={movie} />
-
+                        <SecureComponent>
+                            <RenderBookmarkButton movie={movie} />
+                        </SecureComponent>
                     </div>
                 </div>
             </div>
