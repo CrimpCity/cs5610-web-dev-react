@@ -1,20 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./landing-page.css"
 import { Link } from "react-router-dom";
 import LandingBackground from "./landing-background.jpg"
+import UnauthenticatedLock from "../UnauthenticatedLock";
 
-const landingRegistration = () => {
+const LandingRegistration = () => {
+    const [emailOrNumber, setEmailOrNumber] = useState('');
+    const [signupURL, setSignupURL] = useState('/registration');
+    useEffect(() => {
+        if (emailOrNumber.trim() === '') setSignupURL('/registration');
+        else setSignupURL(`/registration?email=${emailOrNumber}`);
+    }, [emailOrNumber])
     return (
-        <div className="landing-top-input-frame">
-            <div>
-                <textarea
-                    placeholder="Email address"
-                    className="mt-2 landing-emailAddress-input"
+        <div className="d-flex w-100">
+            <div className="flex-fill">
+                <input type="text"
+                    placeholder="Enter email address or number"
+                    className="form-control py-4 rounded-0 border-0"
+                    value={emailOrNumber}
+                    onChange={event => void setEmailOrNumber(event.target.value)}
                 />
             </div>
-            <div>
-                <Link to="/registration">
-                    <button className="mt-2 landing-getStarted-button">
+            <div className="flex-grow-0 flex-shrink-0">
+                <Link to={signupURL}>
+                    <button className="btn btn-danger rounded-0 py-4 border-0 border-white">
                         <span className="text-white">Get Started</span>
                         <i className="ps-3 fa-solid fa-chevron-right text-white fa-2xs"/>
                     </button>
@@ -25,13 +34,13 @@ const landingRegistration = () => {
 
 const LandingPage = () => {
     return (
-        <div>
+        <UnauthenticatedLock>
             <div className="landing-split landing-background"
                 style={{backgroundImage: `url(${LandingBackground})`}}>
                 <div className="landing-bring-it-forward">
                     <img className="landing-logo-size" src={require('./netflicks-logo.png')} alt="Logo"/>
                     <Link to="/login">
-                        <button className="landing-sign-in-button">
+                        <button className="btn btn-danger float-end mt-4 me-5">
                             Sign In
                         </button>
                     </Link>
@@ -44,13 +53,13 @@ const LandingPage = () => {
                             Ready to watch? Enter your email to create or restart your
                             membership.
                         </h3>
-                        {landingRegistration()}
+                        <LandingRegistration />
                         <h3 className="pt-3 text-white" style={{fontSize: "1.2rem"}}>
                            You can also take a peek first!
                         </h3>
                         <Link to="/homepage" className="landing-guest-link">
-                            <button className="mt-2 ms-3 me-3 landing-guest-button">
-                                <span className="text-white">Guest For Now</span>
+                            <button className="mt-2 ms-3 me-3 py-2 btn btn-danger rounded-0">
+                                <span className="text-white fs-5">Guest For Now</span>
                                 <i className="ps-3 fa-solid fa-chevron-right text-white fa-2xs"/>
                             </button>
                         </Link>
@@ -182,18 +191,18 @@ const LandingPage = () => {
             </div>
             {/*Landing Feature 04*/}
 
-            <div className="landing-faq-frame landing-split">
-                <div className="landing-faq">
-                    <h3 className="pt-4" style={{fontSize: "1.2rem"}}>
-                        Ready to watch? Enter your email to create or restart your
-                        membership.
-                    </h3>
-                    <div className="landing-ending-text">
-                        {landingRegistration()}
+            <div className="pt-4 pb-5 w-100">
+                    <h5 className=" px-5 text-center">
+                            Ready to watch? Enter your email to create or restart your
+                            membership.
+                    </h5>
+                    <div className="row d-flex justify-content-center">
+                        <div className="px-4 col-12 col-sm-9 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+                            <LandingRegistration />
+                        </div>
                     </div>
-                </div>
             </div>
-        </div>
+        </UnauthenticatedLock>
     );
 };
 

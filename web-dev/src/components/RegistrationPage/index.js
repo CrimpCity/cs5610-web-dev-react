@@ -1,6 +1,6 @@
-import React, {useRef}from "react";
+import React, {useEffect, useRef} from "react";
 import "../LoginPage/login-page.css"
-import { Link } from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 import LoginBackground from "../LoginPage/login-background.jpg";
 import {useAuth} from "../../contexts/auth-context";
 import UnauthenticatedLock from "../UnauthenticatedLock";
@@ -12,6 +12,11 @@ const RegistrationPage = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
     const {signUp} = useAuth();
+    const [searchParams] = useSearchParams();
+    const email = searchParams.get('email');
+    useEffect(() => {
+        if (email) emailRef.current.value = email;
+    }, []);
     const handleSignup = event=> {
         signUp({
                     firstName: firstNameRef.current.value,
