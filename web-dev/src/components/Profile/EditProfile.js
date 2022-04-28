@@ -9,20 +9,25 @@ import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
 import profile from "./index";
 import * as userServices from "../../services/users-service";
+import {useDispatch, useSelector} from "react-redux";
+import {updateUser} from "../../services/users-service";
 
 const EditProfile = () => {
     //Get Current User whose profile is being editted
-    const {getUserData} = useAuth();
-    const currentUser = getUserData();
+    const currentUser = useSelector(state => state.profileReducer);
+    const [profile, setProfile] = useState(currentUser);
     //Set States to monitor profile changes
-    const [imageChoice, setImageChoice] = useState(currentUser.avatarImage);
-    const [newFirstName, setFirstName] = useState(currentUser.firstName);
-    const [newLastName, setLastName] = useState(currentUser.lastName);
+    const [imageChoice, setImageChoice] = useState(profile.avatarImage);
+    const [newFirstName, setFirstName] = useState(profile.firstName);
+    const [newLastName, setLastName] = useState(profile.lastName);
     //Load Navigate to handle cancel/save buttons
     const navigate = useNavigate();
 
-    function handleCancel() {
-        navigate('/profile/')
+    const dispatch = useDispatch();
+
+    const handleClickandSave =() => {
+        dispatch({type: 'edit-mode-off'});
+        navigate('/profile');
     }
 
     return (
@@ -38,14 +43,15 @@ const EditProfile = () => {
                                                             firstName: newFirstName,
                                                             lastName: newLastName,
                                                             avatarImage: imageChoice};
-                                    console.log(updatedUser);
+                                    // console.log(updatedUser);
                                     userServices.updateUser(currentUser.userID, updatedUser);
-                                    navigate('/profile/');
-                                    alert('Your Profile was Updated!')
+                                    dispatch({type: 'updated-profile', updatedProfile: profile});
+                                    handleClickandSave();
+                                    // alert('Your Profile was Updated!')
                                 }}>
                             SAVE
                         </button>
-                        <button className="avatar-cancel-button" onClick={handleCancel}>
+                        <button className="avatar-cancel-button" onClick={handleClickandSave} >
                             CANCEL
                         </button>
 
@@ -68,8 +74,11 @@ const EditProfile = () => {
                                                className="edit-user-input text-white"
                                                id="signup-first-name"
                                                placeholder="Change First name"
-                                               onChange = {(event) =>
-                                                   setFirstName(event.target.value)}
+                                               onChange = {(event) => {
+                                                   setFirstName(event.target.value);
+                                                   setProfile({...profile, firstName: event.target.value});
+                                               }
+                                                   }
                                                required
                                         />
                                     </div>
@@ -88,8 +97,11 @@ const EditProfile = () => {
                                                className="edit-user-input text-white"
                                                id="signup-last-name"
                                                placeholder="Change Last name"
-                                               onChange = {(event) =>
-                                                   setLastName(event.target.value)}
+                                               onChange = {(event) => {
+                                                   setLastName(event.target.value);
+                                                   setProfile({...profile, lastName: event.target.value});
+                                               }
+                                               }
                                         />
                                     </div>
                                 </div>
@@ -110,21 +122,13 @@ const EditProfile = () => {
                                                  src={avatar['image-link']} alt={avatarAlt}/>
                                         </div>
                                         <h5 className="ps-3 pe-3 avatar-title text-white-50 "> {avatar.title}</h5>
-                                        {/*<div className="ps-3 pe-3 avatar-select-button-frame">*/}
-                                        {/*    <Link to="/profile">*/}
-                                        {/*        <button className="avatar-select-button"*/}
-                                        {/*        type="submit">*/}
-                                        {/*            Select*/}
-                                        {/*        </button>*/}
-                                        {/*    </Link>*/}
-                                        {/*</div>*/}
-                                        {{imageChoice} === avatar['image-link'] &&
+                                        {imageChoice === avatar['image-link'] &&
                                             <div className="ps-3 pe-3 form-check avatar-select-button-frame">
                                                 <input
                                                        type="radio"
                                                        name="avatarImage"
                                                        id="flexRadioDefault2"
-                                                       checked/>
+                                                       defaultChecked/>
                                             </div>
                                         }
                                         {imageChoice !== avatar['image-link'] &&
@@ -133,7 +137,10 @@ const EditProfile = () => {
                                                        type="radio"
                                                        id="flexRadioDefault2"
                                                        name="avatarImage"
-                                                       onClick = {() => setImageChoice(avatar['image-link'])}
+                                                       onClick = {() => {
+                                                           setImageChoice(avatar['image-link']);
+                                                           setProfile({...profile, avatarImage: avatar['image-link']});
+                                                       }}
                                               />
                                             </div>
                                         }
@@ -146,7 +153,7 @@ const EditProfile = () => {
                     </div>
                 </div>
             </div>
-        </AuthenticationLock>
+        // </AuthenticationLock>
     )
 };
 
