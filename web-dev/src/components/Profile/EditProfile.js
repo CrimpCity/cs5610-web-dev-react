@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../LoginPage/login-page.css"
 import "./profile.css"
 import '../../vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
@@ -7,15 +7,15 @@ import LoginBackground from "../LoginPage/login-background.jpg";
 import avatarList from "../data/avatars.json";
 import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
-import profile from "./index";
 import * as userServices from "../../services/users-service";
 import {useDispatch, useSelector} from "react-redux";
-import {updateUser} from "../../services/users-service";
+
 
 const EditProfile = () => {
     //Get Current User whose profile is being editted
-    const currentUser = useSelector(state => state.profileReducer);
-    const [profile, setProfile] = useState(currentUser);
+    const [profile, setProfile] = useState(useSelector((state) => state.profile));
+    const {getUserData} = useAuth();
+    const currentUser = getUserData();
     //Set States to monitor profile changes
     const [imageChoice, setImageChoice] = useState(profile.avatarImage);
     const [newFirstName, setFirstName] = useState(profile.firstName);
@@ -73,6 +73,7 @@ const EditProfile = () => {
                                                // ref={firstNameRef}
                                                className="edit-user-input text-white"
                                                id="signup-first-name"
+                                               value={newFirstName}
                                                placeholder="Change First name"
                                                onChange = {(event) => {
                                                    setFirstName(event.target.value);
@@ -96,6 +97,7 @@ const EditProfile = () => {
                                                // ref={lastNameRef}
                                                className="edit-user-input text-white"
                                                id="signup-last-name"
+                                               value={newLastName}
                                                placeholder="Change Last name"
                                                onChange = {(event) => {
                                                    setLastName(event.target.value);
