@@ -19,8 +19,12 @@ const HomePageComponent = () => {
 
     // set bookmarks from the redux state
     const bookmarks = useSelector(state => state.bookmarks);
+
     // update bookmarks once the state changes
-    useEffect(() => findAllBookmarkedByUser(dispatch, currentUser.userID), [dispatch, currentUser.userID]);
+    useEffect(() => {
+        if (currentUser) { findAllBookmarkedByUser(dispatch, currentUser.userID) }
+        else { return bookmarks }
+    }, [dispatch]);
 
     // Retrieve a random sample of movies from the database only once
     useEffect(() => {
