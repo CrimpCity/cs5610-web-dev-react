@@ -22,7 +22,7 @@ export const deleteUser = (uid) =>
   api.delete(`${USERS_API}/${uid}`).then(response => response.data);
 
 export const deleteUsersByUsername = (username) =>
-  api.get(`${USERS_API}/username/${username}/delete`).then(response => response.data);
+  api.delete(`${USERS_API}/username/${username}/delete`).then(response => response.data);
 
 export const findUserByCredentials = (credentials) =>
   api.post(`${LOGIN_API}`, credentials).then(response => response.data);

@@ -1,9 +1,15 @@
 import { React, useState } from "react";
-
+import { toggleBookmark } from "../../actions/bookmark-actions.js"
+import { useAuth } from "../../contexts/auth-context";
+import { useDispatch } from "react-redux";
+import SecureComponent from "../SecureComponent/index.js"
 
 
 const BoxArtItem = (movie, index, isBooked = false) => {
     const [isWatched, setIsWatched] = useState(isBooked);
+    const { getUserData } = useAuth();
+    const currentUser = getUserData();
+    const dispatch = useDispatch();
 
     let dimImage = "";
     if (isWatched) {
@@ -13,9 +19,8 @@ const BoxArtItem = (movie, index, isBooked = false) => {
     // if yes then no add/remove
     // if no then add/remove to bookmark list
 
-    function RenderBookmarkButton(movie) {
-        console.log(movie.movie.imdbID)
-        if (movie.movie.imdbID === "N/A") {
+    function RenderBookmarkButton({ movie }) {
+        if (movie.imdbID === "N/A") {
             // this is a placeholder image so don't render the bookmark icon button
             return "";
         }
@@ -24,7 +29,10 @@ const BoxArtItem = (movie, index, isBooked = false) => {
             // add link to details page here
             // add bookmark toggle here for event
             return (
-                <span onClick={() => setIsWatched(!isWatched)}
+                <span onClick={() => {
+                    toggleBookmark(dispatch, currentUser.userID, movie._id);
+                    setIsWatched(!isWatched);
+                }}
                     className="wd-icon-color-not-watched">
                     {isWatched ? <i className="fas fa-bookmark"></i>
                         : <i className="far fa-bookmark"></i>}
@@ -32,8 +40,6 @@ const BoxArtItem = (movie, index, isBooked = false) => {
             )
         };
     };
-
-
 
     return (
         <li className="list-group-item p-0 d-flex " key={index}>
@@ -44,8 +50,9 @@ const BoxArtItem = (movie, index, isBooked = false) => {
                         alt={movie.movieTitle}>
                     </img>
                     <div className="position-absolute top-0 end-0 me-4">
-                        <RenderBookmarkButton movie={movie} />
-
+                        <SecureComponent>
+                            <RenderBookmarkButton movie={movie} />
+                        </SecureComponent>
                     </div>
                 </div>
             </div>

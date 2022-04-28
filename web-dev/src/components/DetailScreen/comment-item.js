@@ -32,13 +32,26 @@ const CommentItem = ({comment = {}}) => {
       }).catch(() => alert("Fail to delete comment"));
   }
 
+  const ShowLinkToUser = ({children}) => {
+    if (currentUser.username !== comment.username)
+      return (
+        <Link to={"/profile/" + comment.userId} className="col-auto">
+          {children}
+        </Link>
+      );
+    else return (
+      <div className="col-auto">
+        {children}
+      </div>
+    );
+  }
+
   return (
     <div className="list-group-item">
       <div className="row">
 
         {/* Avatar image */}
-        <div className="col-auto">
-
+        <ShowLinkToUser>
           {/* For user without avatar */}
           {!comment.avatar &&
             <div className="d-flex justify-content-center align-items-center comment-avatar-icon bg-primary mt-2">
@@ -50,7 +63,7 @@ const CommentItem = ({comment = {}}) => {
           {comment.avatar &&
             <img className="comment-avatar-icon" src={comment.avatar} />
           }
-        </div>
+        </ShowLinkToUser>
         <div className="col">
           <h6 className="fw-bold row">
             {/* Comment header */}
@@ -61,7 +74,7 @@ const CommentItem = ({comment = {}}) => {
 
               {/* User profile display & link */}
               {currentUser.username !== comment.username &&
-                <Link to={"/profile/" + comment.username} className="text-decoration-none text-white">
+                <Link to={"/profile/" + comment.userId} className="text-decoration-none text-white">
                   {comment.username}
                 </Link>}
 
@@ -74,13 +87,14 @@ const CommentItem = ({comment = {}}) => {
               {/* Comment option: edit / delete */}
               {!editing &&
                 <>
-                {currentUser.isCritic && currentUser.username === comment.username &&
-                  <button type="button" className="btn p-1 me-2" title="edit" onClick={() => setEditing(true)}>
-                    <i className="fas fa-pen"></i></button>
-                }
-                {((currentUser.isCritic && currentUser.username === comment.username) || currentUser.isAdmin) &&
-                  <button type="button" className="btn p-1" title="delete" onClick={onDeleteComment}><i className="fas fa-trash"></i></button>
-                }
+                  {currentUser.isCritic && currentUser.username === comment.username &&
+                    <button type="button" className="btn p-1 me-2" title="edit" onClick={() => setEditing(true)}>
+                      <i className="fas fa-pen"></i></button>
+                  }
+                  {((currentUser.isCritic && currentUser.username === comment.username) || currentUser.isAdmin) &&
+                    <button type="button" className="btn p-1" title="delete" onClick={onDeleteComment}><i
+                      className="fas fa-trash"></i></button>
+                  }
                 </>
               }
 

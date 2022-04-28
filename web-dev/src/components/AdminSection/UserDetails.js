@@ -1,5 +1,6 @@
 import "./admin.css"
 import React, {useState} from "react";
+import * as usersService from "../../services/users-service";
 
 const UserDetails = (user, index) => {
     const [type, editType] = useState(false);
@@ -74,10 +75,15 @@ const UserDetails = (user, index) => {
                             <div className="d-flex admin-edit-frame edit-mode">
                                 <button type="button" className="btn p-1 me-2 admin-change-button"
                                         title="save"
-                                        onClick={() =>
-                                            editType(false)
+                                        onClick={() => {
+                                            editType(false);
+                                            const updatedUser = {...user,
+                                                                    isCritic : critic,
+                                                                    isAdmin : admin };
+                                            usersService.updateUser(user._id, updatedUser);
+                                            alert(`${user.username} Updated!`);
                                             // DO ALL THE DISPATCH HERE TO SEND TO THE USERS DATABASE.
-                                }>
+                                }}>
                                     <i className="fas fa-check"></i>
                                 </button>
                                 <button type="button" className="btn p-1 admin-cancel-button"
@@ -114,7 +120,10 @@ const UserDetails = (user, index) => {
                     </div>
 
                     <button className="btn btn-submit btn-small admin-remove-button"
-                        // onClick={}
+                         onClick={() => {
+                             usersService.deleteUsersByUsername(user.username);
+                             alert('User has been deleted!');
+                         }}
                     > Remove
                     </button>
 

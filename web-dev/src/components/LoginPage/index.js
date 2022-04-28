@@ -20,7 +20,7 @@ const LoginPage = () => {
       <div className="login-background flex-container"
            style={{backgroundImage: `url(${LoginBackground})`}}>
         <div className="login-bring-it-forward">
-          <img className="login-logo-size" src={require('./netflicks-logo.png')} alt="Logo" />
+          <Link to="/"><img className="login-logo-size" src={require('./netflicks-logo.png')} alt="Logo" /></Link>
           <div className="login-main-frame">
             <div>
               <div className="login-main-subframe">
