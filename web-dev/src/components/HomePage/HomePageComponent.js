@@ -1,53 +1,32 @@
-import { React, useState, useEffect, useCallback } from "react";
+import './home-page.css';
 import HomeBannerComponent from "../HomeBanner/HomeBannerComponent.js";
 import NavigationTopBar from "../NavigationTopBar/index.js";
 import BoxArtList from "../BoxArtList/index.js"
-import * as bookmarksService from '../../services/bookmarks-service.js';
+import { React, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../../contexts/auth-context";
-import GetMovies from "./GetMovies.js"
-import './home-page.css';
-
+import { findAllBookmarkedByUser } from "../../actions/bookmark-actions.js";
+import * as moviesService from '../../services/movies-service.js';
 
 
 const HomePageComponent = () => {
     const { getUserData } = useAuth();
-    const [bookmarks, setBookmarks] = useState([]);
+    const currentUser = getUserData();
     const [trending, setTrending] = useState([]);
-    const [currentUser, setUser] = useState('');
+    const dispatch = useDispatch()
+    const numMovies = 6;
+    let isBooked = false;
 
-    // A user must be logged in to see the bookmarks panel
-    useEffect(() => {
-        async function getUserProfile() {
-            try {
-                const currentUser = getUserData();
-                setUser(currentUser);
-            } catch (e) {
-            };
-        }
-        getUserProfile();
-    }, [getUserData]);
+    // set bookmarks from the redux state
+    const bookmarks = useSelector(state => state.bookmarks);
+    // update bookmarks once the state changes
+    useEffect(() => findAllBookmarkedByUser(dispatch, currentUser.userID), [dispatch, currentUser.userID]);
 
     // Retrieve a random sample of movies from the database only once
     useEffect(() => {
-        GetMovies().then(result => setTrending(result));
+        moviesService.getRandomMovies(numMovies)
+            .then(result => setTrending(result));
     }, []);
-
-
-    let isBooked = false;
-    // Get the current logged in user's bookmarks
-    const findBookmarks = useCallback(() => {
-        if (currentUser && currentUser.userID) {
-            return bookmarksService.findAllBookmarkedByUser(currentUser.userID)
-                .then(bookmarks => setBookmarks(bookmarks))
-        };
-    }, [currentUser]);
-
-    // Don't get bookmarks on each rendering
-    useEffect(() => {
-        let isMounted = true;
-        findBookmarks()
-        return () => { isMounted = false; }
-    }, [findBookmarks]);
 
 
     function RenderBookmarks() {
@@ -81,8 +60,6 @@ const HomePageComponent = () => {
                 }
             }
             const numMissing = Math.max(6 - bookmarks.length, 0);
-            console.log("numMissing");
-            console.log(numMissing);
             for (let i = 0; i < numMissing; i++) {
                 bookmarks.push(moviePlaceholder);
             }

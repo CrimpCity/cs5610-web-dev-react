@@ -1,24 +1,20 @@
 import React from "react"
 import Watched from "./Watched.js";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../../contexts/auth-context";
-import { useState, useEffect } from "react";
-import * as bookmarksService from '../../services/bookmarks-service.js';
+import { findAllBookmarkedByUser } from "../../actions/bookmark-actions.js";
 
 
 const WatchedList = () => {
-    const [bookmarks, setBookmarks] = useState([]);
     const { getUserData } = useAuth();
     const currentUser = getUserData();
+    const dispatch = useDispatch()
 
-    // call the bookmarks service
-    const findBookmarks = () => {
-        return bookmarksService.findAllBookmarkedByUser(currentUser.userID);
-    }
-
-    // Retrieve the bookmarked movies from the database only once
-    useEffect(() => {
-        findBookmarks().then(result => setBookmarks(result));
-    }, []);
+    // set bookmarks from the redux state
+    const bookmarks = useSelector(state => state.bookmarks);
+    // update bookmarks once the state changes
+    useEffect(() => findAllBookmarkedByUser(dispatch, currentUser.userID), [dispatch, currentUser.userID]);
 
 
     function RenderBookmarks() {
@@ -34,7 +30,7 @@ const WatchedList = () => {
 
     return (
         <>
-            <ul className="list-group" style={{minWidth:"400px"}}>
+            <ul className="list-group" style={{ minWidth: "400px" }}>
                 <RenderBookmarks />
             </ul>
         </>
