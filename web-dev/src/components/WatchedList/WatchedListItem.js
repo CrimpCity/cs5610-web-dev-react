@@ -3,7 +3,7 @@ import { React, useState } from "react";
 import { toggleBookmark } from "../../actions/bookmark-actions.js"
 import { useAuth } from "../../contexts/auth-context";
 import { useDispatch } from "react-redux";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const WatchedListItem = (movie, index) => {
@@ -26,7 +26,7 @@ const WatchedListItem = (movie, index) => {
                         <div className="position-relative">
                             <img src={movie.moviePoster}
                                 className={`mt-1 float-start wd-watchlist-image ${dimImage}`}
-                                 onClick ={() => navigate(`/detail/${movie.imdbID}`)}
+                                onClick={() => navigate(`/detail/${movie.imdbID}`)}
                                 alt={movie.movieTitle}>
                             </img>
                             <div className="position-absolute top-0 start-0 ms-4">
@@ -42,13 +42,13 @@ const WatchedListItem = (movie, index) => {
                         </div>
                     </div>
                     <div className="wd-watchlist-info mt-1 me-3">
-                        <p className="m-0 fs-5 fw-bold" onClick = {() => navigate(`/detail/${movie.imdbID}`)}>
+                        <p className="m-0 fs-5 fw-bold" onClick={() => navigate(`/detail/${movie.imdbID}`)}>
                             {movie.movieTitle}
                         </p>
                     </div>
                 </div>
                 <div className="mt-1 ps-0 wd-watchlist-description"
-                     onClick = {() => navigate(`/detail/${movie.imdbID}`)} >
+                    onClick={() => navigate(`/detail/${movie.imdbID}`)} >
                     <p className="m-0 fs-5 fw-bold">Description</p>
                     <p className="m-0 fs-6">{movie.movieDescription}</p>
                 </div>
