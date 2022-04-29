@@ -1,9 +1,9 @@
-import React from "react"
-import ProfileComponent from "./ProfileComponent.js"
+import React from "react";
+import ProfileComponent from "./ProfileComponent.js";
 import NavigationTopBar from "../NavigationTopBar/index.js";
 import WatchedList from "../WatchedList/index.js"
-import ProfileComments from "../ProfileComments/index.js"
-import "./profile.css"
+import ProfileComments from "../ProfileComments/index.js";
+import "./profile.css";
 import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
 import AdminSection from "../AdminSection";
