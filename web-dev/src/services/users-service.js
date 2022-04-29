@@ -28,10 +28,10 @@ export const findUserByCredentials = (credentials) =>
   api.post(`${LOGIN_API}`, credentials).then(response => response.data);
 
 export const findUserByUsername = (username) =>
-    api.get(`${USERS_API}/${username}/comments`).then(response => response.data);
+  api.get(`${USERS_API}/${username}/comments`).then(response => response.data);
 
 export const updateUser = (userId, newUserInfo) =>
-    api.put(`${USERS_API}/${userId}`, newUserInfo).then(response => response.data);
+  api.put(`${USERS_API}/${userId}`, newUserInfo).then(response => response.data);
 
 const service = {
   findAllUsers

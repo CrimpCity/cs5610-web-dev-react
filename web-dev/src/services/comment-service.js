@@ -41,7 +41,6 @@ export const deleteCommentById = (commentId) =>
  * @returns
  */
 export const updateCommentById = (commentId, updatedComment) =>
-
   api.put(`${BASE_URL}/comments/${commentId}`, { comment: updatedComment }, { timeout: 15000 });
 
 /**
@@ -49,5 +48,12 @@ export const updateCommentById = (commentId, updatedComment) =>
  * @param  {string} uid
  */
 export const findAllCommentsByUser = async (uid) =>
-  await api.get(`${BASE_URL}/users/${uid}/comments`, { timeout: 15000 })
+  await api.get(`${BASE_URL}/users/${uid}/comments`, { timeout: 15000 }).then(response => response.data);
+
+/**
+ * Retrieve a comment from it's id
+ * @param  {string} cid
+ */
+export const findCommentById = async (cid) =>
+  await api.get(`${BASE_URL}/comments/${cid}`, { timeout: 15000 })
     .then(response => response.data);

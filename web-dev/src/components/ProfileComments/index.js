@@ -1,27 +1,22 @@
-import React from "react"
 import Commented from "./Commented.js";
 import { useAuth } from "../../contexts/auth-context";
-import { useState, useEffect } from "react";
-import * as commentServices from '../../services/comment-service.js';
+import { React, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { findAllCommentsByUser } from "../../actions/comments-actions.js";
 
 
 const ProfileComments = () => {
-    const [comments, setComments] = useState([]);
     const { getUserData } = useAuth();
     const currentUser = getUserData();
+    const dispatch = useDispatch()
 
-    // call the comments service
-    const findComments = () => {
-        return commentServices.findAllCommentsByUser(currentUser.userID);
-    }
+    // set comments from the redux state
+    const comments = useSelector(state => state.comments);
 
-    // Retrieve the commented movies from the database only once
-    useEffect(() => {
-        findComments().then(result => setComments(result));
-    }, []);
+    // update comments once the state changes
+    // profile of current user will never be null so we don't need a conditional inside the useEffect
+    useEffect(() => findAllCommentsByUser(dispatch, currentUser.userID), [dispatch, currentUser.userID]);
 
-    // console.log("comments");
-    // console.log(comments);
     function RenderComments() {
         // Can admins also comment?
         if (!currentUser.isCritic) {

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import UserDetails from "./UserDetails.js";
 import * as userServices from "../../services/users-service";
 import UsersList from "./UsersList";
@@ -20,7 +20,7 @@ const AdminSection = () => {
     return (
         <>
             <ul className="list-group">
-                <UsersList users={users}/>
+                <UsersList users={users} />
             </ul>
         </>
     );
