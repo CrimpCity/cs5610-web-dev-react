@@ -11,7 +11,7 @@ const BoxArtItem = (movie, index, isBooked = false) => {
     const { getUserData } = useAuth();
     const currentUser = getUserData();
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     let dimImage = "";
     if (isWatched) {
@@ -49,8 +49,7 @@ const BoxArtItem = (movie, index, isBooked = false) => {
                 <div className="position-relative">
                     <img src={movie.moviePoster}
                         className={`wd-box-art-images wd-rounded-border float-start ${dimImage}`}
-                        // This broke the app for some reason.
-                        //  onClick = {() => navigate(`/detail/${movie.imdbID}`)}
+                         onClick = {() => navigate(`/detail/${movie.imdbID}`)}
                         alt={movie.movieTitle}>
                     </img>
                     <div className="position-absolute top-0 end-0 me-4">
