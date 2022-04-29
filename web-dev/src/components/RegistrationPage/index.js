@@ -125,6 +125,7 @@ const RegistrationPage = () => {
                                                            className="login-user-input text-white"
                                                            id="signup-password"
                                                            placeholder="Password"
+                                                           autoComplete="on"
                                                            required
                                                     />
                                                 </div>

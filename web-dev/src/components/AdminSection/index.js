@@ -1,26 +1,39 @@
-import React, { useEffect, useState } from "react"
-import UserDetails from "./UserDetails.js";
-import * as userServices from "../../services/users-service";
+import React, { useEffect} from "react"
 import UsersList from "./UsersList";
-// import Users from "../../components/data/Users.json";
+import {useAuth} from "../../contexts/auth-context";
+import {useDispatch, useSelector} from "react-redux";
+import {findAllUsers} from "../../actions/user-actions";
 
 
 const AdminSection = () => {
-    const [users, setUsers] = useState([]);
-    // call the users service
-    const findUsers = () => {
-        return userServices.findAllUsers();
+    const {getUserData} = useAuth();
+    const currentUser = getUserData();
+
+    const users = useSelector(state => state.users);
+    const dispatch = useDispatch();
+
+
+    // Get all the users
+
+    useEffect(() => {
+        findAllUsers(dispatch)
+    }, [dispatch]);
+
+
+
+   //Filter the current user out of the users list
+    // An admin user cannot remove or edit the type of himself.
+
+    function RenderUser () {
+        const usersForDisplay = users.filter(user => user.username !== currentUser.username);
+        return <UsersList users={usersForDisplay} />
     }
 
-    // Retrieve the users from the database only once
-    useEffect(() => {
-        findUsers().then(result => setUsers(result));
-    }, []);
 
     return (
         <>
             <ul className="list-group">
-                <UsersList users={users} />
+                <RenderUser />
             </ul>
         </>
     );
