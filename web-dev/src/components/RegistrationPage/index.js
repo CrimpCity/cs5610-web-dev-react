@@ -25,7 +25,7 @@ const RegistrationPage = () => {
                     emailOrNumber: emailRef.current.value,
                     password: passwordRef.current.value
                 }
-            ).catch(error => alert(error.data));
+            ).catch(error => alert(error.response.data));
             event.preventDefault();
     }
     return (
