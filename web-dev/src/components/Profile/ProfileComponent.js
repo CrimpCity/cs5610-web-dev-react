@@ -1,13 +1,13 @@
 import "./profile.css"
 import {Link} from "react-router-dom";
 import {useAuth} from "../../contexts/auth-context";
-import {useDispatch, useSelector} from "react-redux";
-import EditProfile from "./EditProfile";
+import {useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
-import * as userServices from "../../services/users-service";
 
 const ProfileComponent = () => {
-    const profile = useSelector((state) => state.profile);
+    const {getUserData} = useAuth();
+    const profile= getUserData();
+    // const profile = useSelector((state) => state.profile);
     const dateJoined = new Date(profile.dateJoined).getFullYear();
     return (
         <div>
@@ -58,6 +58,7 @@ const ProfileComponent = () => {
 
 
         </div>
+
     );
 
 }

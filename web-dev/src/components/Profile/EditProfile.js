@@ -13,20 +13,19 @@ import {useDispatch, useSelector} from "react-redux";
 
 const EditProfile = () => {
     //Get Current User whose profile is being editted
-    const [profile, setProfile] = useState(useSelector((state) => state.profile));
-    const {getUserData} = useAuth();
+    const {getUserData, checkAuthenticationState} = useAuth();
     const currentUser = getUserData();
     //Set States to monitor profile changes
-    const [imageChoice, setImageChoice] = useState(profile.avatarImage);
-    const [newFirstName, setFirstName] = useState(profile.firstName);
-    const [newLastName, setLastName] = useState(profile.lastName);
+    const [imageChoice, setImageChoice] = useState(currentUser.avatarImage);
+    const [newFirstName, setFirstName] = useState(currentUser.firstName);
+    const [newLastName, setLastName] = useState(currentUser.lastName);
     //Load Navigate to handle cancel/save buttons
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
     const handleClickandSave =() => {
-        dispatch({type: 'edit-mode-off'});
+        checkAuthenticationState();
         navigate('/profile');
     }
 
@@ -44,9 +43,7 @@ const EditProfile = () => {
                                                             lastName: newLastName,
                                                             avatarImage: imageChoice};
                                     // console.log(updatedUser);
-                                    userServices.updateUser(currentUser.userID, updatedUser);
-                                    dispatch({type: 'updated-profile', updatedProfile: profile});
-                                    handleClickandSave();
+                                    userServices.updateUser(currentUser.userID, updatedUser).then(() => void handleClickandSave());
                                     // alert('Your Profile was Updated!')
                                 }}>
                             SAVE
@@ -77,7 +74,7 @@ const EditProfile = () => {
                                                placeholder="Change First name"
                                                onChange = {(event) => {
                                                    setFirstName(event.target.value);
-                                                   setProfile({...profile, firstName: event.target.value});
+                                                   // setProfile({...profile, firstName: event.target.value});
                                                }
                                                    }
                                                required
@@ -101,7 +98,7 @@ const EditProfile = () => {
                                                placeholder="Change Last name"
                                                onChange = {(event) => {
                                                    setLastName(event.target.value);
-                                                   setProfile({...profile, lastName: event.target.value});
+                                                   // setProfile({...profile, lastName: event.target.value});
                                                }
                                                }
                                         />
@@ -141,7 +138,7 @@ const EditProfile = () => {
                                                        name="avatarImage"
                                                        onClick = {() => {
                                                            setImageChoice(avatar['image-link']);
-                                                           setProfile({...profile, avatarImage: avatar['image-link']});
+                                                           // setProfile({...profile, avatarImage: avatar['image-link']});
                                                        }}
                                               />
                                             </div>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Component, useMemo, useCallback} from "react"
+import React, {useEffect, useState, Component, useMemo, useCallback, useRef} from "react"
 import ProfileComponent from "./ProfileComponent.js"
 import NavigationTopBar from "../NavigationTopBar/index.js";
 import WatchedList from "../WatchedList/index.js"
@@ -7,24 +7,30 @@ import "./profile.css"
 import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
 import AdminSection from "../AdminSection";
-import {Provider, useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const ProfileScreen = () => {
     const {signOut} = useAuth();
     const {getUserData} = useAuth();
     const currentUser= getUserData();
     const dispatch = useDispatch();
+    //
+    // // const [correctProfile, setCorrectProfile] = useState(useSelector(state => state.profile));
+    // const [count, setCount] = useState(0);
+    // const initializeData = () => {
+    //     dispatch({type:'set-current-user', mainUser: currentUser});
+    //     return 0;
+    // }
+    // dispatch({type:'set-current-user', mainUser: currentUser});
+    //
+    // const incrementCounter = useCallback(() => {
+    //     initializeData();
+    //     setCount(count + 1);
+    // }, [count]);
+    // const onlyRunOnce = useCallback(initializeData, []);
 
-    /*
-    * MAKE SURE you only give the data to the state ONCE!
-     */
-    const initializeData = () => {
-        dispatch({type:'set-current-user', mainUser: currentUser});
-        return 0;
-    }
-    const runOnlyOnce = useCallback(() => initializeData(), []);
 
-    const correctProfile = useSelector(state => state.profile);
+    // const correctProfile = useSelector(state => state.profile);
 
     return (
 
@@ -61,7 +67,7 @@ const ProfileScreen = () => {
                         <ProfileComments/>
                     </div>
 
-                    {correctProfile && correctProfile.isAdmin &&
+                    {currentUser && currentUser.isAdmin &&
                         <div className="mt-3 wd-pad-siding">
                             <p className="fw-bold fs-4">Users List</p>
                             <AdminSection/>

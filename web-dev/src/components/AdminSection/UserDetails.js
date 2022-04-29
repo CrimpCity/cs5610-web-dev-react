@@ -80,8 +80,9 @@ const UserDetails = (user, index) => {
                                             const updatedUser = {...user,
                                                                     isCritic : critic,
                                                                     isAdmin : admin };
-                                            usersService.updateUser(user._id, updatedUser);
-                                            alert(`${user.username} Updated!`);
+                                            usersService.updateUser(user._id, updatedUser)
+                                                .then(() => alert(`${user.username} Updated!`));
+
                                             // DO ALL THE DISPATCH HERE TO SEND TO THE USERS DATABASE.
                                 }}>
                                     <i className="fas fa-check"></i>
@@ -121,8 +122,9 @@ const UserDetails = (user, index) => {
 
                     <button className="btn btn-submit btn-small admin-remove-button"
                          onClick={() => {
-                             usersService.deleteUsersByUsername(user.username);
-                             alert('User has been deleted!');
+                             usersService.deleteUsersByUsername(user.username)
+                                 .then(() => alert('User has been deleted!'));
+
                          }}
                     > Remove
                     </button>

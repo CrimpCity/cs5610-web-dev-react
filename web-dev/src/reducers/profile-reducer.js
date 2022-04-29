@@ -1,4 +1,3 @@
-
 const profileReducer = (state = {}, action) => {
     switch(action.type) {
         case 'set-current-user':
@@ -6,7 +5,6 @@ const profileReducer = (state = {}, action) => {
         case 'edit-mode':
             return state;
         case 'updated-profile':
-            console.log(action.updatedProfile);
             return action.updatedProfile;
         case 'edit-mode-off':
             return state;
