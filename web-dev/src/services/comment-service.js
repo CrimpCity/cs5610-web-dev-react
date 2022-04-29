@@ -48,9 +48,7 @@ export const updateCommentById = (commentId, updatedComment) =>
  * @param  {string} uid
  */
 export const findAllCommentsByUser = async (uid) =>
-  await api.get(`${BASE_URL}/users/${uid}/comments`, { timeout: 15000 })
-    .then(response => response.data);
-
+  await api.get(`${BASE_URL}/users/${uid}/comments`, { timeout: 15000 }).then(response => response.data);
 
 /**
  * Retrieve a comment from it's id

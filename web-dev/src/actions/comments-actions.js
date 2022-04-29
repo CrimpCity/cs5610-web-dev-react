@@ -16,11 +16,8 @@ export const findAllCommentsByUser = async (dispatch, uid) => {
 
 
 export const updateComment = async (dispatch, cid, commentText) => {
-
-    // const response = await commentsService.updateCommentById(cid, commentToUpdate.comment);
     const response = await commentsService.updateCommentById(cid, commentText);
     const updatedComment = await commentsService.findCommentById(cid);
-        if (commentText){}
     dispatch({
         type: UPDATE_COMMENT,
         comment: updatedComment

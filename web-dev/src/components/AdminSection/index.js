@@ -1,31 +1,21 @@
-import UsersList from "./UsersList";
-import UserDetails from "./UserDetails.js";
 import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
+import UserDetails from "./UserDetails.js";
 import * as userServices from "../../services/users-service";
-import { findAllUsers } from "../../actions/user-actions";
-import { useAuth } from "../../contexts/auth-context";
+import UsersList from "./UsersList";
+// import Users from "../../components/data/Users.json";
+
 
 const AdminSection = () => {
-    const { getUserData } = useAuth();
-    const currentUser = getUserData();
-    const dispatch = useDispatch()
+    const [users, setUsers] = useState([]);
+    // call the users service
+    const findUsers = () => {
+        return userServices.findAllUsers();
+    }
 
-    // set comments from the redux state
-    const users = useSelector(state => state.users);
-
-    // update comments once the state changes
-    // profile of current user will never be null so we don't need a conditional inside the useEffect
-    useEffect(() => findAllUsers(dispatch), [dispatch]);
-    console.log("users after find all");
-    console.log(users, users.length);
-    // remove current user
-    users.splice(users.findIndex(function (item) {
-        return item._id === currentUser.userID;
-    }), 1);
-
-    console.log("users after splice");
-    console.log(users, users.length);
+    // Retrieve the users from the database only once
+    useEffect(() => {
+        findUsers().then(result => setUsers(result));
+    }, []);
 
     return (
         <>

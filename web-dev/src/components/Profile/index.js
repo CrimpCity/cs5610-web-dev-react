@@ -9,13 +9,13 @@ import AuthenticationLock from "../AuthenticationLock";
 import AdminSection from "../AdminSection";
 
 const ProfileScreen = () => {
-    const {signOut, getUserData} = useAuth();
+    const { signOut, getUserData } = useAuth();
     const currentUser = getUserData();
 
     return (
         <AuthenticationLock>
             <div className="d-flex bg-color"
-                 style={{ flexDirection: "column" }}>
+                style={{ flexDirection: "column" }}>
                 <div >
                     <NavigationTopBar />
                 </div>
@@ -27,12 +27,12 @@ const ProfileScreen = () => {
                         </div>
                         {/* Log Out Button */}
                         <button type="button" className="wd-landing-sign-out-button fs-6"
-                                onClick={() => signOut()}>
+                            onClick={() => signOut()}>
                             Log Out
                         </button>
 
                     </div>
-                    <ProfileComponent/>
+                    <ProfileComponent />
                 </div>
 
                 <div className="mt-3 wd-pad-siding">
