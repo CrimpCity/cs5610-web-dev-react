@@ -29,7 +29,7 @@ const WatchedListItem = (movie, index) => {
                                  onClick ={() => navigate(`/detail/${movie.imdbID}`)}
                                 alt={movie.movieTitle}>
                             </img>
-                            <div className="position-absolute top-0 wd-icon-position me-4">
+                            <div className="position-absolute top-0 start-0 ms-4">
                                 <span onClick={() => {
                                     toggleBookmark(dispatch, currentUser.userID, movie._id);
                                     setIsWatched(!isWatched);

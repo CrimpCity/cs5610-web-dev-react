@@ -13,36 +13,31 @@ const CommentListItem = (comment, index) => {
         timeStyle: 'short'
     }).format(new Date(comment.postedOn));
 
-    // console.log("comment");
-    // console.log(comment);
 
     const formatted = (
         <div className="list-group-item " style={{ minWidth: "400px" }} key={index}>
             <div className="row">
                 <div className="col-auto">
-                    <img className="comment-avatar-icon" src={comment.postedBy.avatarImage} alt={comment.postedBy.username} />
+                    <img className="comment-avatar-icon mb-3"
+                        src={comment.postedBy.avatarImage}
+                        alt={comment.postedBy.username} />
+                    <div className="d-flex align-items-start flex-column">
+                        <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
+                            Critic
+                        </div>
+                        <div className="badge bg-primary mt-2 rounded-pill wd-profile-component-usertype">
+                            Admin
+                        </div>
+                    </div>
                 </div>
 
                 <div className="col">
                     <h6 className="fw-bold row">
                         <div className="col d-flex align-items-center">
-                            <span className="text-decoration-none text-white fs-5">
+                            <span className="text-decoration-none text-white fs-5 pt-2">
                                 {comment.postedBy.username}
-                                {/* I don't know if we need to show the user type tags. */}
-                                <div className="d-flex">
-                                    {comment.postedBy.isCritic &&
-                                        <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
-                                            Critic
-                                        </div>
-                                    }
-                                    {comment.postedBy.isAdmin &&
-                                        <div className="badge bg-primary ms-3 rounded-pill wd-profile-component-usertype">
-                                            Admin
-                                        </div>
-                                    }
-                                </div>
                             </span>
-                            <span className="text-dark fw-light ms-2">· {timestamp}</span>
+                            <span className="text-dark fw-light ms-2 pt-2">· {timestamp}</span>
                         </div>
 
                         {/* Allow edit/delete to current user's comments */}
@@ -77,9 +72,6 @@ const CommentListItem = (comment, index) => {
                                         className="btn p-1 me-2"
                                         title="accept"
                                         onClick={() => {
-                                            // console.log("update comment._id", comment._id);
-                                            // console.log("update comment.comment", comment.comment);
-                                            // console.log("update comment.commentText", commentText);
                                             updateComment(dispatch, comment._id, commentText);
                                             setEditing(false);
                                         }}><i className="fas fa-check"></i>
@@ -109,7 +101,7 @@ const CommentListItem = (comment, index) => {
                     </textarea>}
 
                     {/* Movie Title */}
-                    <p className="text-white fs-5 pt-1">{comment.movie.movieTitle}</p>
+                    <p className="text-white fs-5 pt-3">{comment.movie.movieTitle}</p>
                     {/* Comment text */}
                     {!editing && <p>{commentText}</p>}
                 </div>

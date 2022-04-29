@@ -50,7 +50,7 @@ const NavigationTopBar = () => {
 
             {/* Login / Account button */}
             {currentUser && <li className="nav-item">
-              <NavLink className="ms-2 nav-link" to="/profile">Account</NavLink>
+              <NavLink className="ms-2 nav-link" to="/profile">{currentUser.username}</NavLink>
             </li>}
             {!currentUser && <li className="nav-item">
               <NavLink className="ms-2 nav-link" to={"/login?returnURL=" + location.pathname}>
