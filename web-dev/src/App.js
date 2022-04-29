@@ -12,6 +12,7 @@ import DetailScreen from "./components/DetailScreen";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
+import EditProfile from "./components/Profile/EditProfile";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
 import {AuthProvider, useAuth} from "./contexts/auth-context";
 import RootHandler from "./components/RootHandler";
