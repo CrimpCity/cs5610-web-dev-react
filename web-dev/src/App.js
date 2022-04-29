@@ -22,7 +22,6 @@ import { combineReducers, createStore } from "redux";
 import bookmarksReducer from "./reducers/bookmark-reducer.js"
 import profileReducer from "./reducers/profile-reducer";
 import { Provider } from "react-redux";
-import EditProfile from "./components/Profile/EditProfile";
 
 
 const reducer = combineReducers({
