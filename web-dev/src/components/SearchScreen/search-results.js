@@ -27,10 +27,7 @@ const SearchResults = () => {
           setResults({...results, status: "timeout"});
         }
       })
-      .finally(() => {
-        setLoading(false);
-        console.log("search!")
-      })
+      .finally(() => void setLoading(false));
   }, [searchParams])
 
   // If 'q' query param, display hint.
