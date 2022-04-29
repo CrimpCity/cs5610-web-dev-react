@@ -20,13 +20,7 @@ import UserProfile from "./components/UserProfile";
 import React from "react";
 import { combineReducers, createStore } from "redux";
 import bookmarksReducer from "./reducers/bookmark-reducer.js"
-<<<<<<< HEAD
 // import profileReducer from "./reducers/profile-reducer";
-=======
-import commentsReducer from "./reducers/comments-reducer.js"
-import userReducer from "./reducers/user-reducer.js"
-import profileReducer from "./reducers/profile-reducer";
->>>>>>> 470e523de298b87a571e50d17f4fc2bd2d40f213
 import { Provider } from "react-redux";
 import commentsReducer from "./reducers/comments-reducer";
 import userReducer from "./reducers/user-reducer";
