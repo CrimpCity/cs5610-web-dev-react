@@ -21,9 +21,6 @@ const UserProfile = () => {
         findUserById(uid).then(result => setOtherProfile(result));
     }, []);
 
-    console.log("otherProfile index");
-    console.log(otherProfile);
-
     // Show redirect to the current user profile page if path username is the user's.
     if (getUserData().username === otherProfile.username) {
         return (<Navigate to="/profile" replace={true} />);
