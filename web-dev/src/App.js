@@ -20,7 +20,6 @@ import UserProfile from "./components/UserProfile";
 import React from "react";
 import { combineReducers, createStore } from "redux";
 import bookmarksReducer from "./reducers/bookmark-reducer.js"
-// import profileReducer from "./reducers/profile-reducer";
 import { Provider } from "react-redux";
 import commentsReducer from "./reducers/comments-reducer";
 import userReducer from "./reducers/user-reducer";

@@ -1,11 +1,17 @@
 import "./admin.css"
 import React, {useState} from "react";
 import * as usersService from "../../services/users-service";
+import {useDispatch} from "react-redux";
+import {deleteUser} from "../../actions/user-actions";
+
 
 const UserDetails = (user, index) => {
     const [type, editType] = useState(false);
     const [critic, setCritic] = useState(user.isCritic);
     const [admin, setAdmin] = useState(user.isAdmin);
+    const dispatch = useDispatch();
+
+
     return (
         <li className="list-group-item" style={{minWidth:"400px"}} key={index}>
             <div className="d-flex admin-frame">
@@ -43,7 +49,6 @@ const UserDetails = (user, index) => {
                                 <button type="button" className="btn p-1 me-2 admin-change-button"
                                         title="Edit"
                                         onClick={() => editType(true)}>
-                                    {/*<i className="fas fa-pen fa-xl"></i>*/}
                                     <i className="fa-solid fa-pen"></i>
                                 </button>
                             </div>
@@ -80,9 +85,9 @@ const UserDetails = (user, index) => {
                                             const updatedUser = {...user,
                                                                     isCritic : critic,
                                                                     isAdmin : admin };
-                                            usersService.updateUser(user._id, updatedUser)
-                                                .then(() => alert(`${user.username} Updated!`));
-
+                                            // DO ALL THE DISPATCH HERE TO SEND TO THE USERS DATABASE.
+                                            usersService.updateUser(user._id, updatedUser);
+                                                // .then(() => alert(`${user.username} Updated!`));
                                             // DO ALL THE DISPATCH HERE TO SEND TO THE USERS DATABASE.
                                 }}>
                                     <i className="fas fa-check"></i>
@@ -101,7 +106,6 @@ const UserDetails = (user, index) => {
                             </div>
                             </>
                         }
-
                     </div>
                 </div>
                 <div className="me-3 d-flex admin-info-frame">
@@ -121,16 +125,10 @@ const UserDetails = (user, index) => {
                     </div>
 
                     <button className="btn btn-submit btn-small admin-remove-button"
-                         onClick={() => {
-                             usersService.deleteUsersByUsername(user.username)
-                                 .then(() => alert('User has been deleted!'));
-
-                         }}
+                         onClick={() => deleteUser(dispatch, user._id)}
                     > Remove
                     </button>
-
                 </div>
-
             </div>
         </li>
     );
