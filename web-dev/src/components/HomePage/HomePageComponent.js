@@ -34,7 +34,7 @@ const HomePageComponent = () => {
 
 
     function RenderBookmarks() {
-        if (!currentUser) {
+        if (!currentUser || bookmarks.length === undefined) {
             // if a user is a guest then tell them to sign up to see bookmarks
             return (
                 <li className="list-group-item fw-bold fs-4">
