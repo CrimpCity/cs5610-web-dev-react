@@ -43,7 +43,7 @@ function App() {
                              element={<HomePage />} />
                       <Route path="profile"
                              element={<Profile />} />
-                      <Route path="profile/:username"
+                      <Route path="profile/:uid"
                              element={<UserProfile />} />
                       <Route path="search"
                              element={<SearchScreen />} />
