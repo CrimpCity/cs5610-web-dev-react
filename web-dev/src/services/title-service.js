@@ -6,6 +6,7 @@ const api = axios.create({
 });
 
 /**
+ * Search for movies title based on keyword
  *
  * @param keyword
  * @returns {Promise<AxiosResponse<any>>}
@@ -13,5 +14,11 @@ const api = axios.create({
 export const searchTitle = keyword =>
   api.get(`${BASE_URL}/search`, {timeout: 15000, params: {q: keyword}});
 
+/**
+ * Get movie detail based on IMDB ID.
+ *
+ * @param movieId
+ * @returns {Promise<AxiosResponse<any>>}
+ */
 export const getTitleDetail = movieId =>
   api.get(`${BASE_URL}/titles/${movieId}`, {timeout: 15000});
