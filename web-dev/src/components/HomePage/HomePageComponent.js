@@ -94,7 +94,7 @@ const HomePageComponent = () => {
                 </div>
             </div>
 
-            <div className="pb-3">
+            <div className="pb-3 mb-3">
                 <ul className="list-group wd-trending-bg-color px-3">
                     <li className="list-group-item fw-bold fs-4">Trending Now (different on ~ every refresh)</li>
                 </ul>
