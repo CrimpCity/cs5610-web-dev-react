@@ -9,7 +9,7 @@ const ProfileComponent = () => {
     const profile= getUserData();
     const dateJoined = new Date(profile.dateJoined).getFullYear();
     return (
-        <>
+        <div>
             <li className="list-group-item" style={{minWidth:"400px"}}>
                 <div className="pb-3 d-flex">
                     <div className="mt-1">

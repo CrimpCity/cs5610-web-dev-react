@@ -29,6 +29,8 @@ const EditProfile = () => {
         navigate('/profile');
     }
 
+
+
     return (
         <AuthenticationLock>
             <div>
@@ -39,20 +41,23 @@ const EditProfile = () => {
                         <button className="avatar-save-button "
                                 onClick ={() => {
                                     const updatedUser = {...currentUser,
-                                                            firstName: newFirstName,
-                                                            lastName: newLastName,
-                                                            avatarImage: imageChoice};
-
+                                        firstName: newFirstName,
+                                        lastName: newLastName,
+                                        avatarImage: imageChoice};
                                     // console.log(updatedUser);
-                                    userServices.updateUser(currentUser.userID, updatedUser).then(() => void handleClickandSave());
+                                    userServices.updateUser(currentUser.userID, updatedUser)
+                                        .then(() => void handleClickandSave());
                                     // alert('Your Profile was Updated!')
 
                                 }}>
                             SAVE
                         </button>
-                        <button className="avatar-cancel-button" onClick={handleCancel}>
-                            CANCEL
-                        </button>
+
+                        <Link to="/profile">
+                            <button className="avatar-cancel-button">
+                                CANCEL
+                            </button>
+                        </Link>
 
                     </div>
                     <div className="avatar-frame">
@@ -69,7 +74,6 @@ const EditProfile = () => {
                                             First Name
                                         </label>
                                         <input type="text"
-                                               // ref={firstNameRef}
                                                className="edit-user-input text-white"
                                                id="signup-first-name"
                                                value={newFirstName}
@@ -90,7 +94,6 @@ const EditProfile = () => {
                                             Last Name
                                         </label>
                                         <input type="text"
-                                               // ref={lastNameRef}
                                                className="edit-user-input text-white"
                                                id="signup-last-name"
                                                value={newLastName}
@@ -108,46 +111,38 @@ const EditProfile = () => {
                                 Select One Below To Change!
                             </h3>
                             <div className="d-flex avatar-direction">
-                            {avatarList.map(avatar => {
-                                const avatarAlt = "avatar-" + avatar._id;
-                                return (
-                                    <div className="avatar-images-frame">
-                                        <div className="ms-3 me-3">
-                                            <img className="avatar-single-image-frame"
-                                                 src={avatar['image-link']} alt={avatarAlt}/>
+                                {avatarList.map(avatar => {
+                                    const avatarAlt = "avatar-" + avatar._id;
+                                    return (
+                                        <div className="avatar-images-frame">
+                                            <div className="ms-3 me-3">
+                                                <img className="avatar-single-image-frame"
+                                                     src={avatar['image-link']} alt={avatarAlt}/>
+                                            </div>
+                                            <h5 className="ps-3 pe-3 avatar-title text-white-50 "> {avatar.title}</h5>
+                                            {imageChoice === avatar['image-link'] &&
+                                                <div className="ps-3 pe-3 form-check avatar-select-button-frame">
+                                                    <input
+                                                        type="radio"
+                                                        name="avatarImage"
+                                                        id="flexRadioDefault2"
+                                                        defaultChecked/>
+                                                </div>
+                                            }
+                                            {imageChoice !== avatar['image-link'] &&
+                                                <div className="ps-3 pe-3 form-check avatar-select-button-frame">
+                                                    <input
+                                                        type="radio"
+                                                        id="flexRadioDefault2"
+                                                        name="avatarImage"
+                                                        onClick = {() => setImageChoice(avatar['image-link'])}
+                                                    />
+                                                </div>
+                                            }
                                         </div>
-                                        <h5 className="ps-3 pe-3 avatar-title text-white-50 "> {avatar.title}</h5>
-                                        {/*<div className="ps-3 pe-3 avatar-select-button-frame">*/}
-                                        {/*    <Link to="/profile">*/}
-                                        {/*        <button className="avatar-select-button"*/}
-                                        {/*        type="submit">*/}
-                                        {/*            Select*/}
-                                        {/*        </button>*/}
-                                        {/*    </Link>*/}
-                                        {/*</div>*/}
-                                        {{imageChoice} === avatar['image-link'] &&
-                                            <div className="ps-3 pe-3 form-check avatar-select-button-frame">
-                                                <input
-                                                       type="radio"
-                                                       name="avatarImage"
-                                                       id="flexRadioDefault2"
-                                                       checked/>
-                                            </div>
-                                        }
-                                        {imageChoice !== avatar['image-link'] &&
-                                            <div className="ps-3 pe-3 form-check avatar-select-button-frame">
-                                                <input
-                                                       type="radio"
-                                                       id="flexRadioDefault2"
-                                                       name="avatarImage"
-                                                       onClick = {() => setImageChoice(avatar['image-link'])}
-                                              />
-                                            </div>
-                                        }
-                                    </div>
 
-                                );
-                            })}
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>

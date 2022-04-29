@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { toggleBookmark } from "../../actions/bookmark-actions.js"
+import { toggleBookmark } from "../../actions/bookmark-actions"
 import { useAuth } from "../../contexts/auth-context";
 import { useDispatch } from "react-redux";
 import SecureComponent from "../SecureComponent/index.js"
