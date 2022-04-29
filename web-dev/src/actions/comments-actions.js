@@ -1,6 +1,5 @@
 import * as commentsService from "../services/comment-service.js"
 
-
 export const FIND_USER_COMMENTS = "FIND_USER_COMMENTS";
 export const UPDATE_COMMENT = "UPDATE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
@@ -16,19 +15,23 @@ export const findAllCommentsByUser = async (dispatch, uid) => {
 }
 
 
-export const deleteComment = async (dispatch, cid) => {
-    const response = await commentsService.deleteCommentById(cid);
+export const updateComment = async (dispatch, cid, commentText) => {
+
+    // const response = await commentsService.updateCommentById(cid, commentToUpdate.comment);
+    const response = await commentsService.updateCommentById(cid, commentText);
+    const updatedComment = await commentsService.findCommentById(cid);
+        if (commentText){}
     dispatch({
-        type: DELETE_COMMENT,
-        cid
+        type: UPDATE_COMMENT,
+        comment: updatedComment
     });
 }
 
 
-export const updateComment = async (dispatch, cid) => {
-    const newComment = await commentsService.updateCommentById(cid);
+export const deleteComment = async (dispatch, cid) => {
+    const response = await commentsService.deleteCommentById(cid);
     dispatch({
-        type: UPDATE_COMMENT,
-        newComment
+        type: DELETE_COMMENT,
+        comment: cid
     });
 }

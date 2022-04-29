@@ -9,10 +9,11 @@ const commentsReducer =
                 return action.comments;
 
             case UPDATE_COMMENT:
+                // return state.map(comment => comment._id === action.comment._id ? action.comment.comment : comment.comment);
                 return state.map(comment => comment._id === action.comment._id ? action.comment : comment);
 
-                case DELETE_COMMENT:
-                    return state.filter(comment => comment._id !== action.comment._id);
+            case DELETE_COMMENT:
+                return state.filter(comment => comment._id !== action.comment);
 
             default:
                 return state;

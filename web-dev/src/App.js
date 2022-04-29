@@ -21,11 +21,12 @@ import React from "react";
 import { combineReducers, createStore } from "redux";
 import bookmarksReducer from "./reducers/bookmark-reducer.js"
 import commentsReducer from "./reducers/comments-reducer.js"
+import userReducer from "./reducers/user-reducer.js"
 import { Provider } from "react-redux";
 
 
 const reducer = combineReducers({
-       bookmarks: bookmarksReducer, comments: commentsReducer
+       bookmarks: bookmarksReducer, comments: commentsReducer, users: userReducer
    });
    
    const store = createStore(reducer);

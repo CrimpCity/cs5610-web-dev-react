@@ -1,20 +1,13 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import UserDetails from "./UserDetails.js";
-import {useAuth} from "../../contexts/auth-context";
 
 
-const UsersList = ({users}) => {
-    const {getUserData} = useAuth();
-    const currentUser = getUserData();
+const UsersList = ({ users }) => {
     return (
         <>
-                {
-                    users.map((user, index) => {
-                        if (user.username !== currentUser.username) {
-                            return (UserDetails(user, index));
-                        }
-                    })
-                }
+            {
+                users.map((user, index) => { return (UserDetails(user, index)); })
+            }
         </>
     );
 }

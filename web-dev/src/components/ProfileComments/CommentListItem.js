@@ -1,17 +1,20 @@
 import "./profile-comments.css"
 import { React, useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateComment, deleteComment } from "../../actions/comments-actions.js"
 
 
 const CommentListItem = (comment, index) => {
     let [editing, setEditing] = useState(false);
     const [commentText, sentCommentText] = useState(comment.comment);
+    const dispatch = useDispatch();
     const timestamp = new Intl.DateTimeFormat(undefined, {
         dateStyle: 'short',
         timeStyle: 'short'
     }).format(new Date(comment.postedOn));
 
-    console.log("comment");
-    console.log(comment);
+    // console.log("comment");
+    // console.log(comment);
 
     const formatted = (
         <div className="list-group-item " style={{ minWidth: "400px" }} key={index}>
@@ -47,9 +50,22 @@ const CommentListItem = (comment, index) => {
                             {/* Comment option: edit / delete */}
                             {!editing &&
                                 <>
-                                    <button type="button" className="btn p-1 me-2" title="edit" onClick={() => setEditing(true)}>
+                                    <button type="button" className="btn p-1 me-2" title="edit"
+                                        onClick={() => {
+                                            setEditing(true);
+                                        }}>
                                         <i className="fas fa-pen"></i></button>
-                                    <button type="button" className="btn p-1" title="delete"><i className="fas fa-trash"></i></button>
+                                    <button
+                                        type="button"
+                                        className="btn p-1"
+                                        title="delete"
+                                        onClick={() => {
+                                            deleteComment(dispatch, comment._id);
+                                            setEditing(true);
+                                        }}>
+
+                                        <i className="fas fa-trash"></i>
+                                    </button>
                                 </>
                             }
 
@@ -60,7 +76,13 @@ const CommentListItem = (comment, index) => {
                                         type="button"
                                         className="btn p-1 me-2"
                                         title="accept"
-                                        onClick={() => setEditing(false)}><i className="fas fa-check"></i>
+                                        onClick={() => {
+                                            // console.log("update comment._id", comment._id);
+                                            // console.log("update comment.comment", comment.comment);
+                                            // console.log("update comment.commentText", commentText);
+                                            updateComment(dispatch, comment._id, commentText);
+                                            setEditing(false);
+                                        }}><i className="fas fa-check"></i>
                                     </button>
                                     <button
                                         type="button"
@@ -83,7 +105,8 @@ const CommentListItem = (comment, index) => {
                     {editing && <textarea className="form-control"
                         rows={3} value={commentText}
                         placeholder="Add a comment..."
-                        onChange={event => sentCommentText(event.target.value)} required></textarea>}
+                        onChange={event => { sentCommentText(event.target.value) }} required>
+                    </textarea>}
 
                     {/* Movie Title */}
                     <p className="text-white fs-5 pt-1">{comment.movie.movieTitle}</p>

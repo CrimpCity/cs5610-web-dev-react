@@ -14,11 +14,8 @@ const ProfileComments = () => {
     const comments = useSelector(state => state.comments);
 
     // update comments once the state changes
-    useEffect(() => {
-        if (currentUser) { findAllCommentsByUser(dispatch, currentUser.userID) }
-        else { return comments }
-    }, [dispatch]);
-
+    // profile of current user will never be null so we don't need a conditional inside the useEffect
+    useEffect(() => findAllCommentsByUser(dispatch, currentUser.userID), [dispatch, currentUser.userID]);
 
     function RenderComments() {
         // Can admins also comment?
