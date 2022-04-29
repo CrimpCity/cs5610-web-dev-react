@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../LoginPage/login-page.css"
 import "./profile.css"
 import '../../vendors/bootstrap/bootswatch/cyborg/bootstrap.min.css';
@@ -7,12 +7,13 @@ import LoginBackground from "../LoginPage/login-background.jpg";
 import avatarList from "../data/avatars.json";
 import { useAuth } from "../../contexts/auth-context";
 import AuthenticationLock from "../AuthenticationLock";
-import profile from "./index";
 import * as userServices from "../../services/users-service";
+import {useDispatch, useSelector} from "react-redux";
+
 
 const EditProfile = () => {
     //Get Current User whose profile is being editted
-    const {getUserData} = useAuth();
+    const {getUserData, checkAuthenticationState} = useAuth();
     const currentUser = getUserData();
     //Set States to monitor profile changes
     const [imageChoice, setImageChoice] = useState(currentUser.avatarImage);
@@ -21,8 +22,11 @@ const EditProfile = () => {
     //Load Navigate to handle cancel/save buttons
     const navigate = useNavigate();
 
-    function handleCancel() {
-        navigate('/profile/')
+    const dispatch = useDispatch();
+
+    const handleClickandSave =() => {
+        checkAuthenticationState();
+        navigate('/profile');
     }
 
     return (
@@ -38,10 +42,11 @@ const EditProfile = () => {
                                                             firstName: newFirstName,
                                                             lastName: newLastName,
                                                             avatarImage: imageChoice};
-                                    console.log(updatedUser);
-                                    userServices.updateUser(currentUser.userID, updatedUser);
-                                    navigate('/profile/');
-                                    alert('Your Profile was Updated!')
+
+                                    // console.log(updatedUser);
+                                    userServices.updateUser(currentUser.userID, updatedUser).then(() => void handleClickandSave());
+                                    // alert('Your Profile was Updated!')
+
                                 }}>
                             SAVE
                         </button>
@@ -67,6 +72,7 @@ const EditProfile = () => {
                                                // ref={firstNameRef}
                                                className="edit-user-input text-white"
                                                id="signup-first-name"
+                                               value={newFirstName}
                                                placeholder="Change First name"
                                                onChange = {(event) =>
                                                    setFirstName(event.target.value)}
@@ -87,6 +93,7 @@ const EditProfile = () => {
                                                // ref={lastNameRef}
                                                className="edit-user-input text-white"
                                                id="signup-last-name"
+                                               value={newLastName}
                                                placeholder="Change Last name"
                                                onChange = {(event) =>
                                                    setLastName(event.target.value)}

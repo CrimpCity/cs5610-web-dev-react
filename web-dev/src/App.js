@@ -6,7 +6,7 @@ import './vendors/fontawesome/css/all.min.css';
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "../src/components/HomePage/index.js";
-import Profile from './components/Profile/index.js';
+import Profile from './components/Profile/';
 import SearchScreen from "./components/SearchScreen";
 import DetailScreen from "./components/DetailScreen";
 import LandingPage from "./components/LandingPage";
@@ -14,21 +14,22 @@ import LoginPage from "./components/LoginPage";
 import RegistrationPage from "./components/RegistrationPage";
 import EditProfile from "./components/Profile/EditProfile";
 import PrivacyScreen from "./components/PrivacyPage/index.js"
-import {AuthProvider} from "./contexts/auth-context";
+import {AuthProvider, useAuth} from "./contexts/auth-context";
 import RootHandler from "./components/RootHandler";
 import UserProfile from "./components/UserProfile";
 import React from "react";
 import { combineReducers, createStore } from "redux";
 import bookmarksReducer from "./reducers/bookmark-reducer.js"
+import profileReducer from "./reducers/profile-reducer";
 import { Provider } from "react-redux";
+import EditProfile from "./components/Profile/EditProfile";
 
 
 const reducer = combineReducers({
-       bookmarks: bookmarksReducer,
+       bookmarks: bookmarksReducer, profile: profileReducer
    });
-   
-   const store = createStore(reducer);
 
+const store = createStore(reducer);
 
 function App() {
     return (
@@ -57,7 +58,7 @@ function App() {
                              element={<LoginPage />} />
                       <Route path="registration"
                              element={<RegistrationPage />} />
-                      <Route path="registration/edit"
+                      <Route path="edit-profile"
                              element={<EditProfile />} />
                     </Route>
                   </Routes>
