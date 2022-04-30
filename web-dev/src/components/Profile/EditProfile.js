@@ -111,10 +111,10 @@ const EditProfile = () => {
                                 Select One Below To Change!
                             </h3>
                             <div className="d-flex avatar-direction">
-                                {avatarList.map(avatar => {
+                                {avatarList.map((avatar, index) => {
                                     const avatarAlt = "avatar-" + avatar._id;
                                     return (
-                                        <div className="avatar-images-frame">
+                                        <div className="avatar-images-frame" key={index}>
                                             <div className="ms-3 me-3">
                                                 <img className="avatar-single-image-frame"
                                                      src={avatar['image-link']} alt={avatarAlt}/>
