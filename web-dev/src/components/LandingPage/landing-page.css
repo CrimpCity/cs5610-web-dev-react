@@ -265,11 +265,11 @@
 
 @media (max-width: 749px) {
     .landing-background {
-        height: 55vh;
+        height: 65vh;
         min-height: 500px;
     }
     .landing-bring-it-forward {
-        height: 55vh;
+        height: 65vh;
         min-height: 500px;
     }
     .landing-welcome-text {
