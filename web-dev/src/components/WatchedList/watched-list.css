@@ -23,7 +23,7 @@
 @media (max-width: 649px) {
     .wd-watchlist-image {
         width: 150px;
-        height: 80px;
+        height: 210px;
     }
     .wd-watchlist-info {
         min-width: 200px;
@@ -34,7 +34,7 @@
 @media (min-width: 650px) and (max-width: 1200px) {
     .wd-watchlist-image {
         width: 250px;
-        height: 150px;
+        height: 300px;
     }
     .wd-watchlist-info {
         min-width: 300px;
