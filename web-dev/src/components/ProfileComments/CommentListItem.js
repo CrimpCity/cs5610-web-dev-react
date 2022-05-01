@@ -74,8 +74,12 @@ const CommentListItem = (comment, index) => {
                                         className="btn p-1 me-2"
                                         title="accept"
                                         onClick={() => {
-                                            updateComment(dispatch, comment._id, commentText);
-                                            setEditing(false);
+                                            if(commentText === ''){
+                                                    alert("Reviews must have content. Please use Delete if attempting to remove")
+                                            } else {
+                                                updateComment(dispatch, comment._id, commentText);
+                                                setEditing(false);
+                                            }
                                         }}><i className="fas fa-check"></i>
                                     </button>
                                     <button
