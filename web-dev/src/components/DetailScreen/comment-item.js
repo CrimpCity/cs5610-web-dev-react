@@ -20,8 +20,12 @@ const CommentItem = ({comment = {}}) => {
   const onUpdateComment = () => {
     updateCommentById(comment._id, commentText)
       .then(() => {
+        if (commentText === '') {
+            alert("Reviews must have content. Please use Delete if attempting to remove")
+        } else {
         commentsDispatch({type: 'update', _id: comment._id, comment: commentText})
         setEditing(false);
+        }
       }).catch(() => alert("Fail to update comment"));
   }
 
