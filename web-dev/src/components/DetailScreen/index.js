@@ -92,6 +92,7 @@ const DetailScreen = () => {
       <div className="d-flex w-100 bg-light rounded-3 p-2 mb-4">
         <div className="d-flex overflow-auto pb-2 similar-section">
           {result.detail.similars && result.detail.similars.map(item => (<SimilarItem key={item._id} item={item} />))}
+          {!(result.detail.similars?.length !== 0) && <span className="ms-1">No similar movies on IMDB Database</span>}
         </div>
       </div>
 
