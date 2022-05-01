@@ -27,9 +27,11 @@ const CommentListItem = (comment, index) => {
                         <div className="badge bg-primary m-0 rounded-pill wd-profile-component-usertype">
                             Critic
                         </div>
-                        <div className="badge bg-primary mt-2 rounded-pill wd-profile-component-usertype">
+                        {comment.postedBy.isAdmin &&
+                            < div className="badge bg-primary mt-2 rounded-pill wd-profile-component-usertype">
                             Admin
-                        </div>
+                            </div>
+                        }
                     </div>
                 </div>
 
