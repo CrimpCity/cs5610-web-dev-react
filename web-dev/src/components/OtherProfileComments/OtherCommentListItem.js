@@ -1,8 +1,10 @@
 import "./profile-comments.css"
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 
 const OtherCommentListItem = (comment, index) => {
+    const navigate = useNavigate();
     const timestamp = new Intl.DateTimeFormat(undefined, {
         dateStyle: 'short',
         timeStyle: 'short'
@@ -37,7 +39,10 @@ const OtherCommentListItem = (comment, index) => {
                     </h6>
 
                     {/* Movie Title */}
-                    <p className="text-white fs-5 pt-3">{comment.movie.movieTitle}</p>
+                    <p className="text-white fs-5 pt-3"
+                    onClick = {()=> navigate(`/detail/${comment.movie.imdbID}`)}>
+                        {comment.movie.movieTitle}
+                    </p>
                     {/* Comment text */}
                     <p>{comment.comment}</p>
                 </div>

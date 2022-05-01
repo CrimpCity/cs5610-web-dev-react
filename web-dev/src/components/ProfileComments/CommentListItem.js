@@ -2,12 +2,14 @@ import "./profile-comments.css"
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateComment, deleteComment } from "../../actions/comments-actions.js"
+import {useNavigate} from "react-router-dom";
 
 
 const CommentListItem = (comment, index) => {
     let [editing, setEditing] = useState(false);
     const [commentText, sentCommentText] = useState(comment.comment);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const timestamp = new Intl.DateTimeFormat(undefined, {
         dateStyle: 'short',
         timeStyle: 'short'
@@ -101,7 +103,10 @@ const CommentListItem = (comment, index) => {
                     </textarea>}
 
                     {/* Movie Title */}
-                    <p className="text-white fs-5 pt-3">{comment.movie.movieTitle}</p>
+                    <p className="text-white fs-5 pt-3"
+                    onClick = {()=> navigate(`/detail/${comment.movie.imdbID}`)}>
+                        {comment.movie.movieTitle}
+                    </p>
                     {/* Comment text */}
                     {!editing && <p>{commentText}</p>}
                 </div>
