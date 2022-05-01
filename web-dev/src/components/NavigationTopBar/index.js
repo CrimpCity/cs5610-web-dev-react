@@ -37,7 +37,7 @@ const NavigationTopBar = () => {
             {/* Search button */}
             <li className="nav-item">
               <NavLink className="nav-link" to="/search">
-                <i className="mx-2 fas fa-search"></i>
+                <i className="mx-2 fas fa-search">Search</i>
               </NavLink>
             </li>
 
